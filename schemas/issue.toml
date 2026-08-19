@@ -1,0 +1,18 @@
+# Schema for an issue record emitted during classification
+
+[issue]
+id = "string, I-NN, stable"
+bucket = "money | communication | property | conduct"
+summary = "one factual sentence"
+evidence = "list of source references, file and page or email date"
+rpc_touchpoint = "rule number and requirement in plain words, never quoted text"
+forum = "value from references/tennessee-remedies.md"
+status = "open | asked | escalated | resolved | dropped"
+next_action = "one concrete step"
+next_action_date = "YYYY-MM-DD"
+
+[constraints]
+no_legal_conclusions = true
+no_quoted_rule_text = true
+no_asserted_deadlines = true
+no_predicted_outcomes = true

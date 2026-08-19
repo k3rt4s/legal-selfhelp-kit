@@ -1,0 +1,79 @@
+# Schema for tracker/tracker_template.csv
+
+[meta]
+name = "tracker"
+format = "csv"
+date_format = "YYYY-MM-DD"
+
+[[column]]
+name = "issue_id"
+type = "string"
+pattern = "^I-[0-9]{2,}$"
+required = true
+
+[[column]]
+name = "bucket"
+type = "enum"
+values = ["money", "communication", "property", "conduct"]
+required = true
+
+[[column]]
+name = "summary"
+type = "string"
+required = true
+
+[[column]]
+name = "evidence"
+type = "string"
+required = false
+
+[[column]]
+name = "rpc_touchpoint"
+type = "string"
+required = false
+
+[[column]]
+name = "forum"
+type = "string"
+required = false
+
+[[column]]
+name = "status"
+type = "enum"
+values = ["open", "asked", "escalated", "resolved", "dropped"]
+required = true
+
+[[column]]
+name = "action_taken"
+type = "string"
+required = false
+
+[[column]]
+name = "action_date"
+type = "date"
+required = false
+
+[[column]]
+name = "sent_method"
+type = "string"
+required = false
+
+[[column]]
+name = "response_due"
+type = "date"
+required = false
+
+[[column]]
+name = "response_received"
+type = "date"
+required = false
+
+[[column]]
+name = "amount_disputed"
+type = "decimal"
+required = false
+
+[[column]]
+name = "notes"
+type = "string"
+required = false

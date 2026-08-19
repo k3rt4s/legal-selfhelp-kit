@@ -1,0 +1,17 @@
+# Nothing personal belongs in this repository.
+# Your own matter files, bills, letters, and tracker stay on your machine.
+my_matter/
+*.local.*
+tracker/*_filled.csv
+tracker/*_mine.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db

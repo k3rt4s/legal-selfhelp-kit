@@ -1,0 +1,36 @@
+{
+  "project": "legal-selfhelp-kit",
+  "scope": "Tennessee",
+  "license": "MIT",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "date": "2026-08-10",
+      "summary": "First release. LLM layer, fifteen rules, eleven templates, Tennessee reference layer with a verification file, reader docs, tracker, schemas, examples, validator and tests.",
+      "state": "shipped"
+    }
+  ],
+  "next": [
+    {
+      "id": "R-01",
+      "title": "Confirm current Tennessee rule text against the official source",
+      "why": "The reference layer currently rests on a secondary redline document",
+      "blocks": "quoting rule text in templates"
+    },
+    {
+      "id": "R-02",
+      "title": "Source filing deadlines and limitation periods",
+      "why": "The kit refuses to assert deadlines, which is safe but leaves a real gap"
+    },
+    {
+      "id": "R-03",
+      "title": "Add per-county fee dispute program detail",
+      "why": "Programs are local, vary, and change"
+    },
+    {
+      "id": "R-04",
+      "title": "Add a second state pack",
+      "why": "Proves whether the structure generalizes beyond Tennessee"
+    }
+  ]
+}

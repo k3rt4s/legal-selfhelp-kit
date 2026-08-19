@@ -1,0 +1,2 @@
+issue_id,bucket,summary,evidence,rpc_touchpoint,forum,status,action_taken,action_date,sent_method,response_due,response_received,amount_disputed,notes
+I-01,money,Example: invoice charges a rate not in the fee agreement,engagement_letter.pdf p2; invoice_2026-04-01.pdf line 14,RPC 1.5(b) communicating basis or rate,written request to firm,asked,Itemized bill request sent,2026-04-10,certified mail,2026-04-24,,1200.00,Replace this row with your own
