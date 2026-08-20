@@ -52,12 +52,17 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
+| Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
+| Illinois | [state_il.md](state_il.md) | [verification_il.md](verification_il.md) |
+| Michigan | [state_mi.md](state_mi.md) | [verification_mi.md](verification_mi.md) |
 | New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
+| North Carolina | [state_nc.md](state_nc.md) | [verification_nc.md](verification_nc.md) |
+| Ohio | [state_oh.md](state_oh.md) | [verification_oh.md](verification_oh.md) |
 | Pennsylvania | [state_pa.md](state_pa.md) | [verification_pa.md](verification_pa.md) |
 | Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
 | Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
 
-States covered: 6 of 50.
+States covered: 11 of 50.
 
 <!-- END VERIFICATION INDEX -->
 

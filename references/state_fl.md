@@ -105,8 +105,9 @@ contract.
 Florida runs one statewide program: the Fee Arbitration Program administered by The Florida
 Bar's standing committee on Grievance Mediation and Fee Arbitration, out of the Bar's
 Tallahassee office, under Chapter 14 of the Rules Regulating The Florida Bar and a set of Fee
-Arbitration Procedural Rules the committee maintains. There is no separate local or county-level
-program; this is the only one.
+Arbitration Procedural Rules the committee maintains. The Bar's own consumer-facing description
+of the program is at <https://www.floridabar.org/public/consumer/pamphlet009/>. There is no
+separate local or county-level program; this is the only one.
 
 Participation is voluntary on both sides. The program has jurisdiction only where the parties
 have agreed to arbitrate, by a written contract, by a signed request for arbitration, or by
@@ -148,18 +149,20 @@ why it matters.
 ## 4. Bar complaint process
 
 The Florida Bar's Attorney Consumer Assistance Program (ACAP) is the intake point for a client
-with a problem, at 866-352-0707. ACAP's own page lists a lack of communication and a failure to
-return client papers or property as examples of what it can help with, and says the Grievance
-Mediation and Fee Arbitration programs may be able to resolve a fee dispute or other issue with
-a lawyer without filing a disciplinary complaint. ACAP is the place to call before deciding
-whether to file a formal complaint, use fee arbitration, or use grievance mediation
-(850-561-3166 for the Fee Arbitration Program's assistant).
+with a problem, at 866-352-0707, or at
+<https://www.floridabar.org/public/acap/assistance/>. ACAP's own page lists a lack of
+communication and a failure to return client papers or property as examples of what it can help
+with, and says the Grievance Mediation and Fee Arbitration programs may be able to resolve a fee
+dispute or other issue with a lawyer without filing a disciplinary complaint. ACAP is the place
+to call before deciding whether to file a formal complaint, use fee arbitration, or use
+grievance mediation (850-561-3166 for the Fee Arbitration Program's assistant).
 
 Filing a formal disciplinary complaint is a separate track, handled through the Bar's grievance
-process. If a disciplinary file involves only a fee or cost dispute and the parties sign an
-agreement to arbitrate, the disciplinary file is closed without any finding of misconduct. Rule
-14-5.2(a). In practice, a pure billing disagreement routed into the formal complaint process
-tends to end up redirected into arbitration or closed, not turned into a refund.
+process, at <https://www.floridabar.org/public/acap/filing-a-complaint/>. If a disciplinary file
+involves only a fee or cost dispute and the parties sign an agreement to arbitrate, the
+disciplinary file is closed without any finding of misconduct. Rule 14-5.2(a). In practice, a
+pure billing disagreement routed into the formal complaint process tends to end up redirected
+into arbitration or closed, not turned into a refund.
 
 No deadline for filing a formal disciplinary complaint was confirmed for this pack; see the gap
 list in [verification_fl.md](verification_fl.md).

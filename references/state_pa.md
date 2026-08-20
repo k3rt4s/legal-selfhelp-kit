@@ -84,36 +84,44 @@ to requiring a lawyer to use fee arbitration, and it does not require anything. 
 
 Pennsylvania has no statewide fee arbitration or mediation program. Fee dispute handling is run
 entirely by county bar associations, and every program confirmed for this pack is voluntary for
-both sides. The Disciplinary Board's own complaint-filing page says fee disputes are not
+both sides. The Disciplinary Board's own complaint-filing page,
+<https://www.padisciplinaryboard.org/for-the-public/file-complaint>, says fee disputes are not
 normally handled within the attorney disciplinary process, and directs a complainant to pursue
 the dispute with the bar association in the county where the attorney practices instead.
 
 Programs confirmed directly from each bar's own materials:
 
-- Philadelphia Bar Association Fee Dispute Resolution Program. Free. Voluntary: neither side
+- Philadelphia Bar Association Fee Dispute Resolution Program
+  (<https://philadelphiabar.org/?pg=FAQFeeDisputes>). Free. Voluntary: neither side
   can be forced to mediate or arbitrate, except that a lawyer who joined the Bar's Lawyer
   Referral and Information Service panel has already agreed in advance to participate if a
   referred client requests arbitration. A petition must be filed within four years of the last
   legal service performed or the last payment made, whichever is later. An arbitration award,
   once both sides agree to arbitrate, is final and binding and cannot be appealed to court,
   though it can be enforced there if the losing side does not pay.
-- Allegheny County Bar Association Special Fee Determination Committee. Its own rules exclude
+- Allegheny County Bar Association Special Fee Determination Committee
+  (<https://www.acba.org/docDownload/2321588>). Its own rules exclude
   disputes of $1,000 or less, or more than $25,000, from its jurisdiction, so it hears amounts
   above $1,000 and up to $25,000. The attorney must be an ACBA member.
-- Bucks County Bar Association Fee Dispute Committee. Free. Voluntary for both sides; each must
+- Bucks County Bar Association Fee Dispute Committee
+  (<https://bucksbar.org/community-resources/fee-dispute/>). Free. Voluntary for both sides; each must
   agree before a hearing is held. If both submit to a decision, that decision is legally
   binding on both.
-- Berks County Bar Association fee dispute process. Voluntary. Binding only if both the client
+- Berks County Bar Association fee dispute process (<https://berksbar.org/?pg=feeresolution>).
+  Voluntary. Binding only if both the client
   and the attorney agree to arbitration; either side can decline and keep the right to go to
   court.
-- Chester County Bar Association Fee Dispute Program. Covers attorneys whose main offices are
+- Chester County Bar Association Fee Dispute Program (<https://www.chescobar.org/?pg=FeeDispute>).
+  Covers attorneys whose main offices are
   in Chester County, resolved through arbitration. Also covers professional-fee disputes
   between attorneys and physicians, stenographers, and other professionals if both sides agree
   to be bound.
-- Montgomery County Bar Association Fee Dispute Committee. Requires both the client and the
+- Montgomery County Bar Association Fee Dispute Committee
+  (<https://www.montgomerybar.org/?pg=problem-with-your-attorney>). Requires both the client and the
   named attorney to agree to appear before an informal conference; agreeing to appear also
   means agreeing to be bound by the decision, with no appeal to court.
-- Dauphin County Bar Association Fee Dispute Committee. Free. Voluntary for both the client and
+- Dauphin County Bar Association Fee Dispute Committee (<https://www.dcba-pa.org/fee-dispute-program/>).
+  Free. Voluntary for both the client and
   the DCBA member, though the association "strongly encourages" its members to cooperate.
 
 This list is drawn only from county bar programs whose own materials this pack could reach and
@@ -134,8 +142,9 @@ by the magisterial district court or Philadelphia Municipal Court (Section 6).
 ## 4. Bar complaint process
 
 The Disciplinary Board of the Supreme Court of Pennsylvania is Pennsylvania's disciplinary
-body, operating through its Office of Disciplinary Counsel, at
-<https://www.padisciplinaryboard.org>. A complaint can be filed online or by mailing a form to
+body, operating through its Office of Disciplinary Counsel. A complaint can be filed online or
+by mailing a form, both reached from
+<https://www.padisciplinaryboard.org/for-the-public/file-complaint>, to
 the district office where the attorney practices; forms are offered in nine languages. Filing
 produces an acknowledgment, a file number, an investigation by the Office of Disciplinary
 Counsel, and eventual notice of the outcome.
@@ -173,7 +182,8 @@ The Pennsylvania Lawyers Fund for Client Security, administered by the Disciplin
 204 Pa. Code, Chapter 83, Subchapter E, reimburses clients for losses caused by a Pennsylvania
 lawyer's defalcation, meaning a conversion or misappropriation of money or property the lawyer
 held for the client. It is not malpractice insurance and it is not a fee dispute forum, at
-<https://palawfund.com>, phone 717-231-9510 (toll-free 800-962-4618).
+<https://palawfund.com>, phone 717-231-9510 (toll-free 800-962-4618), both listed at
+<https://palawfund.com/contact-us/>.
 
 What it covers: a claim that an attorney received money or property on the client's behalf, in
 an attorney-client or related fiduciary relationship such as executor, guardian, trustee, or
@@ -187,9 +197,13 @@ also excluded.
 
 The per-claimant maximum award is $150,000. The aggregate cap on payouts tied to one attorney is
 $1,000,000, effective February 24, 2014, though the Board may ask the Supreme Court of
-Pennsylvania to permit exceeding it. Awards are discretionary; the rule itself describes
-payments as "a matter of grace and not of right," and there is no appeal from the Board's
-decision and no judicial review of it.
+Pennsylvania to permit exceeding it. Both figures are stated on the Fund's own frequently asked
+questions page, <https://palawfund.com/frequently-asked-questions/>, and in 204 Pa. Code Rule
+514, <https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/204/chapter83/s514.html>.
+Awards are discretionary; the rule itself, 204 Pa. Code Rule 502,
+<https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/204/chapter83/s502.html>,
+describes payments as "a matter of grace and not of right," and there is no appeal from the
+Board's decision and no judicial review of it.
 
 If a disciplinary complaint has not already been filed with the Disciplinary Board, a completed
 Disciplinary Complaint Form must be submitted along with the Fund claim, unless the attorney is
@@ -200,16 +214,18 @@ on the Fund's own published materials. This pack does not state one; see the gap
 
 Pennsylvania's small claims equivalent is the magisterial district court almost everywhere in
 the state, designed for a non-lawyer to use without counsel. Its civil jurisdictional limit is
-$12,000, exclusive of interest and costs, at 42 Pa.C.S. § 1515. A plaintiff whose claim exceeds
-$12,000 may waive the excess to stay within that limit; the waiver is revoked automatically if
-the case is later appealed.
+$12,000, exclusive of interest and costs, at 42 Pa.C.S. § 1515,
+<https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/42/00.015.015.000..HTM>. A plaintiff whose
+claim exceeds $12,000 may waive the excess to stay within that limit; the waiver is revoked
+automatically if the case is later appealed.
 
 Philadelphia does not use a magisterial district court. It has its own Philadelphia Municipal
 Court, which exercises the equivalent small claims jurisdiction there, also up to $12,000,
-exclusive of interest and costs, at 42 Pa.C.S. § 1123(a)(4). The statute itself states this
-limit is meant to let litigants proceed without hiring counsel. If you are in Philadelphia,
-"small claims" means Municipal Court, not a magisterial district court, and the two are not
-interchangeable.
+exclusive of interest and costs, at 42 Pa.C.S. § 1123(a)(4),
+<https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/42/00.011.023.000..HTM>. The statute itself
+states this limit is meant to let litigants proceed without hiring counsel. If you are in
+Philadelphia, "small claims" means Municipal Court, not a magisterial district court, and the
+two are not interchangeable.
 
 Under Pa.R.Civ.P.M.D.J. 207, a corporation or similar entity may appear in magisterial district
 court through an attorney, through an officer, or through an employee or authorized agent who

@@ -116,7 +116,9 @@ figure for those cases is customary practice, not a rule.
 New York runs a genuine statewide program, the Fee Dispute Resolution Program under 22 NYCRR
 Part 137, administered by the Chief Administrator of the Courts through local arbitral bodies
 in each judicial district. It is not a patchwork of unrelated local committees; it is one set
-of statewide rules carried out locally. Details:
+of statewide rules carried out locally. The program's official page, with the rule text and
+local arbitral body contacts, is
+<https://www.nycourts.gov/rules/part-137-fee-dispute-resolution-program>. Details:
 
 - Coverage and dollar range. The program applies to a lawyer admitted in New York, in a civil
   matter where representation began on or after January 1, 2002. It does not apply where the
@@ -167,7 +169,9 @@ live. If the lawyer has no New York office, the complaint may go to any committe
 transferred to the department where the lawyer was admitted. Each department publishes its own
 address and contact information; the Unified Court System's public Directory of Registered
 Attorneys lists each lawyer's business address and admitting department if you are unsure which
-committee is yours.
+committee is yours. All four departments' grievance committees, including the Second
+Department's three, are listed with addresses and phone numbers at
+<https://www.nycourts.gov/attorney-grievance-committees/complaints-about-attorneys>.
 
 You file by completing a Complaint Form and submitting it by mail or, in some departments,
 electronically. A signature is required; unsigned complaints are not processed. Initial
@@ -210,8 +214,9 @@ claimant should also file a written complaint about the same conduct with the at
 committee and the district attorney where the lawyer's office was, on top of the Fund
 application itself. The FAQ also says the Fund does not generally reimburse a loss until the
 lawyer has been disbarred, and cooperating with the official investigation matters. That can
-mean a real wait between filing and payment. No published aggregate cap per individual lawyer,
-separate from the $450,000 per-claim maximum, was confirmed; see the gap list.
+mean a real wait between filing and payment. There is no aggregate cap per individual lawyer. The
+Fund says so directly: the $450,000 ceiling is per client loss, and one dishonest lawyer can
+generate many separate awards.
 
 ## 6. Small claims or equivalent court
 

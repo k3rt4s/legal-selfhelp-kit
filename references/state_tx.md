@@ -94,7 +94,9 @@ general reasonableness and writing requirements above, was found in Rule 1.04.
 
 Texas runs no statewide fee arbitration program. The State Bar of Texas describes fee dispute
 resolution as a local matter, handled through participating local bar associations and dispute
-resolution centers, not through a single statewide body. Programs were confirmed directly for
+resolution centers, not through a single statewide body, at
+<https://www.texasbar.com/Content/NavigationMenu/ForThePublic/ProblemswithanAttorney/ResolvingFeeDisagreements/default.htm>.
+Programs were confirmed directly for
 the Dallas Bar Association, the Austin Bar Association, the San Antonio Bar Association, and the
 Houston Bar Association. Other local bars may run similar programs; confirm with your own local
 bar before assuming its process matches the ones described here.
@@ -127,10 +129,13 @@ disciplinary rules requiring that notice as a precondition to a fee suit.
 ## 4. Bar complaint process
 
 The Office of the Chief Disciplinary Counsel, part of the State Bar of Texas, investigates
-grievances against lawyers. The Grievance Information Helpline, (800) 932-1900, is the starting
+grievances against lawyers. A client can file a grievance online through the Office's own portal,
+at <https://sbotservices.texasbar.com/>. The Grievance Information Helpline, (800) 932-1900, is the starting
 point; it connects to the Client-Attorney Assistance Program (CAAP), a separate, voluntary,
 confidential program aimed at re-establishing communication between a client and lawyer. CAAP's
-own page states it cannot recover fees or refunds from your attorney, and cannot collect money on
+own page, at
+<https://www.texasbar.com/Content/NavigationMenu/ForThePublic/ProblemswithanAttorney/CAAP/default.htm>,
+states it cannot recover fees or refunds from your attorney, and cannot collect money on
 your behalf.
 
 Texas does not use a simple formal-versus-informal split. Under Rule 2.10 of the Texas Rules of
@@ -156,10 +161,13 @@ restitution is shown.
 
 ## 5. Client protection fund
 
-The Client Security Fund is administered by the State Bar of Texas. Applications are reviewed by
+The Client Security Fund is administered by the State Bar of Texas, described at
+<https://www.texasbar.com/AM/Template.cfm?Section=Client_Security_Fund1&Template=%2FCM%2FHTMLDisplay.cfm&ContentID=69888>.
+Applications are reviewed by
 the Client Security Fund Subcommittee, a standing subcommittee of the State Bar's Board of
 Directors, and the Office of the Chief Disciplinary Counsel serves as the Fund's administrator
-and legal counsel. It compensates clients for losses from a lawyer's dishonest conduct: theft or
+and legal counsel. A client applies through the same Office of Chief Disciplinary Counsel
+portal used to file a grievance, at <https://sbotservices.texasbar.com/>. It compensates clients for losses from a lawyer's dishonest conduct: theft or
 conversion of client money or property, and the failure to refund an unearned advance fee where
 the contracted-for work was not performed. It does not cover an ordinary disagreement over
 whether a bill for work actually done was reasonable.

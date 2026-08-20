@@ -16,8 +16,8 @@ What a Tennessee reader most needs to know, that a reader in another state does 
   courts have held that laches does not apply to attorney discipline at all.
 - The Client Protection Fund has two separate clocks: a 60-day gate tied to having a Board
   complaint on file, and a 3-year/5-year loss-based deadline that runs independently of it.
-- General Sessions court, Tennessee's small claims equivalent, has a $25,000 limit in most
-  counties but only $15,000 in Anderson, Davidson, Hamilton, and Knox counties.
+- General Sessions court, Tennessee's small claims equivalent, has a $25,000 civil limit, and
+  that figure is statewide. Attorney fees and court costs do not count against it.
 
 ## 1. Rules of professional conduct, numbering and adoption
 
@@ -37,11 +37,12 @@ verification challenge page instead of rule text. See
 does and does not support.
 
 The version checked is the Tennessee Bar Association's *Tennessee Rules of Professional
-Conduct, 2023 Edition*, reflecting amendments in effect through November 30, 2022. RPC 1.5's
-ten-factor list and RPC 1.16(d)'s list of steps have been confirmed against that edition. RPC
-1.4 and RPC 1.15 as described in this pack still rest on an earlier Tennessee Bar Association
-redline document rather than the confirmed edition; see the flagged table in
-[verification_tn.md](verification_tn.md).
+Conduct, 2023 Edition*, at <https://www.tba.org/docDownload/2181161>, reflecting amendments in
+effect through November 30, 2022. RPC 1.5's ten-factor list and RPC 1.16(d)'s list of steps
+have been confirmed against that edition. RPC 1.4 and RPC 1.15 as described in this pack still
+rest on an earlier Tennessee Bar Association redline document, at
+<https://www.tba.org/docDownload/1473700>, rather than the confirmed edition; see the flagged
+table in [verification_tn.md](verification_tn.md).
 
 ## 2. Deviations from the model reasonableness factors
 
@@ -79,7 +80,10 @@ criminal defense representation.
 ## 3. Attorney fee arbitration
 
 Tennessee has no statewide attorney fee arbitration or mediation program. Fee dispute handling
-is run by local bar associations and varies by county; many counties offer nothing at all.
+is run by local bar associations and varies by county; many counties offer nothing at all. The
+Board of Professional Responsibility's Consumer Assistance Program page lists the local
+committees it knows of, at
+<https://www.tbpr.org/for-the-public/consumer-assistance-program>.
 
 Programs exist in or around: Memphis, Knoxville, Chattanooga, Bristol, Kingsport, Montgomery
 County, and Washington County. This list may be incomplete, and each program's own rules,
@@ -88,8 +92,11 @@ with the local bar association before you rely on it.
 
 Filing deadlines are not uniformly confirmed:
 
-- No filing deadline was found for the Knoxville, Memphis, or Chattanooga programs, confirmed
-  directly against each program's own materials.
+- No filing deadline was found for the Knoxville
+  (<https://www.knoxbar.org/?pg=fee-dispute-resolution>), Memphis
+  (<https://www.memphisbar.org/?pg=fee-disputes>), or Chattanooga
+  (<https://www.chattanoogabar.org/how-to-file-a-fee-dispute>) programs, confirmed directly
+  against each program's own materials.
 - For Bristol, Kingsport, Montgomery County, and Washington County, no deadline appears in the
   Board's own consolidated description of these programs, but each program's own rules could
   not be independently located and read. Ask the local bar association directly before you
@@ -114,14 +121,15 @@ involving serious misconduct such as theft of client funds, which go to Discipli
 instead. If your lawyer does not respond to your written correspondence, CAP will follow up
 once the lawyer has gone unanswered for ten days.
 
-When you file, the intake form asks you to choose between a formal complaint, for alleged
-ethical violations of a serious nature, and an informal request for assistance, for concerns
-that do not rise to that level. A billing disagreement is usually the informal track. Choosing
-"formal complaint" for what is really a billing disagreement tends to produce a closed file,
-not a refund.
+When you file, at <https://www.tbpr.org/for-the-public/file-complaint>, the intake form asks
+you to choose between a formal complaint, for alleged ethical violations of a serious nature,
+and an informal request for assistance, for concerns that do not rise to that level. A billing
+disagreement is usually the informal track. Choosing "formal complaint" for what is really a
+billing disagreement tends to produce a closed file, not a refund.
 
 There is no deadline for filing a disciplinary complaint. The Tennessee Supreme Court held in
-*Long v. Board of Professional Responsibility*, Tenn. 2014, No. M2013-01042-SC-R3-BP, that
+*Long v. Board of Professional Responsibility*, Tenn. 2014, No. M2013-01042-SC-R3-BP, at
+<https://caselaw.findlaw.com/court/tn-supreme-court/1669117.html>, that
 laches, the defense that a claim was brought too late, does not apply to attorney disciplinary
 proceedings at all, because the Board's purpose is protecting the public rather than deciding
 a private claim. If you are wondering whether it is too late to complain about something years
@@ -172,7 +180,9 @@ happened but for the attorney-client relationship.
 
 What it excludes: fee disputes. The Board distinguishes a fee dispute from dishonest conduct
 by asking whether the lawyer did any work, whether the billing was reasonable, and whether
-there was actual dishonesty rather than a breach of contract.
+there was actual dishonesty rather than a breach of contract. The Fund's policies and rules are
+published at
+<https://tlfcp.tn.gov/policies-and-rules-of-the-tennessee-lawyers-fund-for-client-protection/>.
 
 RPC 1.15 requires client funds to be held separately from the lawyer's own funds, in a trust
 account, and unearned fees paid in advance generally belong in trust until earned. If a lawyer
@@ -188,7 +198,8 @@ Two deadlines apply, and missing either can end a claim before it reaches the me
 2. The loss-based deadline: for a loss on or after October 1, 2013, a claim must be filed
    within 3 years of the loss or of when you reasonably should have discovered it, and the Fund
    will not consider a claim more than 5 years after the loss no matter when it was discovered.
-   A different, older rule applies to losses before October 1, 2013.
+   A different, older rule applies to losses before October 1, 2013. See the Fund's FAQ page,
+   <https://tlfcp.tn.gov/faq/>.
 
 File the Board complaint promptly, then file with the Fund; waiting to see how the Board
 complaint turns out before starting the Fund claim risks the 3-year and 5-year clocks.
@@ -202,10 +213,13 @@ valid claim does not guarantee full reimbursement.
 Tennessee's small claims equivalent is General Sessions court, designed so a non-lawyer can
 appear without counsel.
 
-The civil jurisdictional limit is $25,000 in most counties. In Anderson, Davidson, Hamilton,
-and Knox counties the limit is $15,000. Davidson County is Nashville, so many Middle Tennessee
-clients are working against the lower figure. Attorney fees, court costs, and discretionary
-costs are not counted when deciding whether a judgment exceeds the jurisdictional limit.
+The civil jurisdictional limit is $25,000, and it is the same in every county. Attorney fees,
+court costs, and discretionary costs are not counted when deciding whether a judgment exceeds
+that limit, so a claim close to the ceiling is not pushed over it by the cost of bringing it.
+
+Some Tennessee counties do have special General Sessions provisions set by population bracket,
+but those grant the court concurrent jurisdiction over particular case types such as workers'
+compensation, divorce, and domestic relations. They do not change the money limit.
 
 No rule specific to suing a lawyer in General Sessions was found. Confirm the current limit and
 the filing fee with the clerk in the county where you plan to file; limits are set by statute
@@ -215,7 +229,9 @@ and change.
 
 A fee agreement dispute, such as a lawyer's failure to refund an unearned fee, is a contract
 claim. Tennessee's statute of limitations for a contract claim not otherwise covered by a more
-specific statute is six years from the breach, at Tenn. Code Ann. § 28-3-109(a)(3). The clock
+specific statute is six years from the breach, at Tenn. Code Ann. § 28-3-109(a)(3), reproduced
+at <https://codes.findlaw.com/tn/title-28-limitation-of-actions/tn-code-sect-28-3-109.html>.
+The clock
 generally starts at the breach itself. A narrow exception can push the start date later for a
 breach that is genuinely undiscoverable, but Tennessee courts have treated that exception as
 limited, so do not count on it to extend the six years.
@@ -228,7 +244,9 @@ discovered, the injury and that the lawyer's negligence caused it, and an outer 
 years from the lawyer's act or omission regardless of when you discovered it. The five-year
 repose period yields only if the lawyer fraudulently concealed the wrongdoing, in which case
 you get one year from discovering the concealment. Even a claim you discovered promptly can
-already be dead if the underlying act happened more than five years ago.
+already be dead if the underlying act happened more than five years ago. Tenn. Code Ann.
+§ 28-3-104 is reproduced at
+<https://codes.findlaw.com/tn/title-28-limitation-of-actions/tn-code-sect-28-3-104/>.
 
 Both statutes above were read at codes.findlaw.com, a commercial mirror marked current as of
 January 2, 2024, not the official Tennessee Code site. The official Tennessee Code was not
