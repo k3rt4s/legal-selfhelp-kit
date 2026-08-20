@@ -4,9 +4,7 @@ Backlog of work not yet scheduled. Nothing here is promised.
 
 ## Accuracy work, highest value
 
-1. Confirm current Tennessee rule text against the official publication and move verification rows out of the needs-confirmation section.
-2. Source the filing deadlines the kit currently refuses to state.
-3. Add per-county fee dispute program detail, with a source for each.
+1. Add per-county fee dispute program detail, with a source for each.
 
 ## Coverage
 

@@ -1,6 +1,6 @@
 # Tennessee Rules of Professional Conduct: the provisions that matter to a client
 
-Tennessee lawyers are governed by the Tennessee Rules of Professional Conduct, adopted as Rule 8 of the Rules of the Supreme Court of Tennessee. The official text is published by the Tennessee Administrative Office of the Courts at <https://www.tncourts.gov/rules/supreme-court/8>.
+Tennessee lawyers are governed by the Tennessee Rules of Professional Conduct, adopted as Rule 8 of the Rules of the Supreme Court of Tennessee. The official publication point is the Tennessee Administrative Office of the Courts, at <https://www.tncourts.gov/rules/supreme-court/8>. The rule text summarized below was checked against the Tennessee Bar Association's Tennessee Rules of Professional Conduct, 2023 Edition, reflecting amendments in effect through November 30, 2022, at <https://www.tba.org/docDownload/2181161>.
 
 Read [VERIFICATION.md](VERIFICATION.md) before quoting any of this in a letter. Confirm the current text of any rule you rely on against the official source above.
 
@@ -71,10 +71,9 @@ You can fire your lawyer. On discharge or withdrawal, the lawyer must take reaso
 1. Giving reasonable notice.
 2. Allowing time to hire other counsel.
 3. Cooperating with successor counsel.
-4. Promptly surrendering papers and property you are entitled to, and work product prepared for you that the lawyer has been paid for.
-5. Refunding any advance payment of fee or expense that has not been earned or incurred.
-
-The lawyer may retain some other work product only to the extent other law permits.
+4. Promptly surrendering papers and property you are entitled to, along with any work product the lawyer has already been paid for.
+5. Surrendering any other work product the lawyer prepared, except to the extent other law lets the lawyer keep it.
+6. Refunding any advance payment of fee or expense that has not been earned or incurred.
 
 The practical consequence: a request for your file and a request for a refund of unearned fees are separate requests, and you can make both in the same letter.
 

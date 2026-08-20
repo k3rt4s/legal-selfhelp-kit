@@ -15,11 +15,13 @@ What is built, what is not, and what has to be true before anything ships.
 | Examples             | Three worked walkthroughs, invented facts                                           |
 | Scripts and tests    | Standard-library tracker validator, thirteen passing tests                          |
 
+## Closed since the first release
+
+**Current official rule text, closed.** Confirmed the Tennessee Bar Association's *Tennessee Rules of Professional Conduct, 2023 Edition* (amendments through November 30, 2022) as a citable, dated current-text source, and corrected a real defect it turned up: RPC 1.16(d) lists six steps to protect a client's interests, not five, because surrendering papers and property is a separate step from surrendering other work product. `references/tennessee-professional-conduct.md` and `references/VERIFICATION.md` are updated accordingly. tncourts.gov itself, the official publication point, remains unreachable to automated retrieval.
+
+**Deadlines and limitation periods, closed.** Sourced five deadlines: no time bar on a Board disciplinary complaint, the Client Protection Fund's 60-day complaint gate plus its separate 3-year and 5-year loss-based limits, the six-year contract limitation, the one-year legal malpractice limitation with its five-year repose, and the confirmed-versus-unconfirmed filing-window status of the seven local fee dispute programs. Added `references/tennessee-deadlines.md` and updated `references/VERIFICATION.md`.
+
 ## Not built, and why
-
-**Current official rule text.** The Tennessee Rules of Professional Conduct are published at tncourts.gov, which did not return readable rule text to automated retrieval, and neither did an archived copy. The rule content here came from a Tennessee Bar Association redline comparison document. Until someone confirms the current text against the official source, the kit references rules by number rather than quoting them, and `references/VERIFICATION.md` says so plainly.
-
-**Deadlines and limitation periods.** No verified research exists behind any filing window for a disciplinary complaint, a fee claim, or a client protection fund claim. Rather than guess, the kit refuses to assert deadlines and tells the user to confirm. This is the largest single gap.
 
 **Tennessee Consumer Protection Act analysis.** Whether and when the TCPA reaches a lawyer's professional services is not settled in the way consumer kits often assume. Not researched, not claimed.
 
@@ -31,13 +33,11 @@ What is built, what is not, and what has to be true before anything ships.
 
 1. No legal claim ships without a row in `references/VERIFICATION.md` naming its source and retrieval date.
 2. No template ships containing quoted rule text.
-3. No file asserts a deadline.
+3. No deadline ships without a source in `references/VERIFICATION.md`.
 4. Examples use invented facts only.
 5. If `scripts/` changes, the test suite passes first.
 
 ## Order for the next release
 
-1. Confirm the current text of RPC 1.5, 1.4, 1.15, and 1.16 against the official source, and move those rows in the verification file.
-2. Research and source the filing deadlines that currently cannot be stated.
-3. Add per-county fee dispute program detail with sources.
-4. Add a second state pack, which will prove whether the structure actually generalizes.
+1. Add per-county fee dispute program detail with sources.
+2. Add a second state pack, which will prove whether the structure actually generalizes.

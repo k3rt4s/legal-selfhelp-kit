@@ -36,4 +36,4 @@ Screenshots without dates, forwarded emails with the headers stripped, and a sta
 
 ## Waiting
 
-Every forum has some clock, and this kit does not carry verified deadline research. Time works against you in every one of them. Move.
+Every forum has some clock. `references/tennessee-deadlines.md` sources the ones that could be confirmed, and anything outside that file, including four of the seven local fee dispute programs, still needs a direct answer from the Board or a lawyer. Time works against you in every one of them. Move.

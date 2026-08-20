@@ -22,7 +22,7 @@ Export rather than screenshot. Headers carry the date, sender, and routing that 
 
 ## How long
 
-Through the end of the dispute, plus long enough to cover any follow-on. This kit does not carry verified limitation periods, so do not use a retention guess as a substitute for asking about a deadline. Keeping records longer costs nothing.
+Through the end of the dispute, plus long enough to cover any follow-on. `references/tennessee-deadlines.md` sources the limitation periods this kit can confirm, but do not use a retention guess as a substitute for asking about a deadline that is not in that file. Keeping records longer costs nothing.
 
 ## Privacy
 
