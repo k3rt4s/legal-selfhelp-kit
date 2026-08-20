@@ -50,9 +50,14 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Layer | Pack | Verification file |
 | ----- | ---- | ----------------- |
 | National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
+| California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
+| Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
+| New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
+| Pennsylvania | [state_pa.md](state_pa.md) | [verification_pa.md](verification_pa.md) |
 | Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
+| Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
 
-States covered: 1 of 50.
+States covered: 6 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
