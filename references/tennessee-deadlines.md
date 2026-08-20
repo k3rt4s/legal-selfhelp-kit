@@ -1,5 +1,9 @@
 # Tennessee filing deadlines for a fee or conduct dispute with your own lawyer
 
+> Superseded by [state_tn.md](state_tn.md), which carries this content in the standard
+> state pack shape used by every state. This file remains only until the rest of the kit
+> is repointed, and will then be removed. Do not add to it.
+
 Filing deadlines and limitation periods for a Board complaint, a Client Protection Fund claim, a contract or malpractice suit, and local fee dispute programs, confirmed against Tennessee statutes, case law, and program materials where available.
 
 Read [VERIFICATION.md](VERIFICATION.md) for the source and retrieval date behind each deadline below.

@@ -1,55 +1,82 @@
-# Verification status of every citation in this kit
+# The citation standard, and the index of every verification file
 
-This kit makes legal claims about Tennessee. Each one is listed here with where it came from, when it was retrieved, and how far it should be trusted. If a claim is not on this list, it is not sourced, and it should not be in the kit.
+This kit makes legal claims. Every one of them is written down somewhere in this directory
+with where it came from, when it was retrieved, and how far it should be trusted. If a claim
+is not on one of those lists, it is not sourced, and it should not be in the kit.
 
-Retrieval date for everything below is 2026-08-10, except rows and notes that state a later date.
+This file is the index. It does not hold claims itself. The claims live with the layer that
+makes them.
 
-## Confirmed against a primary or official source
+## The standard
 
-| Claim                                                                                                                                                                                                                                                       | Source                                                                                                                             | Note                                                                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Consumer Assistance Program scope, what it will and will not do, the ten-day follow-up on unanswered correspondence, and referral to fee dispute committees                                                                                                 | Board of Professional Responsibility, Consumer Assistance Program page, tbpr.org                                                   | Official regulator publication                                                                                                                                                                                                          |
-| Fee dispute committees exist in Memphis, Knoxville, Chattanooga, Bristol, Kingsport, Montgomery County, and Washington County, and fee mediation is not statewide                                                                                           | Board of Professional Responsibility, Consumer Assistance Program page, tbpr.org                                                   | Official regulator publication. Confirm locally before relying on it                                                                                                                                                                    |
-| Board public line 1-800-486-5714                                                                                                                                                                                                                            | Tennessee bar and Board public materials                                                                                           | Confirm before using                                                                                                                                                                                                                    |
-| Formal complaint versus informal request for assistance distinction                                                                                                                                                                                         | Board of Professional Responsibility complaint form, tbpr.org                                                                      | Official regulator publication                                                                                                                                                                                                          |
-| Client Protection Fund covers dishonest conduct and unearned fees but excludes fee disputes; 60-day complaint requirement; awards paid at a percentage at Board discretion with no published maximum                                                        | Tennessee Lawyers' Fund for Client Protection, policies and rules page, tlfcp.tn.gov                                               | Official fund publication                                                                                                                                                                                                               |
-| Client Protection Fund line (615) 741-3097 and Lawyer Assistance Program line (877) 424-8527                                                                                                                                                                | Board of Professional Responsibility, Consumer Assistance Program page                                                             | Confirm before using                                                                                                                                                                                                                    |
-| General Sessions civil jurisdictional limit of $25,000, with $15,000 in Anderson, Davidson, Hamilton, and Knox counties, and attorney fees and costs excluded from the limit calculation                                                                    | University of Tennessee County Technical Assistance Service, Jurisdiction of General Sessions Court                                | Authoritative state technical service. Statutory limits change, confirm with the clerk                                                                                                                                                  |
-| RPC 1.5(a) ten reasonableness factors, including factor 9 (prior advertisements or statements about fees) and factor 10 (written fee agreement)                                                                                                             | Tennessee Bar Association, *Tennessee Rules of Professional Conduct, 2023 Edition* (amendments through November 30, 2022), tba.org | The rule's own Comment 1 states that "the factors specified in (1) through (10) are not exclusive," independently confirming a ten-item list. Retrieved 2026-08-19                                                                      |
-| RPC 1.16(d) lists six steps a lawyer must take to protect a client's interests on discharge or withdrawal, not five. Surrendering papers and property the client is entitled to is a separate step from surrendering other work product the lawyer prepared | Tennessee Bar Association, *Tennessee Rules of Professional Conduct, 2023 Edition* (amendments through November 30, 2022), tba.org | Corrects an earlier five-item summary in this kit. Retrieved 2026-08-19                                                                                                                                                                 |
-| No deadline applies to filing a disciplinary complaint with the Board of Professional Responsibility; the Tennessee Supreme Court has held laches does not apply to attorney disciplinary proceedings                                                       | *Long v. Board of Professional Responsibility*, Tenn. 2014, No. M2013-01042-SC-R3-BP                                               | Tennessee Supreme Court opinion, read directly via a FindLaw reproduction. Retrieved 2026-08-19                                                                                                                                         |
-| Client Protection Fund claims for a loss on or after October 1, 2013 must be filed within 3 years of the loss or its reasonable discovery, and never more than 5 years after the loss; a different, older rule applies to earlier losses                    | Tennessee Lawyers' Fund for Client Protection, FAQ page, tlfcp.tn.gov                                                              | Separate from, and in addition to, the 60-day Board-complaint gate already listed above. Retrieved 2026-08-19                                                                                                                           |
-| Six-year statute of limitations for a contract claim not otherwise specified, Tenn. Code Ann. § 28-3-109(a)(3)                                                                                                                                              | Tenn. Code Ann. § 28-3-109, reproduced at codes.findlaw.com, marked current as of January 2, 2024                                  | codes.findlaw.com is a commercial mirror, not the official Tennessee Code. See the caveats below. Retrieved 2026-08-19                                                                                                                  |
-| One-year statute of limitations for legal malpractice with a five-year statute of repose, Tenn. Code Ann. § 28-3-104(c); the repose period yields only to the lawyer's fraudulent concealment                                                               | Tenn. Code Ann. § 28-3-104, reproduced at codes.findlaw.com, marked current as of January 2, 2024                                  | Same commercial-mirror caveat as above. Retrieved 2026-08-19                                                                                                                                                                            |
-| No filing deadline for the Knoxville, Memphis, or Chattanooga fee dispute programs                                                                                                                                                                          | Knoxville Bar Association, Memphis Bar Association, and Chattanooga Bar Association program pages                                  | Confirmed directly against each program's own materials. Not confirmed for Bristol, Kingsport, Montgomery County, or Washington County, whose own program rules could not be located; ask those programs directly. Retrieved 2026-08-19 |
+1. Every legal claim gets a row in the verification file for its layer, naming its source and
+   its retrieval date, added in the same commit as the claim. A claim without a row is a
+   defect.
+2. A claim that cannot be sourced to a primary or official publication does not go in the kit.
+   It goes in that verification file's gap list instead, saying what was looked for and where
+   the search stopped.
+3. Nothing is confirmed against an undated source, a law firm blog, or a commercial summary.
+   Where a commercial mirror was the only thing that could be reached, the claim is flagged
+   rather than confirmed, and the flag says why.
+4. Templates never quote rule text. They cite a rule by number and describe what it requires.
+   The same goes for the packs.
+5. No deadline, dollar figure, phone number, or program name ships without a row.
 
-## Caveats on the newly added sourcing
+An omission a reader can see is safe. An invented statute number or an invented filing
+deadline reads perfectly and can cost a real person their claim. That asymmetry is why the gap
+lists exist and why they are the most trustworthy part of each file.
 
-Two of the rows added above rest on sourcing worth flagging on its own:
+## The two layers
 
-1. Tenn. Code Ann. §§ 28-3-109 and 28-3-104 were read from codes.findlaw.com, a commercial mirror of the Tennessee Code marked current as of January 2, 2024, not the state's own code website. The official Tennessee Code was not independently checked against this reproduction.
-2. tncourts.gov, the official publication point for the Rules of Professional Conduct, remains unreachable to automated retrieval. It was retried on 2026-08-19 by direct fetch, by a browser-user-agent request, and against direct PDF links, and every attempt returned a client-side verification challenge page instead of rule text.
+The kit is built in two layers, and each has its own verification file.
 
-## Sourced but needing confirmation against the current official rule
+1. The national baseline, [national_baseline.md](national_baseline.md), describes the ABA
+   Model Rules of Professional Conduct. It is the shape every state built from. It is not law
+   anywhere by itself. Its sourcing is in
+   [verification_national.md](verification_national.md).
+2. A state pack, `state_XX.md`, describes what one state actually did with that model, plus
+   that state's fee arbitration, bar complaint process, client protection fund, small claims
+   court, and limitation periods. Its sourcing is in `verification_XX.md`.
 
-The Tennessee Rules of Professional Conduct are Rule 8 of the Rules of the Supreme Court of Tennessee. The official publication point is <https://www.tncourts.gov/rules/supreme-court/8>.
+Where the two conflict, the state pack governs. The baseline is a guide, the state pack is the
+operative law.
 
-That page did not return readable rule text to automated retrieval on the date above, and neither did an archived copy of it. The rule text originally summarized in this kit was therefore taken from a Tennessee Bar Association redline document comparing revised Rules of Professional Conduct to the prior rules.
+The required shape of a pack is specified in [state_template.md](state_template.md).
 
-What that means in practice:
+## Index of verification files
 
-1. The substance of RPC 1.4 and 1.15 as described here still reflects that redline document. RPC 1.5's ten-factor list and RPC 1.16(d)'s list of steps have since been confirmed against the Tennessee Bar Association's 2023 Edition of the current rule, and moved to the confirmed table above.
-2. A redline is a comparison document, not a clean current text. Some extracted passages contain artifacts of struck and inserted language.
-3. Rules are amended. Nothing here should be quoted as the current rule in a letter, a complaint, or a filing without checking the official source first.
+<!-- BEGIN VERIFICATION INDEX (auto-generated, do not edit by hand) -->
 
-The kit is written to work with that limitation. It describes what the rules require and tells you to pull the current text before you quote it, rather than putting quoted rule language in your outgoing correspondence on the strength of a secondary source.
+| Layer | Pack | Verification file |
+| ----- | ---- | ----------------- |
+| National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
+| Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
 
-## Deliberately not claimed
+States covered: 1 of 50.
 
-1. No claim that a Rules of Professional Conduct violation gives a client a private right of action. It does not, and the kit says so.
-2. No claim about the Tennessee Consumer Protection Act applying to a lawyer's professional services. Tennessee case law on that is not settled in the way consumer kits often assume, and it remains unresearched.
-3. No dollar figure for what any particular remedy typically recovers. There is no verified dataset behind such a number.
+<!-- END VERIFICATION INDEX -->
 
-## How to extend this file
+If your state is not on that list yet, the national baseline still applies to the shape of
+what your lawyer owed you, but none of the forums, dollar limits, deadlines, or program names
+in this kit are yours. Do not use another state's pack as a substitute for your own.
 
-Any new rule, deadline, dollar amount, phone number, or program name added to this kit gets a row in one of the tables above, with its source and retrieval date, in the same commit that adds it. A claim without a row is a defect.
+## Standing caveats that apply across every layer
+
+These are retrieval limits, not legal caveats. They explain why some rows in some files are
+flagged rather than confirmed.
+
+1. Several state judiciary sites return a client-side verification challenge to automated
+   retrieval rather than rule text. Where that happened, the affected pack says so in its own
+   flagged table and names what was used instead.
+2. Where a state statute could only be read from a commercial mirror rather than the state's
+   own code site, the claim is flagged, and the flag names the mirror and the date the mirror
+   said it was current through.
+3. Rules and dollar limits change. Every retrieval date in this kit is the date the source was
+   read, not a promise about today.
+
+## How to extend this kit
+
+Adding a state means adding both files in the same commit: the pack and its verification file.
+Adding a claim to an existing pack means adding its row in the same commit. Removing a claim
+that turned out to be unsourceable means moving it to that file's gap list, not deleting it
+silently, so the next person does not go looking for it again.

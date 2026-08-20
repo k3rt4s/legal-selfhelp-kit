@@ -1,5 +1,9 @@
 # Tennessee Rules of Professional Conduct: the provisions that matter to a client
 
+> Superseded by [state_tn.md](state_tn.md), which carries this content in the standard
+> state pack shape used by every state. This file remains only until the rest of the kit
+> is repointed, and will then be removed. Do not add to it.
+
 Tennessee lawyers are governed by the Tennessee Rules of Professional Conduct, adopted as Rule 8 of the Rules of the Supreme Court of Tennessee. The official publication point is the Tennessee Administrative Office of the Courts, at <https://www.tncourts.gov/rules/supreme-court/8>. The rule text summarized below was checked against the Tennessee Bar Association's Tennessee Rules of Professional Conduct, 2023 Edition, reflecting amendments in effect through November 30, 2022, at <https://www.tba.org/docDownload/2181161>.
 
 Read [VERIFICATION.md](VERIFICATION.md) before quoting any of this in a letter. Confirm the current text of any rule you rely on against the official source above.

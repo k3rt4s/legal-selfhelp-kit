@@ -1,5 +1,9 @@
 # Where a Tennessee client can take a legal fee or conduct problem
 
+> Superseded by [state_tn.md](state_tn.md), which carries this content in the standard
+> state pack shape used by every state. This file remains only until the rest of the kit
+> is repointed, and will then be removed. Do not add to it.
+
 Each of these is a separate forum with a separate purpose. Picking the wrong one wastes months. Read the whole list before you file anything.
 
 ## Consumer Assistance Program, Board of Professional Responsibility

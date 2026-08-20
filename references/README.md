@@ -2,11 +2,29 @@
 
 Primary-source material the kit cites when analyzing a legal bill or drafting a letter, with the retrieval date and a verification status for every citation.
 
-Read [VERIFICATION.md](VERIFICATION.md) before relying on any quoted rule text. Rules change, and a citation that was accurate on its retrieval date may not be accurate today.
+Read [VERIFICATION.md](VERIFICATION.md) before relying on any rule reference. Rules change, and a citation that was accurate on its retrieval date may not be accurate today.
+
+## What to load into a session
+
+Two files, and only two.
+
+1. [national_baseline.md](national_baseline.md), the ABA Model Rules layer that every state built from.
+2. Your own state's pack, `state_XX.md`, where `XX` is your two-letter state code.
+
+Do not load another state's pack. The forums, dollar limits, deadlines, and program names in a pack are that state's and no one else's.
 
 ## Contents
 
-- [tennessee-deadlines.md](tennessee-deadlines.md): Filing deadlines and limitation periods for a Board complaint, a Client Protection Fund claim, a contract or malpractice suit, and local fee dispute programs.
-- [tennessee-professional-conduct.md](tennessee-professional-conduct.md): The Tennessee Rules of Professional Conduct provisions that govern fees, communication, client property, and ending a representation.
-- [tennessee-remedies.md](tennessee-remedies.md): Where a Tennessee client can actually take a fee or conduct problem, from the Consumer Assistance Program through fee dispute committees, the client protection fund, and General Sessions court.
-- [VERIFICATION.md](VERIFICATION.md): How every citation in this kit was sourced, what was confirmed against a primary source, and what still needs checking.
+- [national_baseline.md](national_baseline.md): The ABA Model Rules of Professional Conduct provisions that govern fees, communication, client property, and ending a representation, and why a model rule is not law until a state adopts it.
+- [state_XX.md](VERIFICATION.md): One pack per state, each following the same eight sections. The full list, with each pack's verification file, is the index in [VERIFICATION.md](VERIFICATION.md).
+- [verification_XX.md](VERIFICATION.md): The sourcing behind one pack: what was confirmed against a primary source, what is flagged as resting on less, and what could not be sourced and was therefore left out.
+- [state_template.md](state_template.md): The required shape of a state pack, for contributors adding one.
+- [VERIFICATION.md](VERIFICATION.md): The citation standard every claim in this kit must meet, and the index of every verification file.
+
+## Superseded
+
+Three Tennessee files predate the state pack structure and are kept only until the rest of the kit is repointed. Their content now lives in [state_tn.md](state_tn.md). Do not add to them.
+
+- [tennessee-professional-conduct.md](tennessee-professional-conduct.md)
+- [tennessee-remedies.md](tennessee-remedies.md)
+- [tennessee-deadlines.md](tennessee-deadlines.md)
