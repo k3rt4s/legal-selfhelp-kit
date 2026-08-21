@@ -2,7 +2,8 @@
 
 Every state pack in this kit sits on top of this file. Read this first, then read your
 state's pack. Retrieval date for the sourcing in this file is 2026-08-20, except the
-contingent-fee dispute-practice guidance in section 4, added 2026-08-21.
+contingent-fee dispute-practice guidance in section 4 and the lawyer-unavailable guidance in
+section 10, both added 2026-08-21.
 
 Read [verification_national.md](verification_national.md) before quoting any of this in a
 letter. Confirm the current text of any rule you rely on against your own state's official
@@ -206,3 +207,58 @@ wins, because it describes the version of the rule that actually applies to your
 If your state pack says a section "tracks the model rule with no deviation," that means the
 outline above is a reasonable guide to what your state requires, subject to the sourcing that
 pack cites. If it says otherwise, follow the state pack.
+
+## 10. When the lawyer is gone: death, suspension, disbarment, or closed practice
+
+Everything in section 7 above still applies when the representation ended because the lawyer
+died, was suspended or disbarred, or otherwise stopped practicing, rather than because the
+lawyer withdrew or the client fired them. Model Rule 1.16(d) is not conditioned on the reason
+the representation ended. Its duties, taking reasonably practicable steps to protect the
+client, including surrendering the client's papers and property and refunding any advance
+payment of a fee or expense that was not earned, apply on termination however it happened. The
+lawyer being gone does not make the file or the unearned money disappear with them; it moves
+the duty to whoever now stands in the lawyer's place.
+
+Model Rule 1.15 is why there should be something to recover. Client funds, including fees and
+expenses paid in advance that have not yet been earned, must be kept in an account separate
+from the lawyer's own funds, not treated as the lawyer's money once received. If that
+separation was actually observed, a client's unearned advance is not part of the lawyer's own
+estate or the assets a disciplinary proceeding reaches, and identifying it should not depend on
+the lawyer personally being available to write a check.
+
+The Model Rules address the case of a lawyer who plans ahead for their own absence, but only in
+a limited way, and only for a sole practitioner. A comment to Model Rule 1.3 (the diligence
+rule) says that to prevent client matters from being neglected if a sole practitioner dies or
+becomes disabled, the duty of diligence may call for that lawyer to have arranged in advance
+for another lawyer to review client files, notify clients, and decide whether any file needs
+immediate protective action. That comment also points to a separate ABA model rule for lawyer
+disciplinary enforcement that provides for a court to appoint a lawyer to inventory a missing or
+incapacitated lawyer's files when no such arrangement was made. Whether your own state adopted
+either of these, and what it actually does when a lawyer leaves practice with no succession plan
+in place, is a question for your state pack, not this file. Model Rule 1.17 separately lets a
+lawyer sell a law practice while notifying affected clients and preserving each client's right
+to take their file elsewhere instead, but that rule governs a lawyer's voluntary sale of a
+practice, not a death, suspension, or disbarment, and this kit does not rely on it for anything
+beyond that background.
+
+What this means practically is that you are very likely not dealing with your former lawyer
+directly anymore. Depending on what happened, the file and any client funds could sit with a
+successor lawyer, the lawyer's estate, a court-appointed custodian, or the state's disciplinary
+or bar authority. The Model Rules do not set a procedure for sorting out which one it is; that
+is left to each state, and it is exactly what section 4 of your state pack, the bar complaint
+and disciplinary process, is for. Start there and ask who currently has custody of the file.
+
+If the money truly cannot be recovered from the lawyer, whether because the lawyer is dead,
+disbarred, or simply gone, look at section 5 of your state pack, the client protection fund.
+These funds exist for exactly this situation: money a client is owed that cannot be collected
+from the lawyer. A lawyer being dead or disciplined does not by itself qualify a claim; each
+fund sets its own eligibility rules, and those rules belong in your state pack, not here.
+
+The letter templates in this kit still work once you know who to send them to. `templates/03_file_request.md`
+and `templates/02_unearned_fee_refund.md` can both be addressed to a successor lawyer, an
+estate representative, or a court-appointed custodian instead of the original lawyer; the
+underlying Model Rule 1.16(d) and 1.15 obligations described above do not depend on who is
+currently holding the file. This kit does not cover probate procedure or how to make a claim
+against a deceased lawyer's estate. If the file or funds are held by an estate and the
+custodian will not respond to a letter, that is a probate question, and you may need your own
+lawyer for it.
