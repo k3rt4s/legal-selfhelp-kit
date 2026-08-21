@@ -133,12 +133,10 @@ arbitration or mediation program, after checking multiple sources as instructed.
   alternative. <https://www.statebarofsouthdakota.com/lawyer-discipline/>
 - A site search of statebarofsouthdakota.com for "fee arbitration" returned no results, and a
   search for "fee dispute" surfaced only that same Lawyer Discipline page.
-- A full CDX listing of the State Bar's Wayback Machine history
-  (<http://web.archive.org/cdx/search/cdx?url=statebarofsouthdakota.com&matchType=domain&output=json&collapse=urlkey&limit=5000&fl=original>),
+- A full CDX listing of the State Bar's Wayback Machine history,
   over 3,000 archived URLs, has no page whose path mentions "arbitration" or "dispute"; the
   only "fee" hits are RSS feeds and one page called "virtual-coffee."
-- A full CDX listing of the state judiciary's Wayback Machine history for ujs.sd.gov
-  (<http://web.archive.org/cdx/search/cdx?url=ujs.sd.gov&matchType=domain&output=json&collapse=urlkey&limit=8000&fl=original>),
+- A full CDX listing of the state judiciary's Wayback Machine history for ujs.sd.gov,
   over 8,000 archived URLs, has no "arbitration" or "dispute" hit either; its "fee" hits are
   ordinary court filing fees, child support late fees, and court-appointed counsel fees.
 - SDCL chapter 16-19 (attorney discipline), read in full text, contains no reference to
