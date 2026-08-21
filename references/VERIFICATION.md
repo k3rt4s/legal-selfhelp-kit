@@ -52,11 +52,15 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
 | Arizona | [state_az.md](state_az.md) | [verification_az.md](verification_az.md) |
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
+| Colorado | [state_co.md](state_co.md) | [verification_co.md](verification_co.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
 | Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
 | Illinois | [state_il.md](state_il.md) | [verification_il.md](verification_il.md) |
+| Indiana | [state_in.md](state_in.md) | [verification_in.md](verification_in.md) |
+| Maryland | [state_md.md](state_md.md) | [verification_md.md](verification_md.md) |
 | Massachusetts | [state_ma.md](state_ma.md) | [verification_ma.md](verification_ma.md) |
 | Michigan | [state_mi.md](state_mi.md) | [verification_mi.md](verification_mi.md) |
+| Missouri | [state_mo.md](state_mo.md) | [verification_mo.md](verification_mo.md) |
 | New Jersey | [state_nj.md](state_nj.md) | [verification_nj.md](verification_nj.md) |
 | New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
 | North Carolina | [state_nc.md](state_nc.md) | [verification_nc.md](verification_nc.md) |
@@ -66,8 +70,9 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
 | Virginia | [state_va.md](state_va.md) | [verification_va.md](verification_va.md) |
 | Washington | [state_wa.md](state_wa.md) | [verification_wa.md](verification_wa.md) |
+| Wisconsin | [state_wi.md](state_wi.md) | [verification_wi.md](verification_wi.md) |
 
-States covered: 16 of 50.
+States covered: 21 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
