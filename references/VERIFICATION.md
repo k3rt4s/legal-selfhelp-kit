@@ -54,10 +54,12 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Arizona | [state_az.md](state_az.md) | [verification_az.md](verification_az.md) |
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
 | Colorado | [state_co.md](state_co.md) | [verification_co.md](verification_co.md) |
+| Connecticut | [state_ct.md](state_ct.md) | [verification_ct.md](verification_ct.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
 | Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
 | Illinois | [state_il.md](state_il.md) | [verification_il.md](verification_il.md) |
 | Indiana | [state_in.md](state_in.md) | [verification_in.md](verification_in.md) |
+| Iowa | [state_ia.md](state_ia.md) | [verification_ia.md](verification_ia.md) |
 | Kentucky | [state_ky.md](state_ky.md) | [verification_ky.md](verification_ky.md) |
 | Louisiana | [state_la.md](state_la.md) | [verification_la.md](verification_la.md) |
 | Maryland | [state_md.md](state_md.md) | [verification_md.md](verification_md.md) |
@@ -69,15 +71,18 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
 | North Carolina | [state_nc.md](state_nc.md) | [verification_nc.md](verification_nc.md) |
 | Ohio | [state_oh.md](state_oh.md) | [verification_oh.md](verification_oh.md) |
+| Oklahoma | [state_ok.md](state_ok.md) | [verification_ok.md](verification_ok.md) |
+| Oregon | [state_or.md](state_or.md) | [verification_or.md](verification_or.md) |
 | Pennsylvania | [state_pa.md](state_pa.md) | [verification_pa.md](verification_pa.md) |
 | South Carolina | [state_sc.md](state_sc.md) | [verification_sc.md](verification_sc.md) |
 | Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
 | Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
+| Utah | [state_ut.md](state_ut.md) | [verification_ut.md](verification_ut.md) |
 | Virginia | [state_va.md](state_va.md) | [verification_va.md](verification_va.md) |
 | Washington | [state_wa.md](state_wa.md) | [verification_wa.md](verification_wa.md) |
 | Wisconsin | [state_wi.md](state_wi.md) | [verification_wi.md](verification_wi.md) |
 
-States covered: 26 of 50.
+States covered: 31 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
