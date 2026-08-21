@@ -54,6 +54,20 @@ Many states add factors beyond these eight, or reword them, or add a writing req
 the model list does not have. That is exactly what your state pack's deviations section
 covers.
 
+Not every state kept the model's "unreasonable" wording for this standard. A substantial
+number of states instead prohibit a "clearly excessive" fee, which reads as a materially
+higher bar for a client to clear: the fee has to cross the line by more than a fair margin,
+not merely sit on the high side of reasonable. This kit confirmed that wording, used for the
+general fee standard rather than some narrower rule, in Alabama, Massachusetts, Michigan,
+North Carolina, Ohio, and Oregon. Michigan, Ohio and Oregon go further and define the standard: a
+fee is "clearly excessive" only if a lawyer of ordinary prudence, after review of the facts,
+would be left with a definite and firm conviction that the fee is in excess of a reasonable
+fee.
+
+This is not a list of every state that uses this wording; it is only the states this kit
+checked and confirmed. Read section 2 of your own state pack before you assume the
+"unreasonable" standard above is the one that actually governs your lawyer.
+
 ## 3. Model Rule 1.5(b): communicating scope and fee basis
 
 The scope of the representation and the basis or rate of the fee and expenses the client will

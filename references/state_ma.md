@@ -27,12 +27,30 @@ reader looking for those numbers in Massachusetts will find them in the same pla
 model.
 
 The official publication point is the SJC's rules page at mass.gov, under
-"Massachusetts Rules of Professional Conduct." The Preamble and Scope section was rewritten
-and replaced in its entirety by SJC order effective October 1, 2022, along with several other
-comment-level changes across the rules that year. Rule 1.5 itself was last amended with an
-effective date of September 1, 2018. A reader relying on a printed or downloaded copy of the
-rules should check that it reflects at least the 2022 Preamble and Scope changes, since older
-mirrors of the rules in circulation predate that revision.
+"Massachusetts Rules of Professional Conduct," which publishes each rule as its own page, for
+example Rule 1.4 (Communication) at
+<https://www.mass.gov/supreme-judicial-court-rules/rules-of-professional-conduct-rule-14-communication>,
+Rule 1.5 (Fees) at
+<https://www.mass.gov/supreme-judicial-court-rules/rules-of-professional-conduct-rule-15-fees>,
+Rule 1.15 (Safekeeping Property) at
+<https://www.mass.gov/supreme-judicial-court-rules/rules-of-professional-conduct-rule-115-safekeeping-property>,
+and Rule 1.16 (Declining or Terminating Representation) at
+<https://www.mass.gov/supreme-judicial-court-rules/rules-of-professional-conduct-rule-116-declining-or-terminating-representation>.
+mass.gov itself blocks automated retrieval (see verification_ma.md), so these four pages were
+each confirmed this pack's most recent retrieval date through the newest available Internet
+Archive snapshot of the same official mass.gov page, and each snapshot's page title carries the
+expected rule number. This pack no longer cites the Massachusetts School of Law's own uploaded
+PDF copy of the rules; that copy is dated 2020, is not an official publisher, and predates the
+2022 Preamble and Scope revision described below, so it is not used here even for numbering.
+The Preamble and Scope section was rewritten and replaced in its entirety by SJC order effective
+October 1, 2022, at
+<https://web.archive.org/web/20250901032843/https://www.mass.gov/doc/order-amending-sjc-rule-307-effective-october-1-2022/download>
+(mass.gov itself blocks automated retrieval, so this pack cites an Internet Archive snapshot of
+the same official order; see verification_ma.md), along with several other comment-level changes
+across the rules that year. Rule 1.5 itself was last amended with an effective date of September
+1, 2018. A reader relying on a printed or downloaded copy of the rules should check that it
+reflects at least the 2022 Preamble and Scope changes, since older mirrors of the rules in
+circulation predate that revision.
 
 ## 2. Deviations from the model reasonableness factors
 
@@ -97,8 +115,10 @@ arbitration. See Section 3.
 ## 3. Attorney fee arbitration
 
 The Massachusetts Bar Association (MBA) runs a statewide Legal Fee Arbitration Board (FAB),
-in operation since 1974, at massbar.org. It is a public service program of the MBA, not a
-government agency.
+in operation since 1974, at <https://www.massbar.org/public/fee-arbitration-board>. It is a
+public service program of the MBA, not a government agency. The FAB's current rules and fee
+schedule are published at
+<https://www.massbar.org/docs/default-source/fee-arbitration-board/fab-petitions-and-rules/fabrules.pdf>.
 
 Participation is voluntary on both sides. The Board's own rules state it does not have
 authority to compel either an attorney or a client to submit to its jurisdiction. If a lawyer
@@ -137,11 +157,20 @@ board, so that claim is not made here. See the gap list in verification_ma.md.
 ## 4. Bar complaint process
 
 Attorney discipline in Massachusetts is handled by the Board of Bar Overseers (BBO) and its
-staff arm, the Office of Bar Counsel, at massbbo.org. The BBO's Attorney and Consumer
-Assistance Program (ACAP) is the informal, first-line intake track: it takes a written
-complaint, contacts the lawyer, and tries to resolve the problem informally, including by
-mediating simple fee and communication issues, before any complaint becomes a formal
-disciplinary matter.
+staff arm, the Office of Bar Counsel, at massbbo.org. The BBO's current live complaints page is
+at <https://www.massbbo.org/s/complaints>. That page was checked again for this pack's most
+recent retrieval date and, like the rest of the BBO's current site, it is a JavaScript-rendered
+Salesforce Community page that returns no usable text to automated retrieval, whether fetched
+directly or through the newest available Internet Archive snapshot of that same URL; that is a
+retrieval limit, not a content problem, and it holds for the modern site regardless of how
+recently it is checked (see verification_ma.md). The most recent snapshot of the BBO's older,
+plain-HTML complaints page that still returns readable content is
+<https://web.archive.org/web/20211006135248/https://www.massbbo.org/Complaints>; every capture
+of that page after that date is only a redirect to the unreadable modern site, so this remains
+the newest usable snapshot, not merely the most convenient one. ACAP is the informal, first-line
+intake track: it takes a written complaint, contacts the lawyer, and tries to resolve the
+problem informally, including by mediating simple fee and communication issues, before any
+complaint becomes a formal disciplinary matter.
 
 A complaint that raises only a fee disagreement, with no dishonesty or misconduct beyond the
 amount charged, usually stays in this informal track or is closed without discipline. The BBO
@@ -164,9 +193,9 @@ initiated or the lawyer consents to disclosure.
 
 Massachusetts has a Clients' Security Board (CSB), established under S.J.C. Rule 4:04, with
 its current governing rules effective September 1, 2019 under S.J.C. Rules 4:04 through 4:09,
-at masscsb.org. The Board is made up of seven bar members appointed by the SJC, and it is
-funded entirely from a portion of the annual registration fees paid by Massachusetts lawyers,
-not from public funds.
+at <https://www.masscsb.org/resources-rules>. The Board is made up of seven bar members
+appointed by the SJC, and it is funded entirely from a portion of the annual registration fees
+paid by Massachusetts lawyers, not from public funds.
 
 The fund covers losses caused when a lawyer, while providing legal services within a
 lawyer-client relationship, steals, embezzles, or misappropriates money or property that
