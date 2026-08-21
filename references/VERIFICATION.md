@@ -56,6 +56,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
 | Colorado | [state_co.md](state_co.md) | [verification_co.md](verification_co.md) |
 | Connecticut | [state_ct.md](state_ct.md) | [verification_ct.md](verification_ct.md) |
+| Delaware | [state_de.md](state_de.md) | [verification_de.md](verification_de.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
 | Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
 | Hawaii | [state_hi.md](state_hi.md) | [verification_hi.md](verification_hi.md) |
@@ -66,12 +67,14 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Kansas | [state_ks.md](state_ks.md) | [verification_ks.md](verification_ks.md) |
 | Kentucky | [state_ky.md](state_ky.md) | [verification_ky.md](verification_ky.md) |
 | Louisiana | [state_la.md](state_la.md) | [verification_la.md](verification_la.md) |
+| Maine | [state_me.md](state_me.md) | [verification_me.md](verification_me.md) |
 | Maryland | [state_md.md](state_md.md) | [verification_md.md](verification_md.md) |
 | Massachusetts | [state_ma.md](state_ma.md) | [verification_ma.md](verification_ma.md) |
 | Michigan | [state_mi.md](state_mi.md) | [verification_mi.md](verification_mi.md) |
 | Minnesota | [state_mn.md](state_mn.md) | [verification_mn.md](verification_mn.md) |
 | Mississippi | [state_ms.md](state_ms.md) | [verification_ms.md](verification_ms.md) |
 | Missouri | [state_mo.md](state_mo.md) | [verification_mo.md](verification_mo.md) |
+| Montana | [state_mt.md](state_mt.md) | [verification_mt.md](verification_mt.md) |
 | Nebraska | [state_ne.md](state_ne.md) | [verification_ne.md](verification_ne.md) |
 | Nevada | [state_nv.md](state_nv.md) | [verification_nv.md](verification_nv.md) |
 | New Hampshire | [state_nh.md](state_nh.md) | [verification_nh.md](verification_nh.md) |
@@ -83,7 +86,9 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Oklahoma | [state_ok.md](state_ok.md) | [verification_ok.md](verification_ok.md) |
 | Oregon | [state_or.md](state_or.md) | [verification_or.md](verification_or.md) |
 | Pennsylvania | [state_pa.md](state_pa.md) | [verification_pa.md](verification_pa.md) |
+| Rhode Island | [state_ri.md](state_ri.md) | [verification_ri.md](verification_ri.md) |
 | South Carolina | [state_sc.md](state_sc.md) | [verification_sc.md](verification_sc.md) |
+| South Dakota | [state_sd.md](state_sd.md) | [verification_sd.md](verification_sd.md) |
 | Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
 | Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
 | Utah | [state_ut.md](state_ut.md) | [verification_ut.md](verification_ut.md) |
@@ -92,7 +97,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | West Virginia | [state_wv.md](state_wv.md) | [verification_wv.md](verification_wv.md) |
 | Wisconsin | [state_wi.md](state_wi.md) | [verification_wi.md](verification_wi.md) |
 
-States covered: 41 of 50.
+States covered: 46 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
