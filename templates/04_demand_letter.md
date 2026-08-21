@@ -1,12 +1,12 @@
 # Demand letter
 
-The last step before General Sessions. Keep it factual. This letter will be read by a judge.
+Read your state pack's section 6 first, so the court name and the filing details below match your state. The last step before your state's small claims court. Keep it factual. This letter will be read by a judge.
 
 ---
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ The last step before General Sessions. Keep it factual. This letter will be read
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -34,7 +34,7 @@ I raised this with you in writing on [DATE OF FIRST LETTER] and [DATE OF ANY FOL
 
 I am requesting a refund of [AMOUNT] by [DATE, USUALLY FOURTEEN DAYS].
 
-If I do not receive a response by that date, I intend to pursue this in [Tennessee General Sessions Court in COUNTY / through the COUNTY bar association fee dispute program].
+If I do not receive a response by that date, I intend to pursue this in [NAME OF YOUR STATE'S SMALL CLAIMS COURT, FROM SECTION 6 OF YOUR STATE PACK, IN COUNTY / OR, ONLY IF YOUR STATE PACK'S SECTION 3 CONFIRMS A FEE ARBITRATION PROGRAM YOU CAN USE, NAME THAT PROGRAM HERE].
 
 I would prefer to resolve this directly. If you see the record differently, send me the documents that show it and I will review them.
 

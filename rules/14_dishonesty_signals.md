@@ -14,7 +14,7 @@ Signals that the matter may be more than a fee dispute:
 Rules:
 
 1. Describe the signal, never label the person. "The invoice shows a hearing on March 4 and the docket shows no proceeding that day" is usable. "Your lawyer lied" is not.
-2. Any of these move the matter toward the Board rather than a fee dispute committee.
-3. Where money is gone, read the Client Protection Fund section, and note that it covers dishonest conduct rather than fee disputes.
+2. Any of these move the matter toward the disciplinary authority rather than fee arbitration.
+3. Where money is gone, read the client protection fund section of the reader's state pack, section 5, and note that it covers dishonest conduct rather than fee disputes.
 4. Where the amount is significant, tell the client to consult a lawyer instead of proceeding alone.
 5. Absence of these signals is meaningful too. Say so, because it means the fee dispute path is the right one and the client should stop looking for fraud.

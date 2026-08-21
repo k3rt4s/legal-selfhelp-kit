@@ -8,7 +8,7 @@ import sys
 from datetime import date
 
 COLUMNS = [
-    "issue_id", "bucket", "summary", "evidence", "rpc_touchpoint", "forum",
+    "issue_id", "bucket", "summary", "evidence", "rule_touchpoint", "forum",
     "status", "action_taken", "action_date", "sent_method", "response_due",
     "response_received", "amount_disputed", "notes",
 ]

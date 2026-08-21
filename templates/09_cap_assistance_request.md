@@ -1,12 +1,16 @@
-# Consumer Assistance Program request
+# Disciplinary authority assistance request
 
-Use when a lawyer has not responded to your written correspondence. The Board's Consumer Assistance Program will follow up with a lawyer who has not responded within ten days.
+Read section 4 of your state pack (`references/state_XX.md`) before using this template. It names your state's lawyer disciplinary authority and says whether that authority runs a non-disciplinary assistance or intake track, separate from a formal complaint, for a problem like a lawyer who has stopped responding.
 
-Submit through the Board's site at <https://www.tbpr.org>. On the form, select the informal request for assistance option unless you are alleging a serious ethical violation.
+**If your state pack says a non-disciplinary assistance or intake track exists:** use this template as written. Submit it the way your state pack's section 4 describes, to the authority it names.
+
+**If your state pack says no such track exists:** do not submit this as an informal request, because there is nowhere to send it. Your state pack's section 4 will say what the formal complaint process does and does not do, and section 3 may point you to fee arbitration instead. A communication problem alone, with no formal complaint, usually is not enough on its own to trigger the formal process; consider template 04, the demand letter, or template 06, the discharge letter, if you cannot get a response.
 
 ---
 
 **Requesting:** Assistance in obtaining a response from my lawyer
+
+**Submitted to:** [NAME OF YOUR STATE'S DISCIPLINARY AUTHORITY AND ITS NON-DISCIPLINARY ASSISTANCE OR INTAKE TRACK, FROM SECTION 4 OF YOUR STATE PACK]
 
 **My information:** [NAME, ADDRESS, PHONE, EMAIL]
 
@@ -28,4 +32,4 @@ Submit through the Board's site at <https://www.tbpr.org>. On the form, select t
 1. Copy of my letter dated [DATE] and proof of delivery.
 2. Copy of my follow-up dated [DATE].
 
-**Note:** I understand this is a request for assistance and not a formal complaint, and that the Consumer Assistance Program does not provide legal advice.
+**Note:** I understand this is a request for assistance and not a formal complaint, and that this track does not provide legal advice.

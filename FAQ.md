@@ -1,5 +1,7 @@
 # FAQ
 
+Common questions about what this kit is, what it covers, and what it will not do.
+
 **Is this legal advice?**
 
 No. It is a way to organize your own facts and draft your own letters. It does not create an attorney-client relationship with anyone.
@@ -18,11 +20,15 @@ No. But there are situations where you should get one anyway: money missing from
 
 **Why does it not quote the rules?**
 
-Because the official publication point for the Tennessee Rules of Professional Conduct did not return readable rule text to automated retrieval when this kit was built, so the rule text here comes from a secondary comparison document. [references/VERIFICATION.md](references/VERIFICATION.md) explains exactly what that means. Sending a quotation you have not verified hands the other side an easy dismissal, so the templates reference rules by number instead.
+Because rule text is easy to misquote and hard to verify from a chat session. Your state pack, `references/state_XX.md`, names the official publication point for your state's rules of professional conduct in section 1, with a link. [references/VERIFICATION.md](references/VERIFICATION.md) explains the citation standard behind every claim in this kit. Sending a quotation you have not verified hands the other side an easy dismissal, so the templates reference rules by number instead.
 
-**Does it work outside Tennessee?**
+**Does it cover my state?**
 
-The approach does. The specifics do not. The forums, the General Sessions limits, the Consumer Assistance Program, and the client protection fund are all Tennessee.
+Yes. `references/national_baseline.md` covers the model rules every state built from, and `references/state_XX.md` covers your own state's version, with the same eight sections in every pack. Start by finding your two-letter state code.
+
+**What if my state's pack does not answer my question?**
+
+Every pack ships with a verification file, `references/verification_XX.md`, and that file ends with a gap list: what was looked for, and where the search stopped. If your question falls in that gap, the pack is telling you honestly that it does not know, not that the answer does not exist. Confirm directly with the source named in that section rather than assume an answer.
 
 **Which model should I use?**
 

@@ -37,7 +37,14 @@ What is built, what is not, and what has to be true before anything ships.
 4. Examples use invented facts only.
 5. If `scripts/` changes, the test suite passes first.
 
+## 2026-08-21: generalized to every state
+
+Everything above describes the first release, which was Tennessee-only, and it is accurate
+history for that release. The kit now ships a national baseline built on ABA Model Rule 1.5
+plus one pack per state and the District of Columbia, each in the same eight sections, with
+the routing rules, decision tree and templates branching on the reader's state. The second
+state pack item below is closed by that work.
+
 ## Order for the next release
 
 1. Add per-county fee dispute program detail with sources.
-2. Add a second state pack, which will prove whether the structure actually generalizes.

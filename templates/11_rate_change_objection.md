@@ -6,7 +6,7 @@ Use when the rate billed does not match the rate you were told, or when it chang
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ Use when the rate billed does not match the rate you were told, or when it chang
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -32,7 +32,7 @@ I am requesting:
 2. A copy of any written notice of the change that you believe was provided to me.
 3. A corrected invoice applying the agreed rate, or an explanation of why the agreed rate does not apply.
 
-RPC 1.5(b) addresses communicating the basis or rate of a fee to a client and communicating any change in that basis or rate.
+Rule 1.5(b) of the rules of professional conduct in this state addresses communicating the basis or rate of a fee to a client and communicating any change in that basis or rate.
 
 Please respond by [DATE].
 

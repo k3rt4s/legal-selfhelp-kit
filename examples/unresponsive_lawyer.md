@@ -1,5 +1,10 @@
 # Example: an unresponsive lawyer
 
+**Tennessee example.** This walkthrough assumes a Tennessee client and routes through
+Tennessee's Consumer Assistance Program. If you are in another state, read this for the shape
+of the session, then check section 4 of `references/state_XX.md` for whether your own state
+has an equivalent informal intake track.
+
 All facts invented.
 
 ## The problem
@@ -12,7 +17,7 @@ The model builds the attempt log and finds the weakness immediately: six calls w
 
 ## Stage 3, classify
 
-Bucket `communication`. RPC touchpoint 1.4, keeping a client reasonably informed and complying promptly with reasonable requests for information.
+Bucket `communication`. Rule touchpoint 1.4, keeping a client reasonably informed and complying promptly with reasonable requests for information.
 
 There is no money issue. The client has paid nothing beyond the initial retainer and does not dispute it.
 

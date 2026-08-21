@@ -6,7 +6,7 @@ At the conclusion of a contingent fee matter, the lawyer must provide a written 
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ At the conclusion of a contingent fee matter, the lawyer must provide a written 
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -30,7 +30,7 @@ I have not received a written closing statement. I am requesting:
 2. If there was a recovery, the amount, the fee taken, the expenses deducted, and the remittance to me, with the method of calculation shown.
 3. Documentation for each expense deducted.
 
-RPC 1.5(c) addresses the written statement a lawyer must provide to a client at the conclusion of a contingent fee matter.
+Rule 1.5(c) of the rules of professional conduct in this state addresses the written statement a lawyer must provide to a client at the conclusion of a contingent fee matter.
 
 Please send this by [DATE].
 

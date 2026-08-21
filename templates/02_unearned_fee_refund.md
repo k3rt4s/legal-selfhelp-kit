@@ -6,7 +6,7 @@ Use when money was paid in advance and the work was not performed.
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ Use when money was paid in advance and the work was not performed.
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -31,7 +31,7 @@ I am requesting:
 1. An accounting of the advance, showing what was earned and how.
 2. A refund of [AMOUNT, OR "any portion not earned"].
 
-RPC 1.16(d) addresses a lawyer's obligations on termination of a representation, including refunding an advance payment of fee or expense that has not been earned or incurred.
+Rule 1.16(d) of the rules of professional conduct in this state addresses a lawyer's obligations on termination of a representation, including refunding an advance payment of fee or expense that has not been earned or incurred.
 
 Please respond by [DATE]. If you believe the full advance was earned, please send the accounting that shows it, and I will review it.
 

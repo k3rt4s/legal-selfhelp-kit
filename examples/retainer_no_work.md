@@ -1,5 +1,10 @@
 # Example: a retainer with no work performed
 
+**Tennessee example.** This walkthrough assumes a Tennessee client and routes through
+Tennessee's Board of Professional Responsibility and Client Protection Fund. If you are in
+another state, read this for the shape of the session, then check `references/state_XX.md`
+for your own state's bar complaint process and client protection fund.
+
 All facts invented.
 
 ## The problem
@@ -27,7 +32,7 @@ Sends `templates/02_unearned_fee_refund.md` requesting an accounting and a refun
 
 This is the branch where the routing matters. The model does not send the client to a fee dispute committee, because there is no fee dispute. There is an advance and no work.
 
-It routes to a Board complaint using `templates/05_board_complaint_narrative.md`, and points to the Client Protection Fund section in `references/tennessee-remedies.md`, noting that the Fund covers unearned fees where there was a pattern of behavior evidencing no good faith intention to perform, that it does not cover fee disputes, and that awards are discretionary and paid at a percentage.
+It routes to a Board complaint using `templates/05_board_complaint_narrative.md`, and points to section 5 of `references/state_tn.md`, the Tennessee pack's Client Protection Fund section, noting that the Fund covers unearned fees where there was a pattern of behavior evidencing no good faith intention to perform, that it does not cover fee disputes, and that awards are discretionary and paid at a percentage.
 
 It also tells the client plainly that $6,000 with an unresponsive lawyer is worth a consultation with a real lawyer.
 

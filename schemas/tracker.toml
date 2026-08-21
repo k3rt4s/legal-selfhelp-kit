@@ -28,7 +28,7 @@ type = "string"
 required = false
 
 [[column]]
-name = "rpc_touchpoint"
+name = "rule_touchpoint"
 type = "string"
 required = false
 
