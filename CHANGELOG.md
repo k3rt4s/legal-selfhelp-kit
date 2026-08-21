@@ -2,6 +2,23 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## Unreleased (0.2.0, all fifty states)
+
+Not shipped yet. This section describes what is on the `feature/all-fifty-states`
+branch.
+
+- Generalized the kit from Tennessee to every state. It now ships a national baseline built on the ABA Model Rules plus one pack per state, each following the same eight sections, with its own verification file.
+- Added `references/national_baseline.md` and `references/state_template.md`, and turned `references/VERIFICATION.md` into the citation standard plus an index of every per-state verification file.
+- Rewrote the forum selection rule, the decision tree and the templates to branch on the reader's state rather than assuming Tennessee's forums.
+- Folded the three Tennessee reference files into `references/state_tn.md` and removed them. Tennessee readers lose nothing; the same claims are in the pack, with the same sourcing.
+
+### Corrections to claims that were public in 0.1.0
+
+- Removed the claim that a consumer assistance program will follow up with a lawyer who has not responded to correspondence within ten days. That was a Tennessee program with a Tennessee deadline, stated in `rules/07_communication.md` and `rules/08_file_and_property.md` as though it applied to any reader. Most states run no such program, and those that do do not all use ten days. The rules now point at whatever intake track section 4 of the reader's own state pack names, and say not to promise a response time the pack does not state.
+- Corrected `rules/04_fee_agreement.md`, which asserted a tenth reasonableness factor under Rule 1.5(a). Tennessee has ten factors. The ABA model has eight, and most states follow the model. The rule now tells the reader to check section 2 of their own state pack before naming a factor by number.
+- Replaced the abbreviation RPC throughout the templates and rules. RPC is Tennessee's own name for its rules. Templates now refer to a rule by number and say it is a rule of professional conduct in the reader's state.
+- Renamed the tracker's `rpc_touchpoint` column to `rule_touchpoint`, in the column dictionary, both TOML schemas, the validator, the CSV template and the tests.
+
 ## 2026-08-10 (reference layer accuracy follow-up)
 
 - Confirmed the Tennessee Rules of Professional Conduct content against a current, dated source: the Tennessee Bar Association's 2023 Edition, amendments through November 30, 2022, replacing the redline document the rule text was originally checked against.

@@ -1,6 +1,6 @@
 {
   "project": "legal-selfhelp-kit",
-  "scope": "Tennessee",
+  "scope": "All fifty states",
   "license": "MIT",
   "releases": [
     {
@@ -8,6 +8,12 @@
       "date": "2026-08-10",
       "summary": "First release. LLM layer, fifteen rules, eleven templates, Tennessee reference layer with a verification file, reader docs, tracker, schemas, examples, validator and tests.",
       "state": "shipped"
+    },
+    {
+      "version": "0.2.0",
+      "date": null,
+      "summary": "All fifty states. A national baseline on the ABA Model Rules plus one pack per state and the District of Columbia, each in the same eight sections with its own verification file, and routing rules, decision tree and templates that branch on the reader's state.",
+      "state": "pending"
     }
   ],
   "next": [
@@ -15,11 +21,6 @@
       "id": "R-01",
       "title": "Add per-county fee dispute program detail",
       "why": "Programs are local, vary, and change"
-    },
-    {
-      "id": "R-02",
-      "title": "Add a second state pack",
-      "why": "Proves whether the structure generalizes beyond Tennessee"
     }
   ]
 }
