@@ -2,10 +2,9 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
-## Unreleased (0.2.0, all fifty states and the District of Columbia)
+## 2026-08-21 (0.2.0, all fifty states and the District of Columbia)
 
-Not shipped yet. This section describes what is on the `feature/all-fifty-states`
-branch.
+Shipped. Merged to main on 2026-08-21.
 
 - Generalized the kit from Tennessee to every state. It now ships a national baseline built on the ABA Model Rules plus one pack per state, each following the same eight sections, with its own verification file.
 - Added `references/national_baseline.md` and `references/state_template.md`, and turned `references/VERIFICATION.md` into the citation standard plus an index of every per-state verification file.

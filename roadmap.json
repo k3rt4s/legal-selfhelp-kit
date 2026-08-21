@@ -11,9 +11,9 @@
     },
     {
       "version": "0.2.0",
-      "date": null,
+      "date": "2026-08-21",
       "summary": "All fifty states. A national baseline on the ABA Model Rules plus one pack per state and the District of Columbia, each in the same eight sections with its own verification file, and routing rules, decision tree and templates that branch on the reader's state.",
-      "state": "pending"
+      "state": "shipped"
     }
   ],
   "next": [
