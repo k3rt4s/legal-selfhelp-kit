@@ -52,6 +52,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
 | Alabama | [state_al.md](state_al.md) | [verification_al.md](verification_al.md) |
 | Arizona | [state_az.md](state_az.md) | [verification_az.md](verification_az.md) |
+| Arkansas | [state_ar.md](state_ar.md) | [verification_ar.md](verification_ar.md) |
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
 | Colorado | [state_co.md](state_co.md) | [verification_co.md](verification_co.md) |
 | Connecticut | [state_ct.md](state_ct.md) | [verification_ct.md](verification_ct.md) |
@@ -60,14 +61,18 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Illinois | [state_il.md](state_il.md) | [verification_il.md](verification_il.md) |
 | Indiana | [state_in.md](state_in.md) | [verification_in.md](verification_in.md) |
 | Iowa | [state_ia.md](state_ia.md) | [verification_ia.md](verification_ia.md) |
+| Kansas | [state_ks.md](state_ks.md) | [verification_ks.md](verification_ks.md) |
 | Kentucky | [state_ky.md](state_ky.md) | [verification_ky.md](verification_ky.md) |
 | Louisiana | [state_la.md](state_la.md) | [verification_la.md](verification_la.md) |
 | Maryland | [state_md.md](state_md.md) | [verification_md.md](verification_md.md) |
 | Massachusetts | [state_ma.md](state_ma.md) | [verification_ma.md](verification_ma.md) |
 | Michigan | [state_mi.md](state_mi.md) | [verification_mi.md](verification_mi.md) |
 | Minnesota | [state_mn.md](state_mn.md) | [verification_mn.md](verification_mn.md) |
+| Mississippi | [state_ms.md](state_ms.md) | [verification_ms.md](verification_ms.md) |
 | Missouri | [state_mo.md](state_mo.md) | [verification_mo.md](verification_mo.md) |
+| Nevada | [state_nv.md](state_nv.md) | [verification_nv.md](verification_nv.md) |
 | New Jersey | [state_nj.md](state_nj.md) | [verification_nj.md](verification_nj.md) |
+| New Mexico | [state_nm.md](state_nm.md) | [verification_nm.md](verification_nm.md) |
 | New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
 | North Carolina | [state_nc.md](state_nc.md) | [verification_nc.md](verification_nc.md) |
 | Ohio | [state_oh.md](state_oh.md) | [verification_oh.md](verification_oh.md) |
@@ -82,7 +87,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Washington | [state_wa.md](state_wa.md) | [verification_wa.md](verification_wa.md) |
 | Wisconsin | [state_wi.md](state_wi.md) | [verification_wi.md](verification_wi.md) |
 
-States covered: 31 of 50.
+States covered: 36 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
