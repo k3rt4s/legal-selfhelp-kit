@@ -88,6 +88,35 @@ Retrieval date for everything below is 2026-08-20.
    statewide District Fee Arbitration Committees was not researched beyond the official fee
    arbitration page, which describes one statewide program rather than local programs, unlike
    Tennessee's local-committee structure.
+10. Rule 1:21-7(c)'s dollar figures could not be confirmed against an official New Jersey
+   judiciary source this session, so the flagged row above stands unchanged. Attempts, all on
+   2026-08-21: (a) njcourts.gov/attorneys/rules-of-court, HTTP 200, text/html, 22940 bytes; the
+   page is a Drupal shell that loads a custom block ("njcourts_rules_of_court") whose content is
+   fetched client-side, and the page also loads an Incapsula bot-check resource, so the rule text
+   was never in the fetched body to grep. (b) njcourts.gov/self-help/rules-and-references, HTTP
+   200, text/html, 23706 bytes, same client-side-render limitation, no PDF link to the full rule
+   text found in its href list. (c) The Supreme Court's April 26, 2024 order,
+   njcourts.gov/sites/default/files/notices/2024/04/n240429a.pdf, HTTP 200, application/pdf,
+   340282 bytes; extracted text confirms the rule number and the writing/closing-statement
+   requirements but contains no dollar figures, matching the flagged row's own note. (d) The 2024
+   Supreme Court Civil Practice Committee report,
+   njcourts.gov/sites/default/files/sccr/reports/civil-comm-rpt24.pdf, HTTP 200, application/pdf,
+   881227 bytes; discusses a private attorney's proposed amendment to Rule 1:21-7(c)(1) and (i)
+   for Multicounty Litigation, which the Committee rejected, but does not reproduce paragraph
+   (c)'s sliding-scale text. (e) The 2024 Omnibus Rule Amendment Order,
+   njcourts.gov/sites/default/files/notices/2024/07/n240719c.pdf, HTTP 200, application/pdf,
+   3190712 bytes, and the 2025 Omnibus Rule Amendment Order,
+   njcourts.gov/sites/default/files/notices/2025/08/n250808a.pdf, HTTP 200, application/pdf,
+   8222088 bytes; neither mentions Rule 1:21-7 anywhere in the extracted text, consistent with the
+   rule not being amended in either cycle. (f) The Wayback Machine has no successful (HTTP 200)
+   capture of njcourts.gov's old static rule pages at the r1-21.htm or r1-21.html paths; all
+   captures on record are 404s, so there is no pre-redesign static snapshot to fall back on. No
+   commercial mirror, law firm page, or search-result summary was used as a substitute. The next
+   session should try calling njcourts.gov's own site search or its rule widget's backing API
+   directly (not by circumventing Incapsula, but by finding whether the njcourts.gov domain
+   itself, rather than a third-party mirror, ever serves the rendered rule text server-side), or
+   try a New Jersey State Law Library or Legislature-hosted copy of the Rules Governing the
+   Courts, which was not tried this session.
 
 ## How to extend this file
 
