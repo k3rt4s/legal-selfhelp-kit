@@ -4,10 +4,11 @@ Every file, and when to use it.
 
 ## Read first
 
-| File                    | When                                              |
-| ----------------------- | ------------------------------------------------- |
-| `docs/START_HERE.md`    | Before anything else                              |
-| `docs/DECISION_TREE.md` | When you know your facts and need the right forum |
+| File                             | When                                              |
+| -------------------------------- | ------------------------------------------------- |
+| `docs/START_HERE.md`             | Before anything else                              |
+| `docs/DECISION_TREE.md`          | When you know your facts and need the right forum |
+| `docs/DECISION_TREE_ONE_PAGE.md` | To print one sheet and work away from a screen    |
 
 ## Load into the model
 
@@ -41,9 +42,10 @@ citation standard, and the required shape of a pack.
 
 ## Doing
 
-| File                        | When                              |
-| --------------------------- | --------------------------------- |
-| `templates/`                | Drafting correspondence           |
-| `tracker/`                  | After every action                |
-| `docs/RECORDS_RETENTION.md` | From day one                      |
-| `examples/`                 | To see a full run before your own |
+| File                        | When                                   |
+| --------------------------- | -------------------------------------- |
+| `templates/`                | Drafting correspondence                |
+| `tracker/`                  | After every action                     |
+| `docs/RECORDS_RETENTION.md` | From day one                           |
+| `docs/PROVABLE_DELIVERY.md` | Before you choose how to send a letter |
+| `examples/`                 | To see a full run before your own      |

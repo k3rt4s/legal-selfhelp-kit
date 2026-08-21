@@ -14,3 +14,4 @@ universal. Read `references/state_XX.md` for your own state before you copy a nu
 - [retainer_no_work.md](retainer_no_work.md): Tennessee. An advance paid, nothing performed, routed to the Board.
 - [me_fee_arbitration.md](me_fee_arbitration.md): Maine. A billing dispute where the client can require the lawyer into fee arbitration, so arbitration is the first move instead of a demand letter.
 - [al_no_arbitration.md](al_no_arbitration.md): Alabama. A billing dispute where no fee arbitration program exists at all, so a demand letter and small claims are the only real path.
+- [hourly_retainer_not_a_cap.md](hourly_retainer_not_a_cap.md): Tennessee. A client reads a retainer as a price cap when the written agreement says it is a deposit against hourly fees. The record does not support the complaint.

@@ -1,7 +1,8 @@
 # The national baseline: ABA Model Rules of Professional Conduct
 
 Every state pack in this kit sits on top of this file. Read this first, then read your
-state's pack. Retrieval date for the sourcing in this file is 2026-08-20.
+state's pack. Retrieval date for the sourcing in this file is 2026-08-20, except the
+contingent-fee dispute-practice guidance in section 4, added 2026-08-21.
 
 Read [verification_national.md](verification_national.md) before quoting any of this in a
 letter. Confirm the current text of any rule you rely on against your own state's official
@@ -108,6 +109,23 @@ Contingent fees are prohibited outright in two situations under the Model Rule:
 Some states widen or narrow these two categories, and some states add dollar caps or sliding
 scales for contingent fees in particular kinds of cases. That belongs in your state pack, not
 here.
+
+The reasonableness requirement in Model Rule 1.5(a) does not exempt a contingent fee. The
+eight factors listed in section 2 above apply to a contingent fee the same as they apply to
+any other, and the last of those eight factors names contingent fees directly: whether the
+fee is fixed or contingent is itself one of the things weighed in judging whether it is
+reasonable. Agreeing to a percentage up front does not put that percentage beyond challenge
+later.
+
+In practice, a contingent fee dispute usually does not look like an hourly one. There are no
+time entries to argue over, so the fight is rarely about hours worked. It is almost always
+about the arithmetic on the settlement or closing statement: which expenses were deducted,
+whether they were deducted before or after the fee was taken out, whether every deduction is
+documented, and whether the percentage applied matches what the agreement actually specifies
+for that stage of the matter. Ask for the itemized calculation and documentation for each
+expense listed, not just the total remitted to you. This kit has a template for the closing
+statement itself, `templates/10_contingent_closing_statement_request.md`, for when you never
+received one.
 
 ## 5. Model Rule 1.4: communication duties
 

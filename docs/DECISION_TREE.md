@@ -1,5 +1,8 @@
 # Decision tree
 
+Printing one sheet to work from away from a screen? Use
+`DECISION_TREE_ONE_PAGE.md` instead; this file is the authority it condenses.
+
 Answer in order. Stop when you reach an action.
 
 ## 1. What state is the lawyer licensed and practicing in?

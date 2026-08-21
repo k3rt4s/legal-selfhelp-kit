@@ -4,6 +4,8 @@ Ready-to-adapt letters and submissions, with every legal reference given by rule
 
 None of these quote rule text. They reference rules by number and describe what the rule requires, per `references/VERIFICATION.md`.
 
+Before you send anything, see `docs/PROVABLE_DELIVERY.md` for how to choose a delivery method you can later prove.
+
 ## Contents
 
 - [01_itemized_bill_request.md](01_itemized_bill_request.md): The first letter in almost every fee matter.
