@@ -36,10 +36,13 @@ communication, RPC 1.5 covers fees, RPC 1.15 covers safekeeping property, and RP
 declining or terminating representation. If you already read the national baseline, the rule
 numbers you saw there are the same numbers New Jersey uses.
 
-The Judiciary's own rule-publication page renders its content through a search tool rather than
-static rule text, so the text used to write this section came from a commercial compilation
-instead. See [verification_nj.md](verification_nj.md) for that caveat and the date the
-compilation's own internal comments were current through.
+The Judiciary's own rule-publication page, <https://www.njcourts.gov/attorneys/rules-of-court>,
+renders its content through a search tool rather than static rule text, so the text used to
+write this section came from a commercial compilation instead, Gann Law Books' compiled Rules of
+Professional Conduct at
+<https://www.gannlaw.com/OnlineApp/dtSearch-Data/TextFiles/CourtRules/P1-02.pdf>. See
+[verification_nj.md](verification_nj.md) for that caveat and the date the compilation's own
+internal comments were current through.
 
 ## 2. Deviations from the model reasonableness factors
 
@@ -57,7 +60,7 @@ that alone is worth raising.
 New Jersey also caps contingent fees in most tort cases on a sliding scale, under Rule
 1:21-7(c). The cap does not apply to statutory fee-shifting claims like employment
 discrimination, and it does not apply where the client is a subrogee. Where it applies, the
-scale runs: 33⅓% of the first $750,000 recovered, 30% of the next $750,000, 25% of the next
+scale runs: 33-1/3% of the first $750,000 recovered, 30% of the next $750,000, 25% of the next
 $750,000, 20% of the next $750,000, and anything above that requires the lawyer to apply to the
 Assignment Judge for approval of a higher percentage. A lawyer can always charge less than the
 cap allows. The cap is a ceiling, not a target, and the fee still has to be reasonable under RPC
@@ -72,11 +75,12 @@ This is the most useful forum in New Jersey for a straightforward fee dispute, a
 differently from a state with no such program.
 
 New Jersey runs one statewide Fee Arbitration Program, made up of 17 District Fee Arbitration
-Committees, administered by the Office of Attorney Ethics. This is not a court case. The client
-chooses whether to invoke it. The lawyer does not get that choice: once a district fee secretary
-accepts a properly filed request, the lawyer is required to respond, and a lawyer who does not
-respond is simply barred from participating rather than stopping the hearing. It goes forward
-and decides the fee without the lawyer's cooperation.
+Committees, administered by the Office of Attorney Ethics. See NJ Courts, "File a Fee Dispute,"
+<https://www.njcourts.gov/attorneys/attorney-ethics-and-discipline/file-fee-dispute>. This is
+not a court case. The client chooses whether to invoke it. The lawyer does not get that choice:
+once a district fee secretary accepts a properly filed request, the lawyer is required to
+respond, and a lawyer who does not respond is simply barred from participating rather than
+stopping the hearing. It goes forward and decides the fee without the lawyer's cooperation.
 
 Before a lawyer can sue a client to collect a disputed fee, the lawyer must first give the
 client written notice of the right to seek fee arbitration, including the name, address, and
@@ -122,8 +126,10 @@ agreement has an arbitration clause, read it before assuming this state program 
 ## 4. Bar complaint process
 
 New Jersey calls its disciplinary intake process an ethics grievance. It is filed with the
-Office of Attorney Ethics, either online through the JEDS system or by mail. Eighteen District
-Ethics Committees assist with review across the state.
+Office of Attorney Ethics, either online through the JEDS system or by mail. See NJ Courts,
+"File an Ethics Grievance,"
+<https://www.njcourts.gov/attorneys/attorney-ethics-and-discipline/file-ethics-grievance>.
+Eighteen District Ethics Committees assist with review across the state.
 
 Initial review takes up to 45 days and ends one of two ways: a declination letter, or a docket
 number that opens an investigation. A grievance that is really a fee dispute will not be
@@ -144,6 +150,8 @@ See the gap list in [verification_nj.md](verification_nj.md).
 
 The New Jersey Lawyers' Fund for Client Protection reimburses clients for losses caused by a
 lawyer's dishonest conduct. It is not a malpractice insurer and it is not a fee-dispute forum.
+See the Fund's official publication CN 12229,
+<https://www.njcourts.gov/sites/default/files/forms/12229_njlfcp.pdf>.
 
 To recover, you generally have to show the lawyer received your money or property, improperly
 took or used it, and caused you a loss through dishonest conduct. The Fund explicitly excludes

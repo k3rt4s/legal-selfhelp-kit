@@ -97,8 +97,11 @@ Washington does not have a publicly documented, statewide fee arbitration proces
 currently use with confidence. What is confirmed and what is not needs to be kept separate.
 
 Confirmed: the WSBA Bylaws list a "Fee Arbitration Program" among the alternative dispute
-resolution programs the Bar may administer, and the WSBA's own 2024 submission on the total
-cost of practicing law lists "Fee Arbitration" as a service funded out of member license fees.
+resolution programs the Bar may administer, at
+<https://www.wsba.org/docs/default-source/about-wsba/governance/proposed-bylaw-amendments/current-wsba-bylaws0cc870f2f6d9654cb471ff1f00003f4f.pdf>,
+and the WSBA's own 2024 submission on the total cost of practicing law lists "Fee Arbitration"
+as a service funded out of member license fees, at
+<https://www.wsba.org/docs/default-source/about-wsba/governance/bog-initiatives/total-cost-to-practice-law-aba-2024.pdf>.
 Both confirm the program exists in some form.
 
 Not confirmed, despite a thorough search: any live WSBA page describing how a client applies,
