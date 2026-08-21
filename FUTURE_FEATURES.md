@@ -8,9 +8,8 @@ Backlog of work not yet scheduled. Nothing here is promised.
 
 ## Coverage
 
-1. A second state pack, to test whether the structure generalizes.
-2. Guidance for disputes with a lawyer over a contingent fee specifically, which behaves differently from hourly and flat fee matters.
-3. A path for clients whose lawyer has died, been suspended, or left practice.
+1. Guidance for disputes with a lawyer over a contingent fee specifically, which behaves differently from hourly and flat fee matters.
+2. A path for clients whose lawyer has died, been suspended, or left practice.
 
 ## Product
 
