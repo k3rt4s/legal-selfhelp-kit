@@ -212,17 +212,21 @@ all; that kind of claim belongs in a malpractice case, which this kit does not c
 
 The committee is directed by rule to set, by its own separate rule, the maximum amount
 any one claimant may recover and may also set an aggregate cap per dishonest attorney.
-The Supreme Court Rule itself does not state that dollar figure, and the committee's own
-separate rule setting it was not found published online. The best figure this kit could
-find is a per-claimant maximum of $150,000, raised from a prior maximum of $75,000 in
-August 2009. Three separate State Bar of Wisconsin sources agree on that number and none
-reports a later change: the 2009 State Bar article announcing the increase, the Fund's own
-official annual report for fiscal year 2017-18 showing an actual claim paid at that
-maximum, and a State Bar consumer FAQ page that is live today. That is not the same as
-reading the current rule itself, so this figure is not fully confirmed. No aggregate
-per-attorney cap figure could be located at all; see the gap list in the verification
-file. Confirm the current maximum directly with the Fund before relying on any number
-here.
+Supreme Court Rule chapter 12 itself, read directly from the Wisconsin Courts' own site,
+does not state that dollar figure; it only authorizes the committee to fix it by a
+separate rule, and that separate committee rule was not found published online anywhere
+on the courts' site or the State Bar's site. The best figure this kit could find is a
+per-claimant maximum of $150,000, raised from a prior maximum of $75,000 in August 2009.
+Four checks of State Bar of Wisconsin sources agree on that number and none reports a
+later change: the 2009 State Bar article announcing the increase, the Fund's own official
+annual report for fiscal year 2017-18 showing an actual claim paid at that maximum, and
+the State Bar's consumer FAQ page, fetched live on two separate days including as
+recently as this pack's own retrieval date. That is not the same as reading the
+committee's own numbered rule, so this figure is not fully confirmed, but it is the
+Fund's current public statement of its own cap and it has not changed across seventeen
+years of checking. No aggregate per-attorney cap figure could be located at all; see the
+gap list in the verification file. Confirm the current maximum directly with the Fund
+before relying on any number here.
 
 No filing deadline specific to the Fund itself was found beyond the general rule that a loss
 already barred by an applicable statute of limitations is not reimbursable, and a rule that
