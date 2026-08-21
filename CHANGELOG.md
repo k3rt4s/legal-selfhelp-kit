@@ -13,6 +13,10 @@ branch.
 - Folded the three Tennessee reference files into `references/state_tn.md` and removed them. Tennessee readers lose nothing; the same claims are in the pack, with the same sourcing.
 - Added a District of Columbia pack. DC is not a state, but it has its own bar, its own disciplinary system, its own client protection fund, and a fee arbitration rule that binds the lawyer once a qualifying client files, so it needed a pack of its own rather than being read off a neighbor.
 - Added two worked examples for the routing branches Tennessee does not show: Maine, where the client can require the lawyer into fee arbitration, and Alabama, where no fee arbitration program exists at all and a demand letter and small claims are the only path.
+- Added the informal conciliation step to the Virginia pack. The Virginia State Bar fee dispute program opens with a discretionary conciliation attempt by the committee chair before mediation or arbitration. It is described only in the program manual, not on the program page, which is why it was missed.
+- Repaired dead source links in eight state packs (Montana, Indiana, North Carolina, South Dakota, Arkansas, New Mexico, Utah, Michigan). Every claim was re-read at its current official location. No dollar figure, deadline, or program name changed. South Dakota moved off a Wayback snapshot onto a live official source, and Indiana now states plainly that its fee dispute page is gone rather than suggesting a reader might reach it.
+- Changed the Oregon client protection fund contact from a named bar staff member, with a direct email and phone, to the bar main line with the fund named. A public kit should route a reader to a program, not to one person, and a named contact goes stale when that person changes roles.
+- Corrected the workflow stage count in `llm/WORKFLOW.md`, which said seven stages while defining eight. Adding the state-establishing Stage 0 created the off-by-one.
 
 ### Corrections to claims that were public in 0.1.0
 
