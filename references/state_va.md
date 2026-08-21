@@ -103,8 +103,21 @@ important fact about it: if your lawyer will not agree to participate, this prog
 available to you, and the realistic path is a written demand followed by General District Court
 (Section 6).
 
-The program offers mediation, binding arbitration, or mediation followed by arbitration if
-mediation does not resolve the dispute. A party may not move from arbitration back to mediation.
+Before mediation or arbitration, the manual gives the CCRFD chair a first, informal option called
+Conciliation, described as the program's "First Resolution Option." The chair, acting as
+conciliator, talks with both sides and carries proposals back and forth to see whether the dispute
+settles without going to mediation or arbitration. Conciliation is not automatic and not
+mandatory: the chair conciliates only where the chair decides it looks workable, or where both
+parties jointly ask for it. If it produces an agreement, the file closes. If it does not, the chair
+may move the case into mediation or arbitration as the parties agreed on the Agreement to Participate
+form. The manual states no deadline for conciliation. Confirmed against the *Fee Dispute
+Resolution Program Manual*, 2024 edition, at
+<https://www.vsb.org/common/Uploaded%20files/docs/pub-rfd-rules.pdf>; the program's public web
+page does not mention conciliation at all, so rely on the manual for this step.
+
+Beyond conciliation, the program offers mediation, binding arbitration, or mediation followed by
+arbitration if mediation does not resolve the dispute. A party may not move from arbitration back
+to mediation.
 A mediated agreement, once signed, is enforceable as any other written contract. An arbitration
 award is binding and is enforceable by the circuit court; it cannot be revised or revoked except
 on grounds that would apply to any arbitration award. No dollar ceiling limits which disputes the
