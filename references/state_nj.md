@@ -64,7 +64,7 @@ scale runs: 33-1/3% of the first $750,000 recovered, 30% of the next $750,000, 2
 $750,000, 20% of the next $750,000, and anything above that requires the lawyer to apply to the
 Assignment Judge for approval of a higher percentage. A lawyer can always charge less than the
 cap allows. The cap is a ceiling, not a target, and the fee still has to be reasonable under RPC
-1.5(a) even inside it.
+1.5(a) even inside it. One caution on these figures specifically: the only source this kit could reach that actually states them is an archived 2015 capture of the Judiciary's own site. The current njcourts.gov does not serve the rule text to automated retrieval, so the kit has confirmed the 2015 wording and not today's. Confirm the percentages with the court or a lawyer before you rely on them. See verification_nj.md.
 
 No New Jersey rule against nonrefundable fees, beyond the general reasonableness requirement and
 the RPC 1.16(d) refund duty covered in Section 1, was found in the sourcing for this pack.
