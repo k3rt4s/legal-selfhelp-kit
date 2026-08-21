@@ -13,7 +13,7 @@ Forbidden in any draft:
 
 1. Rule quotations. Reference the rule number and what it requires.
 2. Accusations of fraud, theft, or dishonesty.
-3. Threats to file a complaint as leverage. Stating an intended next step factually is fine. "If I do not hear from you by the 24th, I will contact the Consumer Assistance Program" is a fact. "I will destroy your reputation" is not a letter.
+3. Threats to file a complaint as leverage. Stating an intended next step factually is fine. "If I do not hear from you by the 24th, I will contact the disciplinary authority" is a fact. "I will destroy your reputation" is not a letter.
 4. Adjectives about the lawyer's character.
 5. Anything the client has not told you is true.
 6. Em dashes.

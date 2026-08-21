@@ -6,7 +6,7 @@ Do not send this during an active matter without knowing what is pending and, id
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ Do not send this during an active matter without knowing what is pending and, id
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -33,7 +33,7 @@ Please:
 5. [If applicable] Coordinate with my successor counsel, [NAME, FIRM, CONTACT].
 6. [If applicable] Tell me in writing what deadlines are pending in this matter in the next ninety days.
 
-RPC 1.16(d) addresses a lawyer's obligations on termination, including protecting the client's interests, surrendering papers and property, and refunding unearned advance payments.
+Rule 1.16(d) of the rules of professional conduct in this state addresses a lawyer's obligations on termination, including protecting the client's interests, surrendering papers and property, and refunding unearned advance payments.
 
 Thank you for your work on this matter.
 

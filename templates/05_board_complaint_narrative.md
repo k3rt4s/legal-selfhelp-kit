@@ -1,6 +1,6 @@
-# Board complaint narrative
+# Disciplinary complaint narrative
 
-This is the narrative you paste into the Board's form. Before writing it, decide whether you are filing a formal complaint alleging a serious ethical violation, or an informal request for assistance. A billing disagreement generally belongs in the second category.
+This is the narrative you paste into the form your state's lawyer disciplinary authority uses. Section 4 of your state pack (`references/state_XX.md`) names that authority and says which tracks it offers. Where the state runs both a formal complaint and a lower-key request for assistance, decide which you are filing before you write. A billing disagreement filed as a formal complaint usually ends in a closed file.
 
 ---
 
@@ -10,7 +10,7 @@ This is the narrative you paste into the Board's form. Before writing it, decide
 
 **Matter:** [ONE SENTENCE DESCRIPTION]
 
-**What I am asking the Board to review:**
+**What I am asking you to review:**
 
 [ONE OR TWO SENTENCES. Name the conduct, not the person's character.]
 
@@ -26,7 +26,7 @@ On [DATE] I wrote to [NAME] requesting [WHAT]. [Describe the response or the abs
 
 **Rules I believe are relevant:**
 
-[List rule numbers and what each requires in your own words. For example: RPC 1.4, which addresses keeping a client reasonably informed and responding to reasonable requests for information. Do not quote rule text.]
+[List rule numbers and what each requires in your own words. For example: Rule 1.4, which addresses keeping a client reasonably informed and responding to reasonable requests for information. Do not quote rule text.]
 
 **Documents attached:**
 
@@ -35,4 +35,4 @@ On [DATE] I wrote to [NAME] requesting [WHAT]. [Describe the response or the abs
 
 **What I am seeking:**
 
-[State it plainly. Understand that the Board addresses lawyer conduct and does not generally order refunds.]
+[State it plainly. Understand that a disciplinary authority addresses lawyer conduct and does not generally order refunds.]

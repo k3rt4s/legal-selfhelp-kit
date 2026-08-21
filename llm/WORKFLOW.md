@@ -1,8 +1,19 @@
 # Workflow
 
-Six stages. Most matters do not need all of them. Stop as soon as the problem is solved.
+Seven stages. Most matters do not need all of them. Stop as soon as the problem is solved.
 
-## Stage 0: Safety check
+## Stage 0: Establish the state
+
+Before anything else, find out what state the lawyer is licensed and practicing in. Every stage after this one depends on the answer.
+
+1. Ask for the two-letter state code if it is not already known.
+2. Load `references/national_baseline.md` for the model rule shape.
+3. Load `references/state_XX.md` for that state.
+4. Confirm the pack exists. If it does not, say so. `references/national_baseline.md` still describes the shape of what the lawyer owed, but no forum, dollar limit, deadline, or program name is available yet. Point to `references/VERIFICATION.md` for the current list of packs.
+
+Do not proceed to Stage 1 without a confirmed state.
+
+## Stage 1: Safety check
 
 Before anything else, check for the situations this kit should not handle alone:
 
@@ -13,7 +24,7 @@ Before anything else, check for the situations this kit should not handle alone:
 
 If any of these are true, the kit still helps you organize, but say so and get real advice before acting.
 
-## Stage 1: Assemble
+## Stage 2: Assemble
 
 Collect and upload:
 
@@ -23,9 +34,9 @@ Collect and upload:
 4. Emails and letters both directions.
 5. Anything filed in your case, if there is a case.
 
-Missing documents are normal. Note what is missing and ask for it, because RPC 1.4 requires the lawyer to comply promptly with reasonable requests for information.
+Missing documents are normal. Note what is missing and ask for it, because Rule 1.4, or the equivalent numbering in the state pack's section 1, requires the lawyer to comply promptly with reasonable requests for information.
 
-## Stage 2: Build the timeline and the ledger
+## Stage 3: Build the timeline and the ledger
 
 Two artifacts:
 
@@ -34,7 +45,7 @@ Two artifacts:
 
 Most fee disputes turn out to be a gap between what was communicated and what was billed. The ledger makes that gap visible or shows it is not there.
 
-## Stage 3: Classify the problem
+## Stage 4: Classify the problem
 
 Sort each issue into one of four buckets:
 
@@ -43,9 +54,9 @@ Sort each issue into one of four buckets:
 3. Property. Your file, your documents, your money held in trust.
 4. Conduct. Something that looks dishonest rather than merely disappointing.
 
-The bucket determines the forum. Buckets 1 through 3 usually resolve with a letter. Bucket 4 goes to the Board.
+The bucket determines the forum. Buckets 1 through 3 usually resolve with a letter. Bucket 4 goes to the state's lawyer disciplinary authority, named in section 4 of the state pack.
 
-## Stage 4: Ask directly, in writing
+## Stage 5: Ask directly, in writing
 
 Almost every path requires that you asked first, in writing, and gave the lawyer a reasonable chance to respond. Start with:
 
@@ -55,15 +66,17 @@ Almost every path requires that you asked first, in writing, and gave the lawyer
 
 Use the templates. Send it in a way that creates a record. Give a real deadline, usually ten to fourteen days.
 
-## Stage 5: Escalate to the right forum
+## Stage 6: Escalate to the right forum
 
-Only after Stage 4, and only to the forum that matches the bucket. `references/tennessee-remedies.md` has the decision list. In short:
+Only after Stage 5, and only to the forum that matches the bucket. Sections 3 through 6 of the state pack have the detail. In short:
 
-1. Money, and your county has a fee dispute committee: go there.
-2. Money, no local program: written demand, then General Sessions.
-3. Property or ignored correspondence: Consumer Assistance Program.
-4. Conduct: Board complaint, and consider the Client Protection Fund if money is gone.
+1. Conduct: file with the state's lawyer disciplinary authority, section 4 of the state pack, and consider the state's client protection fund, section 5, if money is gone.
+2. Property or ignored correspondence: use the state's non-disciplinary assistance or intake track if section 4 of the state pack names one. If it does not, go straight to the path the money or conduct answer points to.
+3. Money: read section 3 of the state pack before picking an order. It answers three different questions, and the state pack decides which of these three you are in, not this file:
+   - No attorney fee arbitration program exists in the state: send a written demand, then use the state's small claims equivalent, section 6, if the amount fits its limit.
+   - A program exists but the lawyer can decline it: ask anyway, since it is usually free and may resolve the dispute even though the lawyer is not required to participate. If the lawyer declines, fall back to the written demand and small claims path above.
+   - A program exists and the lawyer cannot decline it: this is the strongest first move where it applies. File before sending a demand letter or going to small claims. Use section 3 for who runs it, any dollar floor or ceiling, any filing deadline, and any fee.
 
-## Stage 6: Track and close
+## Stage 7: Track and close
 
 Update the tracker after every action. Record what you sent, when, how, and what came back. When the matter resolves, write down what happened and keep the file per `docs/RECORDS_RETENTION.md`.

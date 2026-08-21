@@ -4,7 +4,7 @@ Things that consistently make a client's position worse.
 
 ## Filing a formal ethics complaint over a billing disagreement
 
-The Board's formal complaint track is for serious ethical violations. A disagreement about whether nine hours was reasonable is a fee dispute. Filing it as an ethics complaint usually produces a closed file, and you have spent your credibility on the wrong forum. The Board's own intake asks you to choose, and choosing correctly matters.
+The disciplinary body's formal complaint track is for serious ethical violations. A disagreement about whether nine hours was reasonable is a fee dispute. Filing it as an ethics complaint usually produces a closed file, and you have spent your credibility on the wrong forum. Where the intake process asks you to choose a track, choosing correctly matters. Section 4 of your state pack describes your state's process.
 
 ## Writing an angry letter
 
@@ -28,12 +28,16 @@ Ending a representation during an active matter can leave you exposed on deadlin
 
 ## Treating discipline as a refund mechanism
 
-The Board disciplines lawyers. It does not order refunds as a matter of course. If your goal is money, the fee dispute committee or General Sessions is the path, and a Board complaint runs alongside it at best.
+The disciplinary body disciplines lawyers. It does not order refunds as a matter of course. If your goal is money, fee arbitration where your state has it, or small claims court, is the path, and a bar complaint runs alongside it at best.
 
 ## Losing the paper
 
 Screenshots without dates, forwarded emails with the headers stripped, and a stack of unsorted invoices are how good claims fall apart. Keep originals, keep the metadata, and keep the tracker current.
 
+## Treating an unconfirmed program detail as confirmed
+
+Some programs, especially local ones, do not have every detail sourced. Where your state pack flags a deadline, a fee, or a program's existence as unconfirmed, treat it as unknown, not as absent. Confirm directly with the program before you rely on it either way.
+
 ## Waiting
 
-Every forum has some clock. `references/tennessee-deadlines.md` sources the ones that could be confirmed, and anything outside that file, including four of the seven local fee dispute programs, still needs a direct answer from the Board or a lawyer. Time works against you in every one of them. Move.
+Every forum has some clock. Section 7 of your state pack, `references/state_XX.md`, sources the limitation periods that could be confirmed, and anything outside that section still needs a direct answer from the disciplinary body, the program itself, or a lawyer. Time works against you in every one of them. Move.

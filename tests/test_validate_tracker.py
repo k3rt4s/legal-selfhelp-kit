@@ -11,11 +11,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from validate_tracker import validate  # noqa: E402
 
 HEADER = (
-    "issue_id,bucket,summary,evidence,rpc_touchpoint,forum,status,"
+    "issue_id,bucket,summary,evidence,rule_touchpoint,forum,status,"
     "action_taken,action_date,sent_method,response_due,response_received,"
     "amount_disputed,notes"
 )
-GOOD_ROW = "I-01,money,Rate not in agreement,inv.pdf,RPC 1.5(b),demand,asked,Letter sent,2026-04-10,mail,2026-04-24,,1200.00,"
+GOOD_ROW = "I-01,money,Rate not in agreement,inv.pdf,Rule 1.5(b),demand,asked,Letter sent,2026-04-10,mail,2026-04-24,,1200.00,"
 
 
 def write(tmp_path: Path, *rows: str) -> str:

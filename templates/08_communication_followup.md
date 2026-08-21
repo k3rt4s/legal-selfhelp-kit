@@ -6,7 +6,7 @@ Use after calls or emails have gone unanswered. This creates the written record 
 
 [YOUR NAME]
 [YOUR ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 [YOUR EMAIL] | [YOUR PHONE]
 
 [DATE]
@@ -14,7 +14,7 @@ Use after calls or emails have gone unanswered. This creates the written record 
 [LAWYER NAME]
 [FIRM NAME]
 [FIRM ADDRESS]
-[CITY, TN ZIP]
+[CITY, STATE ZIP]
 
 Sent by [certified mail, return receipt requested / email with delivery confirmation]
 
@@ -34,9 +34,9 @@ I have not received a response. I am requesting:
 2. Any deadlines in the next ninety days.
 3. [Any specific question you need answered.]
 
-RPC 1.4 addresses a lawyer's obligation to keep a client reasonably informed about the status of a matter and to comply promptly with reasonable requests for information.
+Rule 1.4 of the rules of professional conduct in this state addresses a lawyer's obligation to keep a client reasonably informed about the status of a matter and to comply promptly with reasonable requests for information.
 
-Please respond by [DATE, TEN DAYS OUT]. If I do not hear from you, I will contact the Consumer Assistance Program of the Board of Professional Responsibility to ask for assistance in reaching you.
+Please respond by [DATE, TEN DAYS OUT]. If I do not hear from you, I will contact [YOUR STATE'S LAWYER DISCIPLINARY AUTHORITY, FROM SECTION 4 OF YOUR STATE PACK, AND, IF YOUR STATE PACK SAYS IT RUNS A NON-DISCIPLINARY ASSISTANCE OR INTAKE TRACK, NAME IT HERE] to ask for assistance in reaching you.
 
 Thank you,
 

@@ -10,21 +10,21 @@ Sometimes the bill is quietly reduced when the itemization is prepared. That is 
 
 ## The unresponsive lawyer
 
-Consumer Assistance Program follow-up produces a response more often than a client's own letters do, because the letter comes from the regulator. It is not discipline and it is not a finding. It is a nudge with an official return address.
+Where a disciplinary body runs a consumer-assistance or informal-help intake, its follow-up produces a response more often than a client's own letters do, because the letter comes from the regulator. It is not discipline and it is not a finding. It is a nudge with an official return address. Section 4 of your state pack says whether that track exists in your state.
 
-## The fee dispute committee
+## Fee arbitration or a local fee dispute program
 
-Where a local program exists, it is designed to split the difference on a genuine disagreement about the size of a bill. Outcomes are usually a reduction rather than a full refund. It is faster and cheaper than court.
+Where a program exists, whether statewide or local, it is usually designed to split the difference on a genuine disagreement about the size of a bill. Outcomes are usually a reduction rather than a full refund. It is faster and cheaper than court. Section 3 of your state pack says whether your state has one, and whether the lawyer can be made to participate.
 
-## The Board complaint
+## The bar complaint
 
-Most complaints do not result in public discipline. That is not evidence that the Board is protecting lawyers. It reflects that most client complaints describe disappointing service rather than a rules violation, and that the standard for discipline is high.
+Most complaints do not result in public discipline. That is not evidence that the disciplinary body is protecting lawyers. It reflects that most client complaints describe disappointing service rather than a rules violation, and that the standard for discipline is high.
 
 A complaint that documents specific rule requirements, with dates and documents, is treated differently from one that describes frustration.
 
-## General Sessions
+## Small claims court
 
-A client with a written fee agreement, invoices, and proof of payment, disputing a specific amount within the limit, is in a reasonable position. The forum is designed for people without lawyers. It is not fast, and collecting a judgment is its own project.
+A client with a written fee agreement, invoices, and proof of payment, disputing a specific amount within the limit, is in a reasonable position. The forum is designed for people without lawyers. It is not fast, and collecting a judgment is its own project. Section 6 of your state pack names your state's court and its jurisdictional limit; there is no single limit that holds nationally.
 
 ## The Client Protection Fund
 

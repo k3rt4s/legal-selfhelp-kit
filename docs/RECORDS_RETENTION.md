@@ -22,7 +22,7 @@ Export rather than screenshot. Headers carry the date, sender, and routing that 
 
 ## How long
 
-Through the end of the dispute, plus long enough to cover any follow-on. `references/tennessee-deadlines.md` sources the limitation periods this kit can confirm, but do not use a retention guess as a substitute for asking about a deadline that is not in that file. Keeping records longer costs nothing.
+Through the end of the dispute, plus long enough to cover any follow-on. Section 7 of your own `references/state_XX.md` sources the limitation periods this kit can confirm for your state, but do not use a retention guess as a substitute for asking about a deadline that is not in that section. Keeping records longer costs nothing.
 
 ## Privacy
 

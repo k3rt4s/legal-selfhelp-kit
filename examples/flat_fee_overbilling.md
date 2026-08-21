@@ -1,5 +1,10 @@
 # Example: a flat fee that grew
 
+**Tennessee example.** This walkthrough uses Tennessee's own numbers, including the Davidson
+County General Sessions limit. Those figures are specific to Tennessee. If you are in another
+state, read this for the shape of the session, then check `references/state_XX.md` for your
+own state's small claims limit and forum before you rely on any number here.
+
 All facts invented.
 
 ## Stage 1, assemble
@@ -27,7 +32,7 @@ Additional work | quoted none | billed 4400 | paid 1500 | disputed 4400 | no wri
 
 ## Stage 3, classify
 
-One issue, bucket `money`. RPC touchpoint: 1.5(b), communicating the basis or rate and any change to it. Also RPC 1.5(a) factor 10, whether the fee agreement is in writing, since the additional work has no written agreement at all.
+One issue, bucket `money`. Rule touchpoint: 1.5(b), communicating the basis or rate and any change to it. Also RPC 1.5(a) factor 10, whether the fee agreement is in writing, since the additional work has no written agreement at all.
 
 The model does not say the lawyer violated anything. It says the invoices charge work the written agreement does not cover, and that this is what factor 10 and paragraph (b) address.
 

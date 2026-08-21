@@ -20,11 +20,16 @@ Every file, and when to use it.
 
 ## Law and forums
 
-| File                                           | When                                        |
-| ---------------------------------------------- | ------------------------------------------- |
-| `references/tennessee-professional-conduct.md` | Any question about what the lawyer owed you |
-| `references/tennessee-remedies.md`             | Choosing where to take the problem          |
-| `references/VERIFICATION.md`                   | Before relying on or quoting anything       |
+`references/` holds a national baseline, one pack per state, a verification file per pack, a
+citation standard, and the required shape of a pack.
+
+| File                              | When                                                                                         |
+| --------------------------------- | -------------------------------------------------------------------------------------------- |
+| `references/national_baseline.md` | Any question about the model rules every state built from                                    |
+| `references/state_XX.md`          | Any question about what the lawyer owed you, or where to take the problem, in your own state |
+| `references/verification_XX.md`   | Before relying on or quoting a specific claim in your state pack                             |
+| `references/VERIFICATION.md`      | The citation standard, and the index of every pack                                           |
+| `references/state_template.md`    | The required shape of a pack, if you are contributing one                                    |
 
 ## Tactics
 

@@ -1,6 +1,6 @@
 # legal-selfhelp-kit
 
-An LLM-droppable instruction toolkit for a Tennessee client handling a fee, communication, or file dispute with their own lawyer, covering which forum fits the problem and what to put in writing.
+An LLM-droppable instruction toolkit for a client in any of the fifty states or the District of Columbia handling a fee, communication, or file dispute with their own lawyer, covering which forum fits the problem and what to put in writing.
 
 This kit is not legal advice and its author is not a lawyer. It helps you organize your own facts and draft your own correspondence. Read [docs/START_HERE.md](docs/START_HERE.md) first.
 
@@ -18,14 +18,16 @@ This kit is not legal advice and its author is not a lawyer. It helps you organi
 - [templates/](templates/README.md): Ready-to-adapt letters and submissions, with every legal reference given by rule number rather than quoted text.
 - [tests/](tests/README.md): Pytest suite covering the optional tracker validator against conforming and non-conforming fixtures.
 - [tracker/](tracker/README.md): The CSV you carry between sessions so a new conversation, on any model, can pick up where the last one stopped.
-- [BUILD_PLAN.md](BUILD_PLAN.md): What is built, what is not, and the order the rest arrives in.
-- [CHANGELOG.md](CHANGELOG.md): All notable changes to the kit, in plain English.
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): The Contributor Covenant 2.1 applies to everyone participating in this project.
-- [CONTRIBUTING.md](CONTRIBUTING.md): How to contribute, and the citation standard every legal claim must meet.
-- [FAQ.md](FAQ.md): Answers to the questions people ask before they start.
+- [BUILD_PLAN.md](BUILD_PLAN.md): What is built, what is not, and what has to be true before anything ships.
+- [CHANGELOG.md](CHANGELOG.md): All notable changes to legal-selfhelp-kit, in plain English.
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): This project follows the Contributor Covenant 2.1, committing all community members to a harassment-free experience regardless of background.
+- [CONTRIBUTING.md](CONTRIBUTING.md): How to contribute to legal-selfhelp-kit, which is open under MIT and where corrections are more valuable than additions.
+- [FAQ.md](FAQ.md): Common questions about what this kit is, what it covers, and what it will not do.
 - [FUTURE_FEATURES.md](FUTURE_FEATURES.md): Backlog of work not yet scheduled.
-- [SECURITY.md](SECURITY.md): The kit ships no network code, and nothing personal belongs in this repository.
-- [USER_STORIES.md](USER_STORIES.md): Who this serves and what outcome each person needs.
+- [requirements.txt](requirements.txt): Pinned runtime Python dependencies.
+- [roadmap.json](roadmap.json)
+- [SECURITY.md](SECURITY.md): The kit ships no network code, no telemetry, and no executable content beyond one optional standard-library script that reads a local CSV.
+- [USER_STORIES.md](USER_STORIES.md): Who this serves and what each person needs.
 
 <!-- END CONTENTS -->
 
@@ -37,7 +39,7 @@ The repository holds no code you need to run. The optional script in `scripts/` 
 
 ## Scope
 
-Tennessee. The forums, dollar limits, and programs named here are Tennessee-specific. The general approach transfers to other states. The specifics do not.
+All fifty states and the District of Columbia. The kit is built in two layers: a national baseline describing the ABA Model Rules, and one pack per state describing what that state actually did with them, plus its fee arbitration, disciplinary authority, client protection fund, small claims equivalent, and limitation periods. Load your own state pack and no other. The forums, dollar limits, deadlines, and program names in a pack are that state's and no one else's.
 
 The kit covers disputes with your own lawyer: fees, billing, communication, getting your file back, and unearned advances. It does not cover suing a lawyer for malpractice, which needs real counsel and has deadlines.
 
@@ -46,7 +48,7 @@ The kit covers disputes with your own lawyer: fees, billing, communication, gett
 1. Read [docs/START_HERE.md](docs/START_HERE.md).
 2. Open a new session with a model that accepts file uploads.
 3. Paste [llm/SYSTEM_PROMPT.md](llm/SYSTEM_PROMPT.md), then [llm/WORKFLOW.md](llm/WORKFLOW.md) and [llm/OUTPUT_CONTRACT.md](llm/OUTPUT_CONTRACT.md).
-4. Paste both files in [references/](references/README.md).
+4. Paste [references/national_baseline.md](references/national_baseline.md), then your own state pack, `references/state_XX.md`, where `XX` is your two-letter state code.
 5. Upload your fee agreement, invoices, proof of payment, and correspondence.
 6. Ask it to run Stage 0.
 

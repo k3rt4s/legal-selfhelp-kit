@@ -1,6 +1,6 @@
 # Contributing
 
-This project is open under MIT. Corrections are more valuable than additions.
+How to contribute to legal-selfhelp-kit, which is open under MIT and where corrections are more valuable than additions.
 
 ## The citation standard
 
@@ -11,9 +11,9 @@ If you cannot source a claim to a primary or official publication, do not add it
 ## What is especially welcome
 
 1. Corrections where a rule, dollar limit, phone number, or program has changed.
-2. Confirmation of the current text of the Tennessee Rules of Professional Conduct from the official source, which would let the verification file move rows out of the needs-confirmation section.
-3. Additional counties with fee dispute programs, with a source.
-4. Packs for other states, following the same structure and the same citation standard.
+2. Confirmation of the current text of a state's rules of professional conduct from the official source, which would let that state's verification file move rows out of the needs-confirmation section.
+3. Additional local programs within a state pack, with a source.
+4. New or corrected state packs. This is now the main way anyone contributes. See [references/state_template.md](references/state_template.md) for the required shape of a pack and [references/VERIFICATION.md](references/VERIFICATION.md) for the citation standard every claim in it must meet.
 
 ## What will be declined
 

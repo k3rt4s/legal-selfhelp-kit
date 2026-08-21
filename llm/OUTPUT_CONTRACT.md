@@ -15,7 +15,7 @@ Unknown date is `????-??-??`. Never guess a date.
 
 ```text
 ITEM | QUOTED | BILLED | PAID | DISPUTED | BASIS
-Trial preparation | not quoted | $4,200 | $4,200 | $4,200 | no written change to the flat fee, RPC 1.5(b) communication
+Trial preparation | not quoted | $4,200 | $4,200 | $4,200 | no written change to the flat fee, Rule 1.5(b) communication
 ```
 
 ## Issue record
@@ -25,8 +25,8 @@ ID: I-03
 BUCKET: money | communication | property | conduct
 SUMMARY: one sentence, factual
 EVIDENCE: file and page or email date, for each supporting fact
-RPC TOUCHPOINT: rule number and what it requires, never quoted text
-FORUM: the forum from tennessee-remedies.md
+RULE TOUCHPOINT: rule number and what it requires, never quoted text
+FORUM: the forum named in the matching section of the state pack (section 3, 4, 5, or 6)
 STATUS: open | asked | escalated | resolved | dropped
 NEXT ACTION: one concrete step with a date
 ```
@@ -49,10 +49,13 @@ End every session with this block so the next one can resume:
 
 ```text
 MATTER: short name
-STAGE: 0-6
+STATE: two-letter code, and confirm references/state_XX.md was loaded
+STAGE: 0-7
 OPEN ISSUES: I-01, I-03
 SENT: what went out, when, how
 AWAITING: what, from whom, by when
 NEXT: the single next action
 UNKNOWNS: what is still missing
 ```
+
+The STATE field is set once, in Stage 0, and carried forward unchanged for the rest of the matter. Every FORUM value in every issue record depends on it.
