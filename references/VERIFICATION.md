@@ -50,19 +50,24 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Layer | Pack | Verification file |
 | ----- | ---- | ----------------- |
 | National baseline | [national_baseline.md](national_baseline.md) | [verification_national.md](verification_national.md) |
+| Arizona | [state_az.md](state_az.md) | [verification_az.md](verification_az.md) |
 | California | [state_ca.md](state_ca.md) | [verification_ca.md](verification_ca.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
 | Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
 | Illinois | [state_il.md](state_il.md) | [verification_il.md](verification_il.md) |
+| Massachusetts | [state_ma.md](state_ma.md) | [verification_ma.md](verification_ma.md) |
 | Michigan | [state_mi.md](state_mi.md) | [verification_mi.md](verification_mi.md) |
+| New Jersey | [state_nj.md](state_nj.md) | [verification_nj.md](verification_nj.md) |
 | New York | [state_ny.md](state_ny.md) | [verification_ny.md](verification_ny.md) |
 | North Carolina | [state_nc.md](state_nc.md) | [verification_nc.md](verification_nc.md) |
 | Ohio | [state_oh.md](state_oh.md) | [verification_oh.md](verification_oh.md) |
 | Pennsylvania | [state_pa.md](state_pa.md) | [verification_pa.md](verification_pa.md) |
 | Tennessee | [state_tn.md](state_tn.md) | [verification_tn.md](verification_tn.md) |
 | Texas | [state_tx.md](state_tx.md) | [verification_tx.md](verification_tx.md) |
+| Virginia | [state_va.md](state_va.md) | [verification_va.md](verification_va.md) |
+| Washington | [state_wa.md](state_wa.md) | [verification_wa.md](verification_wa.md) |
 
-States covered: 11 of 50.
+States covered: 16 of 50.
 
 <!-- END VERIFICATION INDEX -->
 
