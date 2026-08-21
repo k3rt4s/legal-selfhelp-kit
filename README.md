@@ -25,7 +25,7 @@ This kit is not legal advice and its author is not a lawyer. It helps you organi
 - [FAQ.md](FAQ.md): Common questions about what this kit is, what it covers, and what it will not do.
 - [FUTURE_FEATURES.md](FUTURE_FEATURES.md): Backlog of work not yet scheduled.
 - [requirements.txt](requirements.txt): Pinned runtime Python dependencies.
-- [roadmap.json](roadmap.json)
+- [roadmap.json](roadmap.json): Machine-readable release history and what is planned next.
 - [SECURITY.md](SECURITY.md): The kit ships no network code, no telemetry, and no executable content beyond one optional standard-library script that reads a local CSV.
 - [USER_STORIES.md](USER_STORIES.md): Who this serves and what each person needs.
 
