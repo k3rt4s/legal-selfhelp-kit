@@ -59,11 +59,12 @@ def build_chronology(path: str) -> tuple[list[str], list[str]]:
                 replied = date.fromisoformat(raw_reply)
             except ValueError:
                 undated.append(
-                    f"{issue_id}: response_received {raw_reply!r} could not be parsed"
+                    f"{issue_id}: response_received {raw_reply!r} could not be parsed ({desc})"
                 )
                 continue
-            reply_desc = f"{issue_id}: response received" if issue_id else "response received"
-            dated.append((replied, f"{replied.isoformat()} | {reply_desc} | {evidence}"))
+            dated.append(
+                (replied, f"{replied.isoformat()} | {issue_id}: response received | {evidence}")
+            )
 
     dated.sort(key=lambda item: item[0])
     return [line for _, line in dated], undated

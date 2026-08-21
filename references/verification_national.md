@@ -5,7 +5,8 @@ national baseline every state pack in this kit sits on top of. Each claim is lis
 where it came from, when it was retrieved, and how far it should be trusted. If a claim is
 not on this list, it is not sourced, and it should not be in national_baseline.md.
 
-Retrieval date for everything below is 2026-08-20.
+Retrieval date is 2026-08-20 for every row in this section except those whose Source cell
+says 2026-08-21. The later sections in this file carry their own retrieval dates.
 
 ## Confirmed against a primary or official source
 
