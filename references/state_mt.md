@@ -48,7 +48,8 @@ disclosure mandatory in writing (see section 2).
 
 Official text: the Montana Supreme Court's Law Library publishes the full current rules at
 https://courts.mt.gov/external/rules/mtr_prof_cond.pdf. The State Bar of Montana also publishes
-the rules at https://www.montanabar.org/page/MRPC. Both copies were read for this pack and
+the rules at https://www.montanabar.org/For-Attorneys/Ethics-Resources/Professional-Conduct.
+Both copies were read for this pack and
 match on every provision checked.
 
 ## 2. Deviations from the model reasonableness factors
@@ -105,7 +106,8 @@ Montana runs one statewide fee arbitration program, the State Bar of Montana's R
 Arbitration of Fee Disputes, most recently revised by Montana Supreme Court order in AF 08-0323,
 effective May 1, 2009. The rules, containing the operative text in full, are published at
 https://courts.mt.gov/external/rules/arb_fee_disp.pdf. The State Bar's public guidance on
-disputing a fee is at https://www.montanabar.org/page/DisputingFees.
+disputing a fee is at
+https://www.montanabar.org/For-the-Public/Disputing-Attorney-Fees.
 
 - Who can start it, and the amount: either the client or the lawyer can initiate arbitration.
   Any disputed amount of $500 or more may be arbitrated; if only part of a bill is disputed,
@@ -184,7 +186,8 @@ describes the ODC/COP structure at https://courts.mt.gov (Attorney Complaints pa
 
 Montana's fund is the Lawyers' Fund for Client Protection (LFCP), administered by the Trustees
 of the State Bar of Montana. The Bar's program page, with the current LFCP Rules and
-application form, is at https://www.montanabar.org/page/ClientProtectionFund.
+application form, is at
+https://www.montanabar.org/For-the-Public/Client-Protection-Fund.
 
 - What it covers: losses caused by the "Dishonest Conduct" of a Montana-licensed lawyer,
   meaning mishandling or embezzling client funds within an attorney-client relationship. An

@@ -97,10 +97,14 @@ exists sits at two levels, and both are weaker than a reader might expect:
   creates no statewide program and does not require any bar association to have one.
 - The Indiana State Bar Association's Attorney Fee Dispute Resolution (AFDR) program is the only
   program this pack could confirm exists. It is run by the ISBA's Attorney Fee Dispute
-  Resolution Committee, described at <https://www.inbar.org/page/AFDR>. That live page returned
-  HTTP 404 on repeated attempts on 2026-08-20 (open it yourself; your browser may reach it even
-  though automated retrieval could not), so the content below is confirmed instead from a
-  Wayback Machine snapshot of that page dated November 11, 2020,
+  Resolution Committee, described at <https://www.inbar.org/page/AFDR>. That page is gone: it
+  returned HTTP 404 on repeated attempts on 2026-08-20 and 2026-08-21, and the Wayback Machine's
+  own crawl history shows the same page redirecting to the ISBA's site-wide 404 page as early as
+  August 2025, so this is a confirmed dead page, not a bot-blocked one. A candidate replacement
+  document found by search, a PDF of the program's policies and procedures hosted on the ISBA's
+  member-management platform, also could not be retrieved (HTTP 403, access denied). The content
+  below is confirmed instead from a Wayback Machine snapshot of the original page dated
+  November 11, 2020,
   <https://web.archive.org/web/20201111190606/https://www.inbar.org/page/AFDR>. Participation is
   voluntary on both sides: the ISBA's own page states that when a client initiates the process,
   "member attorneys can elect to participate, but are not obligated to participate." It only

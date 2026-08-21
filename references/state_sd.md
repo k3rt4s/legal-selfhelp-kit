@@ -217,14 +217,20 @@ A claim is filed in writing, addressed to the Secretary/Treasurer of the State B
 Dakota, who forwards it to the Committee chairperson. A claimant is not required to retain a
 lawyer to file or pursue a claim.
 
-The State Bar of South Dakota's Client Security Fund page is currently returning a 404 error on
-the live site (checked August 20, 2026), consistent with a broader site redesign; several other
-State Bar pages checked for this pack, including the By-Laws page, currently show placeholder
-template text instead of real content. This kit sourced the Fund's terms from the last complete
-Wayback Machine snapshot of the official page, dated April 20, 2024, at
+The old statebarofsouthdakota.com/client-security-fund/ page still returns a 404 error on the
+live site (checked August 21, 2026), consistent with the broader site redesign noted elsewhere
+in this pack. The Fund's page now lives on the State Bar's separate public-facing site at
+<https://findalawyerinsd.com/pages/areas-client-security>, which this kit fetched directly and
+confirmed carries the same terms: the fraudulent-or-dishonest-act standard, the negligence and
+other-source exclusions, the eligibility list (deceased, mentally ill, voluntarily surrendered,
+left the jurisdiction and cannot be found, disbarred, or suspended), the $750.00 exception to
+the judgment requirement, the five-member committee appointed by the State Bar President, the
+discretionary "matter of grace" language, and the $10,000 per-claim maximum. That page does not
+restate the Secretary/Treasurer filing detail above; this kit still sources that specific step
+to the April 20, 2024 Wayback Machine snapshot of the old page, at
 <http://web.archive.org/web/20240420193925/https://www.statebarofsouthdakota.com/client-security-fund/>.
 Confirm the current $10,000 per-claim figure and any deadline directly with the State Bar before
-relying on it, since the live page cannot currently be checked.
+relying on it.
 
 ## 6. Small claims court
 
