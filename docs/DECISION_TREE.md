@@ -76,6 +76,8 @@ Disciplinary complaint. Go to 8.
 
 Read section 3 of your state pack. It answers both questions: whether a program
 exists at all, and whether the lawyer can be forced into it or can simply decline.
+If section 3 says the program runs locally and does not name your lawyer's county,
+use `docs/FIND_YOUR_LOCAL_PROGRAM.md` to search for it.
 
 **No program exists.** Go to 7.
 

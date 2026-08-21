@@ -31,6 +31,7 @@ citation standard, and the required shape of a pack.
 | `references/verification_XX.md`   | Before relying on or quoting a specific claim in your state pack                             |
 | `references/VERIFICATION.md`      | The citation standard, and the index of every pack                                           |
 | `references/state_template.md`    | The required shape of a pack, if you are contributing one                                    |
+| `docs/FIND_YOUR_LOCAL_PROGRAM.md` | When your state pack points to a local fee arbitration committee it does not fully list      |
 
 ## Tactics
 

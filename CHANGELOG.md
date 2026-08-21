@@ -2,6 +2,20 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## Unreleased (0.3.0)
+
+Not shipped yet. This section describes what is on `main` since 0.2.0.
+
+- Added `examples/hourly_retainer_not_a_cap.md`, the first worked example where the client turns out to be wrong. Every other example ends with a claim the reader can act on. This one shows what the session says when the record does not support the complaint, and what the client can still legitimately ask for without a demand letter.
+- Added `docs/DECISION_TREE_ONE_PAGE.md`, a printable one-sheet condensation of the decision tree. It adds no facts. Every branch and every condition from the full tree survives.
+- Added `scripts/export_chronology.py` and its tests. It turns a filled-in tracker into a date-sorted plain-text chronology for a bar complaint or fee arbitration submission. It refuses to export a tracker the validator would reject, and rows with an unparseable date are reported rather than silently dropped.
+- Added `docs/PROVABLE_DELIVERY.md`, on choosing a delivery method that lets you prove a letter arrived. It covers proving delivery, not legal service of process, and says so. Two facts that only commercial sources would confirm, how long USPS keeps a delivery record and how long an uncollected certified letter is held, were cut rather than stated.
+- Added contingent-fee dispute guidance to section 4 of the national baseline. Model Rule 1.5(a) reasonableness applies to a contingent fee with no carve-out, and a contingent dispute is about the closing statement arithmetic rather than hours worked. No percentage cap or dollar figure is stated; those belong to the state packs.
+- Added section 10 of the national baseline, for clients whose lawyer died, was suspended or disbarred, or left practice. The duty to return the file and refund unearned money is not conditioned on why the representation ended. The section routes the reader to their state pack's disciplinary authority to find who now holds the file.
+- Recorded the New Jersey contingent-fee sourcing attempt in that pack's gap list. Seven official judiciary sources were fetched and none reproduces the rule's dollar figures, so the claim stays flagged against commercial mirrors rather than being promoted.
+- Added `docs/FIND_YOUR_LOCAL_PROGRAM.md`, a search procedure and confirmation checklist for readers whose state runs fee arbitration through local committees. It names no state, county, program, deadline, or dollar figure, so it makes no claim needing a verification row. It also tells the model working with the reader that "I could not confirm a local program in your county" is a correct answer.
+- Retired per-county fee dispute compilation from the backlog to the explicitly rejected list. The kit will not try to cover every county in the country. Local programs change faster than a kit like this could track, and a stale committee name reads exactly like a current one. The search document above is the answer instead, and a contributor who confirms a local program against a primary source can still add it to a state pack.
+
 ## 2026-08-21 (0.2.0, all fifty states and the District of Columbia)
 
 Shipped. Merged to main on 2026-08-21.
