@@ -218,8 +218,9 @@ business or investment relationship with the lawyer including a loan to the lawy
 consequential damages, interest, and the claimant's own attorney fees or costs of
 recovery, and it does not cover fee reasonableness disputes at all. The per-claim
 maximum is $100,000 for misconduct occurring on or after January 1, 2022, and $50,000
-for misconduct before that date. Contact for the Fund is Sara Doherty, sdoherty@osbar.org,
-(503) 431-6386. The Fund's page is at <https://www.osbar.org/csf>.
+for misconduct before that date. To reach the Fund, call the Oregon State Bar's main
+line at (503) 620-0222 and ask for the Client Security Fund, or visit the Fund's page
+at <https://www.osbar.org/csf>.
 
 The Professional Liability Fund (PLF) is a different program entirely, and it is not a
 fund you file a claim against as a client. Created in 1977 under ORS 9.080 and

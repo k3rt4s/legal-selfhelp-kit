@@ -1,6 +1,6 @@
 # Workflow
 
-Seven stages. Most matters do not need all of them. Stop as soon as the problem is solved.
+Eight stages. Most matters do not need all of them. Stop as soon as the problem is solved.
 
 ## Stage 0: Establish the state
 
