@@ -58,6 +58,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Colorado | [state_co.md](state_co.md) | [verification_co.md](verification_co.md) |
 | Connecticut | [state_ct.md](state_ct.md) | [verification_ct.md](verification_ct.md) |
 | Delaware | [state_de.md](state_de.md) | [verification_de.md](verification_de.md) |
+| District of Columbia | [state_dc.md](state_dc.md) | [verification_dc.md](verification_dc.md) |
 | Florida | [state_fl.md](state_fl.md) | [verification_fl.md](verification_fl.md) |
 | Georgia | [state_ga.md](state_ga.md) | [verification_ga.md](verification_ga.md) |
 | Hawaii | [state_hi.md](state_hi.md) | [verification_hi.md](verification_hi.md) |
@@ -101,7 +102,7 @@ The required shape of a pack is specified in [state_template.md](state_template.
 | Wisconsin | [state_wi.md](state_wi.md) | [verification_wi.md](verification_wi.md) |
 | Wyoming | [state_wy.md](state_wy.md) | [verification_wy.md](verification_wy.md) |
 
-States covered: 50 of 50.
+States covered: 50 of 50, plus the District of Columbia.
 
 <!-- END VERIFICATION INDEX -->
 

@@ -2,7 +2,7 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
-## Unreleased (0.2.0, all fifty states)
+## Unreleased (0.2.0, all fifty states and the District of Columbia)
 
 Not shipped yet. This section describes what is on the `feature/all-fifty-states`
 branch.
@@ -11,6 +11,8 @@ branch.
 - Added `references/national_baseline.md` and `references/state_template.md`, and turned `references/VERIFICATION.md` into the citation standard plus an index of every per-state verification file.
 - Rewrote the forum selection rule, the decision tree and the templates to branch on the reader's state rather than assuming Tennessee's forums.
 - Folded the three Tennessee reference files into `references/state_tn.md` and removed them. Tennessee readers lose nothing; the same claims are in the pack, with the same sourcing.
+- Added a District of Columbia pack. DC is not a state, but it has its own bar, its own disciplinary system, its own client protection fund, and a fee arbitration rule that binds the lawyer once a qualifying client files, so it needed a pack of its own rather than being read off a neighbor.
+- Added two worked examples for the routing branches Tennessee does not show: Maine, where the client can require the lawyer into fee arbitration, and Alabama, where no fee arbitration program exists at all and a demand letter and small claims are the only path.
 
 ### Corrections to claims that were public in 0.1.0
 
