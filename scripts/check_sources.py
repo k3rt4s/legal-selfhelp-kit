@@ -80,6 +80,14 @@ DEFAULT_USER_AGENT = (
 DEFAULT_DELAY = 1.5
 DEFAULT_TIMEOUT = 20
 
+# Nothing cited in this kit is a large download, and the checker only needs enough of a page
+# to look for a claim in it. The cap keeps a runaway or hostile response from filling memory.
+MAX_RESPONSE_BYTES = 5_000_000
+
+# The URLs come out of Markdown tables anyone can send a pull request against, so the fetcher
+# only ever speaks http and https. A file:// or ftp:// row is reported, not opened.
+ALLOWED_SCHEMES = ("http", "https")
+
 
 def fold_typography(text: str) -> str:
     for src, dst in CURLY_MAP.items():
@@ -349,6 +357,10 @@ class _RedirectRecorder(urllib.request.HTTPRedirectHandler):
 
 def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DEFAULT_USER_AGENT) -> FetchResult:
     """Fetch url with GET, a real browser User-Agent, and a timeout, returning a FetchResult (never raises)."""
+    scheme = url.split(":", 1)[0].lower() if ":" in url else ""
+    if scheme not in ALLOWED_SCHEMES:
+        return FetchResult(requested_url=url, final_url=url, status=None, content_type="",
+                           body="", error='refused: scheme %r is not http or https' % (scheme or 'none',))
     recorder = _RedirectRecorder()
     opener = urllib.request.build_opener(recorder)
     request = urllib.request.Request(url, method="GET", headers={
@@ -361,13 +373,13 @@ def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DE
             status = resp.status
             final_url = resp.geturl()
             content_type = resp.headers.get("Content-Type", "")
-            raw = resp.read()
+            raw = resp.read(MAX_RESPONSE_BYTES)
     except urllib.error.HTTPError as exc:
         status = exc.code
         final_url = exc.geturl() if hasattr(exc, "geturl") else url
         content_type = exc.headers.get("Content-Type", "") if exc.headers else ""
         try:
-            raw = exc.read()
+            raw = exc.read(MAX_RESPONSE_BYTES)
         except Exception:
             raw = b""
     except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, OSError) as exc:

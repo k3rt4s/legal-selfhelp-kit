@@ -9,6 +9,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from check_sources import (  # noqa: E402
+    ALLOWED_SCHEMES,
+    MAX_RESPONSE_BYTES,
+    default_fetch,
     FetchResult,
     SourceRow,
     classify,
@@ -410,3 +413,22 @@ def test_run_respects_limit_and_state(tmp_path: Path) -> None:
 
     outcomes_limited, _ = run(tmp_path, fetch=fake_fetch, limit=1, delay=0)
     assert len(outcomes_limited) == 1
+
+
+def test_default_fetch_refuses_a_non_http_scheme() -> None:
+    """A URL that is not http or https is reported as refused, never opened."""
+    for url in ("file:///etc/passwd", "ftp://example.invalid/x", "gopher://example.invalid"):
+        result = default_fetch(url)
+        assert result.status is None
+        assert "refused" in result.error
+        assert result.body == ""
+
+
+def test_allowed_schemes_are_only_http_and_https() -> None:
+    """The scheme allowlist stays an allowlist; widening it should be a deliberate edit."""
+    assert set(ALLOWED_SCHEMES) == {"http", "https"}
+
+
+def test_response_size_is_capped() -> None:
+    """The fetcher caps how much of a response it will read into memory."""
+    assert 0 < MAX_RESPONSE_BYTES <= 50_000_000

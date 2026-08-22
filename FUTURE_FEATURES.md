@@ -32,6 +32,11 @@ Nothing here is a defect today. Each is a thing that will drift and nobody would
    with law library, Westlaw, or Lexis access could retire that flag. The pack does not
    rely on the case, so this is a provenance improvement, not a correction.
 
+4. Nothing in the repository states which versions of Python the scripts support. They are
+   stdlib-only and were written and run on 3.13, but a contributor on an older interpreter
+   has no way to know where the floor is until something fails to parse. Picking the floor
+   is a decision about who the tools are for, so it is recorded here rather than assumed.
+
 ## Explicitly rejected
 
 1. Anything that estimates a recovery or predicts an outcome.

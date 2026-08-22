@@ -8,6 +8,10 @@ Every legal claim in this kit carries a row in [references/VERIFICATION.md](refe
 
 If you cannot source a claim to a primary or official publication, do not add it. "I am a lawyer and I know this" is not a citation.
 
+Cite it with a URL that lands on the page holding the claim. A bare domain is a defect when the claim lives on a deeper page, because a reader who clicks it has to go hunting. A front page is the right cite in two situations only: the claim is about the organization itself, its name, address, phone, or the fact that it exists, or the front page is genuinely where the text is and no deeper page carries it. Those exceptions are listed by name in `tests/test_reference_layer.py` with a reason for each, and a test fails if one stops matching, so adding one is a deliberate act rather than a link quietly going shallow.
+
+Fetch the page and read it before you cite it. A status code proves nothing here. Pages in this corpus have returned success with an error body, returned nothing but navigation with the content rendered in the browser, and returned an empty body from a bot filter. If you did not find the claim in what came back, you have not sourced it.
+
 ## What is especially welcome
 
 1. Corrections where a rule, dollar limit, phone number, or program has changed.
@@ -29,8 +33,18 @@ Short sentences. Plain language. No em dashes. Write for someone who is stressed
 
 ## Tests
 
-If you touch `scripts/`, run the suite:
+Run the suite before you open a pull request, whether you touched `scripts/` or `references/`:
 
 ```text
 python -m pytest tests -q
 ```
+
+The reference layer has no logic to test, so `tests/test_reference_layer.py` tests its shape instead, reading the files on disk. It will tell you if a pack is missing a section, if a verification file is missing its Confirmed, Flagged, or Gap part, or if a source cell points at a bare domain.
+
+`scripts/check_sources.py` is the other half of that, and it is a maintenance tool rather than a test. It fetches every cited URL and reports which pages no longer carry the claim they are cited for. It makes network requests, so it is not part of the suite and nothing runs it automatically. Check one state while you work:
+
+```text
+python scripts/check_sources.py --state ak
+```
+
+It writes its report outside the repository and changes nothing.
