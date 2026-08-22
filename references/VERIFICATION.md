@@ -21,6 +21,15 @@ makes them.
 4. Templates never quote rule text. They cite a rule by number and describe what it requires.
    The same goes for the packs.
 5. No deadline, dollar figure, phone number, or program name ships without a row.
+6. A source is cited by a URL that lands on the page holding the claim. A bare domain is a
+   defect when the claim lives on a deeper page, because the reader cannot re-check it
+   without hunting. A front page is the correct cite in exactly two situations: the claim
+   is about the organization itself, its name, address, phone number, or the fact that it
+   exists, or the front page is genuinely where the text is and no deeper page carries it.
+   `tests/test_reference_layer.py` enforces this and keeps every exception in a named list
+   with its reason, so each is a decision somebody made on the record rather than a link
+   that quietly went shallow. A front-page cite of the second kind is also a standing
+   maintenance risk: front pages change without notice, so its row says so.
 
 An omission a reader can see is safe. An invented statute number or an invented filing
 deadline reads perfectly and can cost a real person their claim. That asymmetry is why the gap

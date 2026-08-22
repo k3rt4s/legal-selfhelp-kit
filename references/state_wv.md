@@ -173,7 +173,9 @@ routes described in sections 3, 5, and 6.
 
 The ODC is reached at Office of Lawyer Disciplinary Counsel, West Virginia Judicial Tower,
 4700 MacCorkle Avenue SE, Suite 1200, Charleston, West Virginia 25304, phone (304) 558-7999.
-Its site, with the complaint packet and form, is <https://www.wvodc.org/>.
+Its site is <https://www.wvodc.org/>. That site is a single page. The complaint packet and
+the complaint form are posted on it, behind buttons labeled Complaint Packet and Complaint
+Form. Both open as PDFs.
 
 ## 5. Client protection fund
 

@@ -193,9 +193,10 @@ the other; see the gap list in verification_ny.md.
 ## 5. Client protection fund
 
 New York's fund is the Lawyers' Fund for Client Protection, a state agency, at
-<https://www.nylawfund.org>, phone (800) 442-3863 or (518) 434-1935. It reimburses losses
-caused by a New York lawyer's dishonest conduct in the practice of law, up to a maximum of
-$450,000 per client loss.
+<https://www.nylawfund.org>, phone (800) 442-3863 or (518) 434-1935. Its FAQ page, at
+<https://www.nylawfund.org/index.php/site/faq/what-losses-are-covered-by-the-lawyersfund>,
+states that it reimburses losses caused by a New York lawyer's dishonest conduct in the
+practice of law, up to a maximum of $450,000 per client loss.
 
 What it covers: dishonest conduct, meaning the misappropriation or willful misapplication of
 money, securities, or property in the practice of law, and unlawful acts such as theft,
