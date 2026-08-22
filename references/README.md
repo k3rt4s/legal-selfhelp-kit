@@ -15,7 +15,7 @@ Do not load another state's pack. The forums, dollar limits, deadlines, and prog
 
 ## Contents
 
-- [national_baseline.md](national_baseline.md): The ABA Model Rules of Professional Conduct provisions that govern fees, communication, client property, and ending a representation, and why a model rule is not law until a state adopts it.
+- [national_baseline.md](national_baseline.md): The ABA Model Rules of Professional Conduct provisions that govern fees, communication, client property, ending a representation, a lawyer who holds the file or has left practice, and a fee paid by someone other than the client, and why a model rule is not law until a state adopts it.
 - [state_XX.md](VERIFICATION.md): One pack per state, each following the same eight sections. The full list, with each pack's verification file, is the index in [VERIFICATION.md](VERIFICATION.md).
 - [verification_XX.md](VERIFICATION.md): The sourcing behind one pack: what was confirmed against a primary source, what is flagged as resting on less, and what could not be sourced and was therefore left out.
 - [state_template.md](state_template.md): The required shape of a state pack, for contributors adding one.

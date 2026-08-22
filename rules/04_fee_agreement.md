@@ -9,5 +9,6 @@ Read for these, in order:
 5. Does the agreement say anything about changing the rate? Rule 1.5(b) requires changes in the basis or rate to be communicated.
 6. Is there a scope limit? Work outside the agreed scope that was never separately agreed to is a communication issue and a reasonableness issue at once.
 7. For contingent fees specifically, check that the agreement is signed by the client, states the percentages at settlement, trial, and appeal, identifies which expenses are deducted, and says whether the fee is calculated before or after expenses. Check whether the client ever received the closing statement.
+8. Check who signed the agreement against who is asking you for help. If a parent, employer, insurer, or other third party paid the lawyer, the client is still whoever the lawyer represents, not whoever paid. That third party is not entitled to the file or to privileged information by virtue of paying, and cannot direct the lawyer's judgment. See national_baseline.md section 12 for what this does and does not resolve, including that this kit does not know who is contractually owed a refund in that situation, and that insurance defense is out of scope.
 
 Output the result as a ledger, not prose.

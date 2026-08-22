@@ -1,9 +1,11 @@
 # The national baseline: ABA Model Rules of Professional Conduct
 
 Every state pack in this kit sits on top of this file. Read this first, then read your
-state's pack. Retrieval date for the sourcing in this file is 2026-08-20, except the
-contingent-fee dispute-practice guidance in section 4 and the lawyer-unavailable guidance in
-section 10, both added 2026-08-21.
+state's pack. Retrieval date for the sourcing in this file is 2026-08-20, except for four
+later additions: the contingent-fee dispute-practice guidance in section 4 and the
+lawyer-unavailable guidance in section 10, both added 2026-08-21, and the retaining-lien
+guidance in section 11 and the third-party-payer guidance in section 12, both added
+2026-08-21. Each of those carries its own retrieval date in the verification file.
 
 Read [verification_national.md](verification_national.md) before quoting any of this in a
 letter. Confirm the current text of any rule you rely on against your own state's official
@@ -262,3 +264,92 @@ currently holding the file. This kit does not cover probate procedure or how to 
 against a deceased lawyer's estate. If the file or funds are held by an estate and the
 custodian will not respond to a letter, that is a probate question, and you may need your own
 lawyer for it.
+
+## 11. When the lawyer keeps the file: retaining liens
+
+Some lawyers will not hand over the client's file until the bill is paid. This is called a
+retaining lien: a claim to keep the client's papers as security for a fee, instead of turning
+them over on request. Whether that claim actually holds up depends entirely on your state, and
+this file does not state a general American rule about it, because there is not one.
+
+Model Rule 1.16(d), covered in section 7, requires a lawyer to surrender the client's papers
+and property on termination. The same sentence of the rule also carves out an exception: a
+lawyer may retain papers relating to the client "to the extent permitted by other law." That
+phrase does not itself create a right to hold the file. It defers the question to whatever lien
+law your own state has, and states differ enormously on what that law says. The Model Rule's
+own comment on this point adds that a lawyer may retain papers as security for a fee "only to
+the extent permitted by law," pointing back to the safekeeping-of-property rule in section 6.
+
+Some states let a lawyer assert a retaining lien over the file. Some prohibit it outright. Some
+allow it in principle but subordinate it to the client's interests, so a court can still order
+the file released if withholding it would prejudice the client's case. Read your own state
+pack. If it addresses retaining liens, follow what it says. If it does not, this kit does not
+know your state's answer, and you should not assume the lien is either valid or invalid.
+
+A retaining lien over the file is a different thing from a charging lien. A charging lien is a
+claim against money recovered in the matter itself, not against the client's papers. Model Rule
+1.8(i) generally bars a lawyer from acquiring a stake in the subject matter of litigation, with
+a narrow exception letting the lawyer "acquire a lien authorized by law to secure the lawyer's
+fee or expenses." That is the model hook for a charging lien: it can attach to a recovery, and
+it says nothing about whether the lawyer can withhold the client's papers.
+
+If you have a live deadline and your lawyer is holding your file, the argument most likely to
+move a lawyer or a court is prejudice: that withholding the file will concretely harm your
+active matter, for example by making you miss a filing or a hearing. Put that in writing
+immediately, naming the date and what happens if the file does not arrive in time. Do not wait
+for the fee dispute itself to resolve before saying this.
+
+## 12. When someone else paid the lawyer
+
+Sometimes the person who paid the lawyer is not the person the lawyer represents. A parent
+pays for an adult child's criminal defense. An employer pays for an employee's lawyer. An
+insurer pays a lawyer to defend its policyholder. A family member fronts a retainer for a
+relative. This section is about what changes, and what does not, when that happens.
+
+The client is the person the lawyer represents, not the person who paid. This is the starting
+point for everything else. If you paid the bill but the lawyer represents someone else, you are
+the payer, not the client, and the rules below describe your position and your limits.
+
+Model Rule 1.8(f) allows a lawyer to accept payment from someone other than the client, but only
+if three things are true: the client gives informed consent, the payer does not interfere with
+the lawyer's independent judgment or with the lawyer-client relationship, and the lawyer still
+protects the client's confidential information under Rule 1.6. All three conditions have to hold,
+not just one.
+
+Model Rule 5.4(c) adds a separate, related protection: a lawyer cannot let someone who
+recommends, employs, or pays the lawyer direct or regulate the lawyer's professional judgment in
+the representation. This rule applies whether or not the payer is also paying under 1.8(f). It is
+what stops a paying parent, employer, or insurer from telling the lawyer how to run the case.
+
+Two consequences follow directly from the client being the represented person, not the payer:
+
+- Confidentiality runs to the client. The payer is not entitled to the file, to privileged
+  communications, or to case strategy just because they are paying the bill. If the client wants
+  the payer kept informed, that requires the client's consent, not the payer's payment.
+- The payer cannot instruct the lawyer on how to handle the case. The lawyer's duty of
+  independent judgment runs to the client. A payer who tries to control strategy, settlement, or
+  scope is doing exactly what Rule 5.4(c) forbids the lawyer from allowing.
+
+What this kit does not resolve is who is owed a refund. If the representation ends with money
+paid in advance that was never earned, who has a contractual right to get it back, the client, the
+payer, or both, is not answered by the Model Rules. It depends on the engagement agreement (who
+signed it, what it says about a third-party payer), and on the contract and agency law of the
+state where the fee was paid. This kit does not tell you which one applies to your situation. Read
+the engagement letter for language addressing a third-party payer, and check your state pack for
+anything it says about this. Both the client and the payer may have a route to raise the question,
+through different forums, and that is a reason to get advice on your specific facts rather than a
+reason to guess here.
+
+If you are the payer rather than the client, this section is written for you too. You do not have a
+right to the file or to confidential case information because you paid. You cannot direct the
+lawyer's strategy. You may have separate rights against the client, the lawyer, or both, arising
+from whatever agreement you made when you agreed to pay, but that is a contract question between
+you and whoever you dealt with, not a professional-conduct question this kit resolves.
+
+Insurance defense is out of scope for this kit. When an insurer pays for a policyholder's
+defense lawyer, a large and separate body of law governs who the lawyer's client is, what the
+insurer can and cannot direct, and what happens when the insurer's interests and the
+policyholder's interests diverge. That law varies significantly by state and by the type of
+policy, and it does not reduce to the two Model Rules above. This kit does not cover it. If you
+are a policyholder with a dispute involving your defense lawyer or your insurer, get advice
+specific to insurance defense in your state rather than relying on this kit.
