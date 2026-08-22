@@ -14,13 +14,13 @@
       "date": "2026-08-21",
       "summary": "All fifty states. A national baseline on the ABA Model Rules plus one pack per state and the District of Columbia, each in the same eight sections with its own verification file, and routing rules, decision tree and templates that branch on the reader's state.",
       "state": "shipped"
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-08-21",
+      "summary": "Maintenance and depth release. A worked example where the client is wrong, a printable one-page decision tree, a tracker-to-chronology exporter, guidance on provable delivery and on finding a local fee arbitration program, national baseline sections on contingent-fee disputes and on a lawyer who has died or left practice, and the New Jersey contingent-fee scale moved onto the Judiciary's own archived site.",
+      "state": "shipped"
     }
   ],
-  "next": [
-    {
-      "id": "R-01",
-      "title": "Add per-county fee dispute program detail",
-      "why": "Programs are local, vary, and change"
-    }
-  ]
+  "next": []
 }

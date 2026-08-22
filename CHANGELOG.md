@@ -2,9 +2,9 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
-## Unreleased (0.3.0)
+## 2026-08-21 (0.3.0)
 
-Not shipped yet. This section describes what is on `main` since 0.2.0.
+Shipped. Tagged and pushed on 2026-08-21.
 
 - Added `examples/hourly_retainer_not_a_cap.md`, the first worked example where the client turns out to be wrong. Every other example ends with a claim the reader can act on. This one shows what the session says when the record does not support the complaint, and what the client can still legitimately ask for without a demand letter.
 - Added `docs/DECISION_TREE_ONE_PAGE.md`, a printable one-sheet condensation of the decision tree. It adds no facts. Every branch and every condition from the full tree survives.
