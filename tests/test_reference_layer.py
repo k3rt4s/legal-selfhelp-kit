@@ -118,17 +118,17 @@ EMPTY_ROW_MARKERS = {"none", "(none)"}
 # is allowed, so the list cannot grow by accident, and a stale entry fails its own test
 # below rather than sitting there granting cover to a row that has since changed.
 HOMEPAGE_SOURCE_EXEMPTIONS = {
-    ("ma", "https://www.masscsb.org/ (homepage)"):
+    ("ma", "<https://www.masscsb.org/> (homepage)"):
         "The Board states its no-limitations, no-caps policy and its cumulative payout "
         "figures on its front page and nowhere deeper; both rows record that, and that "
         "the figures are live numbers which will change without notice.",
-    ("mi", "Attorney Grievance Commission homepage, agcmi.org, https://www.agcmi.org/"):
+    ("mi", "Attorney Grievance Commission homepage, agcmi.org, <https://www.agcmi.org/>"):
         "Claim is that the AGC exists and is reached at this address.",
     ("mo", "OCDC homepage, <https://mochiefcounsel.org/>"):
         "Claim is that the OCDC exists and is reached at this address.",
     ("wa", "Resolution Washington homepage, <https://www.resolutionwa.org/>"):
         "Claim is that Resolution Washington exists and is reached at this address.",
-    ("wv", "https://wvodc.org/ (home page)"):
+    ("wv", "<https://wvodc.org/> (home page)"):
         "wvodc.org is a single page; there is no deeper page to cite.",
 }
 
