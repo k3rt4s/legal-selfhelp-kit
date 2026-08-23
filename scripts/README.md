@@ -4,6 +4,8 @@ Optional helpers that run with the Python standard library and no installed pack
 
 The kit works without these. Nothing here is required.
 
+They are tested on Python 3.13. Older interpreters may well work, since the scripts use nothing beyond the standard library and ordinary syntax, but no older version is tested and none is promised.
+
 ## Contents
 
 - [validate_tracker.py](validate_tracker.py): Checks a tracker CSV against the schema and prints every problem it finds.

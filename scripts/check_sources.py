@@ -150,6 +150,8 @@ GAP_SECTION_RE = re.compile(r"gap list", re.IGNORECASE)
 SUPERSEDED_RE = re.compile(r"^\s*superseded\b", re.IGNORECASE)
 SEPARATOR_RE = re.compile(r"^\s*\|?[\s:|-]+\|?\s*$")
 BACKREF_RE = re.compile(r"\bsame\b|\babove\b", re.IGNORECASE)
+# Column map for a well-formed table that is not a citation table (no Claim and Source header); its rows are skipped silently.
+IGNORED_TABLE: dict[str, int] = {}
 
 
 def state_for_file(path: Path) -> str:
@@ -249,10 +251,21 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
         cells = split_row(line)
 
         if col_map is None:
+            # A table starts with a header row followed by a separator row. A
+            # pipe row with no separator after it is a row that lost its table,
+            # almost always because a blank line was inserted above it; report
+            # it rather than guessing its columns or dropping it silently.
+            next_line = lines[lineno].rstrip("\r\n") if lineno < len(lines) else ""
+            if not SEPARATOR_RE.match(next_line):
+                problems.append(UnparseableRow(
+                    file=path.name, section=section, row_number=lineno,
+                    reason="table row with no header row above it (a blank line splits the table)",
+                    raw=line[:300],
+                ))
+                continue
             header_map = classify_header(cells)
-            if header_map is not None:
-                col_map = header_map
-                expect_separator = True
+            col_map = header_map if header_map is not None else IGNORED_TABLE
+            expect_separator = True
             continue
 
         if expect_separator:
@@ -260,6 +273,9 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
             if SEPARATOR_RE.match(line):
                 continue
             # Not actually a separator row; fall through and treat as data.
+
+        if col_map is IGNORED_TABLE:
+            continue
 
         claim_idx = col_map.get("claim")
         claim = cells[claim_idx] if claim_idx is not None and claim_idx < len(cells) else ""

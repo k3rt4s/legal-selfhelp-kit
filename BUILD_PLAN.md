@@ -47,4 +47,8 @@ state pack item below is closed by that work.
 
 ## Order for the next release
 
-1. Add per-county fee dispute program detail with sources.
+Nothing is queued. Per-county fee dispute program detail, the one item that sat here, is
+rejected in `FUTURE_FEATURES.md` in favor of `docs/FIND_YOUR_LOCAL_PROGRAM.md`, which
+teaches the reader how to find and confirm a local program rather than compiling a list that
+would be stale the month it shipped. Scope is complete at fifty states plus the District of
+Columbia. What follows is the scheduled sweep in `MAINTAINING.md`, nothing else.

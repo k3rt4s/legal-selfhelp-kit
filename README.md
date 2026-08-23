@@ -16,7 +16,7 @@ This kit is not legal advice and its author is not a lawyer. It helps you organi
 - [schemas/](schemas/README.md): Field definitions for the structured records the model produces, so output stays consistent across sessions and across models.
 - [scripts/](scripts/README.md): Optional helpers that run with the Python standard library and no installed packages, for anyone who prefers to check their tracker before a session.
 - [templates/](templates/README.md): Ready-to-adapt letters and submissions, with every legal reference given by rule number rather than quoted text.
-- [tests/](tests/README.md): Pytest suite covering the optional tracker validator against conforming and non-conforming fixtures.
+- [tests/](tests/README.md): Pytest suite covering the optional tracker validator, the source-health checker, and the structure of the reference layer itself, no network calls.
 - [tracker/](tracker/README.md): The CSV you carry between sessions so a new conversation, on any model, can pick up where the last one stopped.
 - [BUILD_PLAN.md](BUILD_PLAN.md): What is built, what is not, and what has to be true before anything ships.
 - [CHANGELOG.md](CHANGELOG.md): All notable changes to legal-selfhelp-kit, in plain English.
@@ -24,9 +24,11 @@ This kit is not legal advice and its author is not a lawyer. It helps you organi
 - [CONTRIBUTING.md](CONTRIBUTING.md): How to contribute to legal-selfhelp-kit, which is open under MIT and where corrections are more valuable than additions.
 - [FAQ.md](FAQ.md): Common questions about what this kit is, what it covers, and what it will not do.
 - [FUTURE_FEATURES.md](FUTURE_FEATURES.md): Backlog of work not yet scheduled.
+- [MAINTAINING.md](MAINTAINING.md): How the kit is kept current once its scope is complete, which is one bounded sweep on a schedule rather than an open-ended project.
 - [requirements.txt](requirements.txt): Pinned runtime Python dependencies.
 - [roadmap.json](roadmap.json): Machine-readable release history and what is planned next.
-- [SECURITY.md](SECURITY.md): The kit ships no network code, no telemetry, and no executable content beyond one optional standard-library script that reads a local CSV.
+- [SECURITY.md](SECURITY.md): The kit ships no telemetry and no code a reader has to run; the one script that touches the network is the maintainer's source checker, run by hand and never automatically.
+- [THEORY.md](THEORY.md): The working mental model for changing legal-selfhelp-kit, what a maintainer knows that the files do not say.
 - [USER_STORIES.md](USER_STORIES.md): Who this serves and what each person needs.
 
 <!-- END CONTENTS -->
@@ -35,7 +37,7 @@ This kit is not legal advice and its author is not a lawyer. It helps you organi
 
 A pack of Markdown rules, TOML schemas, letter templates, and a CSV tracker that you load into a language model along with your own documents. The model helps you build a timeline, find what is actually disputable, choose the right forum, and draft correspondence you review and send yourself.
 
-The repository holds no code you need to run. The optional script in `scripts/` only checks the format of your tracker file.
+The repository holds no code you need to run. The optional scripts in `scripts/` check the format of your tracker file and export a chronology from it; the third is a maintainer's link checker you never need.
 
 ## Scope
 

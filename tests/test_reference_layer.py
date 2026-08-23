@@ -410,3 +410,42 @@ def test_homepage_pack_exemptions_are_all_still_in_use(code: str, section_number
         f"state_{code}.md section {section_number} now has a complete URL "
         f"({complete!r}); remove its HOMEPAGE_PACK_EXEMPTIONS entry"
     )
+
+
+# ---------------------------------------------------------------------------
+# 9. No blank line splits a table. A pipe row after a blank line has no
+#    header: GitHub renders it as a paragraph and scripts/check_sources.py
+#    cannot tell which cell is the claim. Found in five files on 2026-08-22,
+#    36 rows in all; _table_rows() above reads past a blank line, so every
+#    other test here saw those rows as ordinary table rows.
+# ---------------------------------------------------------------------------
+
+
+VERIFICATION_FILES = sorted(p.name for p in REFERENCES.glob("*.md") if p.name.lower().startswith("verification"))
+
+
+def _is_separator_row(line: str) -> bool:
+    stripped = line.strip()
+    return stripped.startswith("|") and set(stripped) <= set("|:- ")
+
+
+@pytest.mark.parametrize("name", VERIFICATION_FILES)
+def test_no_blank_line_splits_a_table(name: str) -> None:
+    lines = _read(REFERENCES / name).splitlines()
+    orphans = []
+    in_table = False
+    for number, line in enumerate(lines, start=1):
+        if not line.strip().startswith("|"):
+            in_table = False
+            continue
+        if in_table:
+            continue
+        next_line = lines[number] if number < len(lines) else ""
+        if _is_separator_row(next_line):
+            in_table = True
+        else:
+            orphans.append(number)
+    assert not orphans, (
+        f"{name} has table rows with no header row above them at lines {orphans}; "
+        "a blank line inside the table cuts them off, delete it so the rows rejoin the table"
+    )

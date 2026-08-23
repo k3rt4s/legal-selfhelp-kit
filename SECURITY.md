@@ -1,6 +1,8 @@
 # Security
 
-The kit ships no network code, no telemetry, and no executable content beyond one optional standard-library script that reads a local CSV.
+The kit ships no telemetry and no code a reader has to run; the one script that touches the network is the maintainer's source checker, run by hand and never automatically.
+
+Three optional standard-library scripts live under `scripts/`. One validates a local tracker CSV and one exports a chronology from it; neither opens a network connection. The third, `check_sources.py`, is for maintainers only: it fetches the URLs cited under `references/` to check that each page still carries the claim the kit attributes to it. That is the only network code in the repository, it writes its report outside the repository, and nothing runs it on a schedule.
 
 ## Nothing personal belongs here
 

@@ -111,6 +111,36 @@ def test_unparseable_rows_are_reported_not_dropped(tmp_path: Path) -> None:
     assert "empty Claim cell" in reasons
 
 
+SPLIT_TABLE_FIXTURE = """# Verification: Splitland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The first claim, inside the table | <https://courts.splitland.gov/one> | 2026-08-20 | Read directly |
+
+| The second claim, cut off from its table by the blank line above | <https://courts.splitland.gov/two> | 2026-08-20 | Orphaned |
+| The third claim, also orphaned | <https://courts.splitland.gov/three> | 2026-08-20 | Orphaned |
+
+## Index of files, not a citation table
+
+| State | File | Rows |
+| ----- | ---- | ---- |
+| Splitland | verification_sl.md | 3 |
+"""
+
+
+def test_rows_cut_off_from_their_table_are_reported_not_guessed(tmp_path: Path) -> None:
+    """A blank line inside a table leaves the rows below it with no header; they must surface as unparseable, not be skipped or mapped to the wrong columns."""
+    path = write(tmp_path, "verification_sl.md", SPLIT_TABLE_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert [r.url for r in rows] == ["https://courts.splitland.gov/one"]
+    assert [p.row_number for p in problems] == [9, 10]
+    assert all("no header row above it" in p.reason for p in problems)
+    # A well-formed table that is not a citation table is still passed over silently.
+    assert not any("Splitland" in p.raw for p in problems)
+
+
 SAME_URL_FIXTURE = """# Verification: Sameland
 
 ## Confirmed against a primary or official source
