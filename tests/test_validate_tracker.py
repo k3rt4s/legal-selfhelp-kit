@@ -87,3 +87,14 @@ def test_each_required_column_is_enforced(tmp_path: Path, missing: str) -> None:
     parts[index] = ""
     problems = validate(write(tmp_path, ",".join(parts)))
     assert any(f"{missing} is required" in p for p in problems)
+
+
+def test_unquoted_comma_in_notes_is_reported(tmp_path: Path) -> None:
+    row = GOOD_ROW + "called once, left voicemail"
+    problems = validate(write(tmp_path, row))
+    assert any("past the last column" in p for p in problems)
+
+
+def test_quoted_comma_in_notes_is_accepted(tmp_path: Path) -> None:
+    row = GOOD_ROW + '"called once, left voicemail"'
+    assert validate(write(tmp_path, row)) == []
