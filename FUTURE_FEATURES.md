@@ -16,12 +16,27 @@ and local-program guidance, `scripts/check_sources.py`, and `tests/test_referenc
 
 ## Maintenance
 
-Nothing queued. The only standing maintenance is the scheduled source sweep, and its
-procedure, cadence, and triage rules live in `MAINTAINING.md` rather than here. The four
-items that used to sit in this section are closed: the first full sweep ran, the two
-Massachusetts front-page figures are a step in every sweep, Abel v. Austin stays flagged as
-a recorded soft spot in `THEORY.md` because the pack does not rely on it, and
-`scripts/README.md` now states the Python version the scripts are tested on.
+The standing maintenance is the scheduled source sweep, whose procedure, cadence, and triage
+rules live in `MAINTAINING.md` rather than here. Three items came out of the August 2026 sweep
+and are queued for the next one rather than done now, because none of them changes what a
+reader is told.
+
+1. Give the checker a fetcher that reaches the hosts urllib cannot. Python's OpenSSL handshake
+   is reset by some official sites, jud.ct.gov reliably among them, while curl on the Windows
+   Schannel stack retrieves the same URLs without trouble. No header or user-agent combination
+   changes it, so this needs a different transport, not a tweak. It costs about thirty rows of
+   false UNREACHABLE per sweep and a manual curl pass to clear them.
+2. Raise or bypass the response size cap for the few cited sources that are large archives. One
+   New Jersey row cites a zip the checker abandons at the cap and then reports as an error.
+3. Test the rules layer and the system prompt against each other. `rules/01_scope_and_limits.md`
+   and `llm/SYSTEM_PROMPT.md` encode the same boundaries twice, in prose, and they drifted: the
+   rules file limited deadlines to a list of section numbers that excluded the fee arbitration
+   section, which carries the filing windows in most packs. Nothing catches that today.
+
+Closed, and here for the record: the first full sweep ran, the two Massachusetts front-page
+figures are a step in every sweep, Abel v. Austin stays flagged as a recorded soft spot in
+`THEORY.md` because the pack does not rely on it, and `scripts/README.md` now states the Python
+version the scripts are tested on.
 
 ## Explicitly rejected
 
