@@ -20,6 +20,12 @@
       "date": "2026-08-21",
       "summary": "Maintenance and depth release. A worked example where the client is wrong, a printable one-page decision tree, a tracker-to-chronology exporter, guidance on provable delivery and on finding a local fee arbitration program, national baseline sections on contingent-fee disputes and on a lawyer who has died or left practice, and the New Jersey contingent-fee scale moved onto the Judiciary's own archived site.",
       "state": "shipped"
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-08-27",
+      "summary": "Scope-complete release. The first full source sweep ran over every cited URL under references/, and its findings landed in three places: fixes for the rules-layer deadline rule, the tracker validator and the source checker's backreference resolution, a written model of what the checker can and cannot judge in THEORY.md and MAINTAINING.md, and a queue in FUTURE_FEATURES.md of the rows the sweep could not source, addressed to February 2027.",
+      "state": "shipped"
     }
   ],
   "next": []
