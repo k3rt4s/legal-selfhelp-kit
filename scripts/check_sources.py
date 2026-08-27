@@ -150,6 +150,120 @@ GAP_SECTION_RE = re.compile(r"gap list", re.IGNORECASE)
 SUPERSEDED_RE = re.compile(r"^\s*superseded\b", re.IGNORECASE)
 SEPARATOR_RE = re.compile(r"^\s*\|?[\s:|-]+\|?\s*$")
 BACKREF_RE = re.compile(r"\bsame\b|\babove\b", re.IGNORECASE)
+
+BACKREF_HOST_RE = re.compile(
+    r"\b([a-z0-9][a-z0-9-]{2,}(?:\.[a-z0-9-]+)*\.(?:org|gov|com|net|edu|us))\b", re.IGNORECASE
+)
+ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
+# Words that locate a passage inside a source rather than name the source. A descriptor built
+# only from these tells you nothing about which earlier row is meant, and matching on one sends
+# the row to whichever earlier row happens to use the same word: "Same page, Comment [3]" is the
+# page above, not the last row that mentioned a comment.
+BACKREF_STOPWORDS = frozenset(
+    "same as source sources above rule rules section sections page pages the a an and or of for at in "
+    "id ibid see also cited prior previous document doc url text full pdf "
+    "official annotation annotations comment comments paragraph paragraphs".split()
+)
+
+
+CITATION_RE = re.compile(r"\b\d+[a-z]?(?:[.\-]\d+[a-z]?)+\b", re.IGNORECASE)
+
+
+def backref_citations(cell: str) -> list[str]:
+    """Return the section or rule numbers a backreference names, such as 25-222 or 9.112."""
+    stripped = re.sub(r"<[^>]*>", " ", cell.lower())
+    seen = []
+    for found in CITATION_RE.findall(stripped):
+        if found not in seen:
+            seen.append(found)
+    return seen
+
+
+def cites(haystack: str, citation: str) -> bool:
+    """True when the number appears in the text as its own citation, not inside a longer one."""
+    return re.search(r"(?<![\d.\-])" + re.escape(citation) + r"(?![\d.\-])", haystack) is not None
+
+
+def prose(cell: str) -> str:
+    """Return a cell's words with its URLs removed, lowercased."""
+    return re.sub(r"<[^>]*>", " ", URL_RE.sub(" ", cell)).lower()
+
+
+def descriptor_words(cell: str) -> set[str]:
+    """Return every whole word a cell offers a descriptor to match, prose and URL path alike.
+
+    A URL contributes the words of its path, split the way a person reading it would: "ACAB-Fee-
+    Arbitration-Rules" offers acab, and "addmrpc1.19.pdf" does not offer mrpc. That distinction
+    is the whole point of matching whole words rather than substrings. Michigan cites both its
+    rules book and the order adopting one rule, and both have mrpc somewhere in the path.
+    """
+    return set(re.findall(r"[a-z]{2,}", cell.lower()))
+
+
+def backref_tokens(cell: str) -> set[str]:
+    """Return the distinctive words a backreference uses to name the source it means."""
+    stripped = re.sub(r"<[^>]*>", " ", cell.lower())
+    return {w for w in re.findall(r"[a-z]{4,}", stripped) if w not in BACKREF_STOPWORDS}
+
+
+def resolve_backref(source_cell, url_cell, history):
+    """Resolve a backreference row to the earlier source it names, not merely the nearest one.
+
+    A row reading "Same Chapter 9 source, Rule 9.112" means the Chapter 9 row above it, which is
+    not always the row directly above: a one-off source interleaved between them used to be
+    inherited instead, and the claim was then checked against a page the row never cited.
+
+    Four ways of naming a source, in order of how much they pin it down. A host wins outright and
+    can point at any earlier row carrying a URL on it. The literal word "above" means the nearest
+    preceding source and nothing cleverer. Otherwise the row is read as naming a document and then
+    locating a passage inside it, so a descriptor such as "Chapter 9" or "Owens v. Purcel" is
+    matched first, and only a row with no usable descriptor falls through to a section number such
+    as 25-222. That order matters: "Same Owens v. Purcel opinion, quoting R.C. 2305.117(B)" is a
+    cite to the opinion, not to the statute, while "Same section 25-222 page, official annotations"
+    has nothing but the number to go on and must not settle for whichever section was cited last.
+
+    A descriptor matches a prior row on whole words, in its prose and in its URL path, never on a
+    substring. Many rows cite nothing but a link, so the path has to count; matching inside a word
+    does not, because Michigan's rules PDF and the order adopting a single rule both carry "mrpc"
+    somewhere in the path and only one of them carries it as a word.
+
+    `history` holds this file's earlier rows, oldest first, as (row_number, source_cell, urls),
+    where `urls` is every URL that row carries, primary first. Returns (url, row_number, reason).
+    A non-empty reason means the row names a source no earlier row in this file carries, and the
+    caller must not guess a URL for it.
+    """
+    if not history:
+        return None, None, "backreference to a prior source, but no URL has appeared yet in this file"
+
+    text = source_cell + " " + url_cell
+    hosts = {h.lower() for h in BACKREF_HOST_RE.findall(text)}
+    if hosts:
+        for row_number, _prior_cell, prior_urls in reversed(history):
+            for candidate in prior_urls:
+                if any(h in candidate.lower() for h in hosts):
+                    return candidate, row_number, ""
+        named = ", ".join(sorted(hosts))
+        return None, None, "backreference names " + named + ", but no earlier row in this file cites it"
+
+    if not ADJACENT_RE.search(text):
+        tokens = backref_tokens(text)
+        if tokens:
+            for row_number, prior_cell, prior_urls in reversed(history):
+                words = descriptor_words(prose(prior_cell))
+                for candidate in prior_urls:
+                    words |= descriptor_words(candidate)
+                if tokens & words:
+                    return prior_urls[0], row_number, ""
+
+        for citation in backref_citations(text):
+            for row_number, prior_cell, prior_urls in reversed(history):
+                haystack = prose(prior_cell) + " " + " ".join(prior_urls).lower()
+                if cites(haystack, citation):
+                    return prior_urls[0], row_number, ""
+
+    row_number, _prior_cell, prior_urls = history[-1]
+    return prior_urls[0], row_number, ""
+
 # Column map for a well-formed table that is not a citation table (no Claim and Source header); its rows are skipped silently.
 IGNORED_TABLE: dict[str, int] = {}
 
@@ -226,8 +340,7 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
     in_skip_section = False
     col_map: Optional[dict[str, int]] = None
     expect_separator = False
-    last_url = ""
-    last_url_row = 0
+    url_history: list[tuple[int, str, list[str]]] = []
 
     for lineno, raw_line in enumerate(lines, start=1):
         line = raw_line.rstrip("\r\n")
@@ -300,14 +413,11 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
         is_backref = bool(BACKREF_RE.search(source_cell) or BACKREF_RE.search(url_cell))
 
         if not url and is_backref:
-            if last_url:
-                url = last_url
-                inherited_from = last_url_row
-            else:
+            url, inherited_from, reason = resolve_backref(source_cell, url_cell, url_history)
+            if reason:
                 problems.append(UnparseableRow(
                     file=path.name, section=section, row_number=lineno,
-                    reason="backreference to a prior source, but no URL has appeared yet in this file",
-                    raw=line[:300],
+                    reason=reason, raw=line[:300],
                 ))
                 continue
 
@@ -318,8 +428,12 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
             ))
             continue
 
-        last_url = url
-        last_url_row = lineno
+        seen_here = [url]
+        for extra in URL_RE.findall(source_cell + " " + url_cell):
+            extra = extra.rstrip(">").rstrip(".").rstrip(")")
+            if extra not in seen_here:
+                seen_here.append(extra)
+        url_history.append((lineno, source_cell, seen_here))
 
         if not claim.strip():
             problems.append(UnparseableRow(

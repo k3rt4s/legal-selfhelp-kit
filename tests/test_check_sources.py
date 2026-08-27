@@ -462,3 +462,149 @@ def test_allowed_schemes_are_only_http_and_https() -> None:
 def test_response_size_is_capped() -> None:
     """The fetcher caps how much of a response it will read into memory."""
     assert 0 < MAX_RESPONSE_BYTES <= 50_000_000
+
+
+INTERLEAVED_BACKREF_FIXTURE = """# Verification: Interleaveland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The disciplinary chapter exists | Chapter 9 court rules, <https://courts.testland.gov/chapter9.pdf> | 2026-08-20 | Read directly |
+| The grievance commission is reached at this address | Grievance Commission homepage, <https://grievance.testland.org/> | 2026-08-20 | Read directly |
+| Rule 9.112 sets the investigation deadline | Same Chapter 9 source, Rule 9.112(A) | 2026-08-20 | Read directly |
+| Rule 9.130 sets the appeal deadline | Same Chapter 9 source, Rule 9.130 | 2026-08-20 | Read directly |
+"""
+
+NAMED_HOST_BACKREF_FIXTURE = """# Verification: Hostland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The fund publishes its coverage limits | <https://bar.testland.org/plf.html> and <https://fund.testland.org/who-we-are.html> | 2026-08-20 | Both read directly |
+| An unrelated statute sets the limitation period | <https://legislature.testland.gov/statutes/12.html> | 2026-08-20 | Read directly |
+| Coverage is capped per claim | fund.testland.org/who-we-are.html (above) | 2026-08-20 | Read directly |
+"""
+
+MISSING_HOST_BACKREF_FIXTURE = """# Verification: Missingland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| An unrelated statute sets the limitation period | <https://legislature.testland.gov/statutes/12.html> | 2026-08-20 | Read directly |
+| Coverage is capped per claim | fund.testland.org/who-we-are.html (above) | 2026-08-20 | Read directly |
+"""
+
+ADJACENT_BACKREF_FIXTURE = """# Verification: Adjacentland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The fund covers dishonest conduct | <https://courts.testland.gov/Attorneys/Lawyers-Fund> | 2026-08-20 | Read directly |
+| Rule 241 defines dishonest conduct | <https://courts.testland.gov/Rules/Rule-241> | 2026-08-20 | Read directly |
+| Rule 241 caps the payout | same as above; also the Lawyers' Fund program page | 2026-08-20 | Read directly |
+"""
+
+
+def test_backreference_skips_an_interleaved_unrelated_source(tmp_path: Path) -> None:
+    """A row naming "Same Chapter 9 source" means Chapter 9, not the homepage row between them."""
+    path = write(tmp_path, "verification_il.md", INTERLEAVED_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    chapter9, homepage = rows[0], rows[1]
+    for row in rows[2:]:
+        assert row.url == chapter9.url
+        assert row.inherited_from != homepage.row_number
+
+
+def test_backreference_naming_a_host_finds_it_on_an_earlier_row(tmp_path: Path) -> None:
+    """A row naming a host resolves to that host, even when it is the second URL on the earlier row."""
+    path = write(tmp_path, "verification_hl.md", NAMED_HOST_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == "https://fund.testland.org/who-we-are.html"
+    assert rows[-1].inherited_from == rows[0].row_number
+
+
+def test_backreference_naming_an_uncited_host_is_unparseable(tmp_path: Path) -> None:
+    """Naming a host no earlier row carries is reported, never resolved to whatever came last."""
+    path = write(tmp_path, "verification_ml.md", MISSING_HOST_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert len(rows) == 1
+    assert len(problems) == 1
+    assert "fund.testland.org" in problems[0].reason
+
+
+def test_above_means_the_nearest_source_not_a_word_match(tmp_path: Path) -> None:
+    """"same as above" is adjacency; a trailing mention of another page must not pull the row off it."""
+    path = write(tmp_path, "verification_ad.md", ADJACENT_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == "https://courts.testland.gov/Rules/Rule-241"
+    assert rows[-1].inherited_from == rows[1].row_number
+
+
+SECTION_NUMBER_BACKREF_FIXTURE = """# Verification: Numberland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| An appeal is reviewed on the record | Testland Rev. Stat. section 25-2733, <https://legislature.testland.gov/statutes.php?statute=25-2733>, its own official annotations | 2026-08-20 | Read directly |
+| Professional negligence has a two-year period | Testland Rev. Stat. section 25-222, <https://legislature.testland.gov/statutes.php?statute=25-222> | 2026-08-20 | Read directly |
+| The ten-year repose period is constitutional | Same section 25-222 page, official annotations | 2026-08-20 | Read directly |
+"""
+
+PATH_SUBSTRING_BACKREF_FIXTURE = """# Verification: Substringland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Rule 1.0(a) defines a firm | Testland Rules of Professional Conduct, Rule 1.0(a), <https://courts.testland.gov/siteassets/rules-of-professional-conduct/testland-rules-of-professional-conduct.pdf> | 2026-08-20 | Read directly |
+| Rule 1.19 bars an arbitration clause covering a future dispute | Same rules PDF, Rule 1.19 full text | 2026-08-20 | Read directly |
+| The court adopted Rule 1.19 effective 2022 | Testland Supreme Court order, ADM File No. 2021-07, <https://courts.testland.gov/adopted-orders/2021-07_formor_addmrpc1.19.pdf> | 2026-08-20 | Read directly |
+| Rule 1.19's comment lists the informed-consent items | Same rules PDF, Rule 1.19 comment | 2026-08-20 | Read directly |
+"""
+
+
+def test_a_section_number_resolves_when_the_row_has_no_other_descriptor(tmp_path: Path) -> None:
+    """"Same section 25-222 page" is the 25-222 row, not whichever section was cited last."""
+    path = write(tmp_path, "verification_nl.md", SECTION_NUMBER_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url.endswith("statute=25-222")
+    assert rows[-1].inherited_from == rows[1].row_number
+
+
+def test_a_rule_number_is_not_matched_inside_a_url_path_word(tmp_path: Path) -> None:
+    """A row citing Rule 1.19 means the rules book, not an order whose filename ends addmrpc1.19."""
+    path = write(tmp_path, "verification_sl.md", PATH_SUBSTRING_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == rows[0].url
+    assert rows[-1].inherited_from == rows[1].row_number
+
+
+LOCATOR_BACKREF_FIXTURE = """# Verification: Locatorland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The bar publishes an ethics opinion on fees | <https://bar.testland.org/ethics/opinion-376>, Comment on fee splitting | 2026-08-20 | Read directly |
+| Scope Comment [4] disclaims enlarging existing law | <https://bar.testland.org/rules-of-professional-conduct/scope> | 2026-08-20 | Read directly |
+| Scope Comment [3]: a violation "is a basis for invoking the disciplinary process" | Same page, Comment [3] | 2026-08-20 | Read directly |
+"""
+
+
+def test_a_locator_word_does_not_name_a_source(tmp_path: Path) -> None:
+    """"Same page, Comment [3]" is the page above; comment locates a passage, it names nothing."""
+    path = write(tmp_path, "verification_ll.md", LOCATOR_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == rows[-2].url
+    assert rows[-1].inherited_from == rows[-2].row_number

@@ -45,6 +45,13 @@ def validate(path: str) -> list[str]:
 
         seen_ids: set[str] = set()
         for line, row in enumerate(reader, start=2):
+            surplus = row.get(None)
+            if surplus:
+                problems.append(
+                    f"row {line}: {len(surplus)} value(s) past the last column, "
+                    "usually an unquoted comma; quote the cell or remove the comma"
+                )
+
             for field in REQUIRED:
                 if not (row.get(field) or "").strip():
                     problems.append(f"row {line}: {field} is required")
