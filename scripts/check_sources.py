@@ -150,6 +150,64 @@ GAP_SECTION_RE = re.compile(r"gap list", re.IGNORECASE)
 SUPERSEDED_RE = re.compile(r"^\s*superseded\b", re.IGNORECASE)
 SEPARATOR_RE = re.compile(r"^\s*\|?[\s:|-]+\|?\s*$")
 BACKREF_RE = re.compile(r"\bsame\b|\babove\b", re.IGNORECASE)
+
+BACKREF_HOST_RE = re.compile(
+    r"\b([a-z0-9][a-z0-9-]{2,}(?:\.[a-z0-9-]+)*\.(?:org|gov|com|net|edu|us))\b", re.IGNORECASE
+)
+ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
+BACKREF_STOPWORDS = frozenset(
+    "same as source sources above rule rules section sections page pages the a an and or of for at in "
+    "id ibid see also cited prior previous document doc url text full pdf".split()
+)
+
+
+def backref_tokens(cell: str) -> set[str]:
+    """Return the distinctive words a backreference uses to name the source it means."""
+    stripped = re.sub(r"<[^>]*>", " ", cell.lower())
+    return {w for w in re.findall(r"[a-z]{4,}", stripped) if w not in BACKREF_STOPWORDS}
+
+
+def resolve_backref(source_cell, url_cell, history):
+    """Resolve a backreference row to the earlier source it names, not merely the nearest one.
+
+    A row reading "Same Chapter 9 source, Rule 9.112" means the Chapter 9 row above it, which is
+    not always the row directly above: a one-off source interleaved between them used to be
+    inherited instead, and the claim was then checked against a page the row never cited.
+
+    Three ways of naming a source, in order of how much they pin it down: a host, which wins
+    outright and can point at any earlier row carrying a URL on it; the literal word "above",
+    which means the nearest preceding source and nothing cleverer; and a descriptor such as
+    "Chapter 9", matched against what the earlier rows say.
+
+    `history` holds this file's earlier rows, oldest first, as (row_number, source_cell, urls),
+    where `urls` is every URL that row carries, primary first. Returns (url, row_number, reason).
+    A non-empty reason means the row names a source no earlier row in this file carries, and the
+    caller must not guess a URL for it.
+    """
+    if not history:
+        return None, None, "backreference to a prior source, but no URL has appeared yet in this file"
+
+    text = source_cell + " " + url_cell
+    hosts = {h.lower() for h in BACKREF_HOST_RE.findall(text)}
+    if hosts:
+        for row_number, _prior_cell, prior_urls in reversed(history):
+            for candidate in prior_urls:
+                if any(h in candidate.lower() for h in hosts):
+                    return candidate, row_number, ""
+        named = ", ".join(sorted(hosts))
+        return None, None, "backreference names " + named + ", but no earlier row in this file cites it"
+
+    if not ADJACENT_RE.search(text):
+        tokens = backref_tokens(text)
+        if tokens:
+            for row_number, prior_cell, prior_urls in reversed(history):
+                haystack = (prior_cell + " " + " ".join(prior_urls)).lower()
+                if any(tok in haystack for tok in tokens):
+                    return prior_urls[0], row_number, ""
+
+    row_number, _prior_cell, prior_urls = history[-1]
+    return prior_urls[0], row_number, ""
+
 # Column map for a well-formed table that is not a citation table (no Claim and Source header); its rows are skipped silently.
 IGNORED_TABLE: dict[str, int] = {}
 
@@ -226,8 +284,7 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
     in_skip_section = False
     col_map: Optional[dict[str, int]] = None
     expect_separator = False
-    last_url = ""
-    last_url_row = 0
+    url_history: list[tuple[int, str, list[str]]] = []
 
     for lineno, raw_line in enumerate(lines, start=1):
         line = raw_line.rstrip("\r\n")
@@ -300,14 +357,11 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
         is_backref = bool(BACKREF_RE.search(source_cell) or BACKREF_RE.search(url_cell))
 
         if not url and is_backref:
-            if last_url:
-                url = last_url
-                inherited_from = last_url_row
-            else:
+            url, inherited_from, reason = resolve_backref(source_cell, url_cell, url_history)
+            if reason:
                 problems.append(UnparseableRow(
                     file=path.name, section=section, row_number=lineno,
-                    reason="backreference to a prior source, but no URL has appeared yet in this file",
-                    raw=line[:300],
+                    reason=reason, raw=line[:300],
                 ))
                 continue
 
@@ -318,8 +372,12 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
             ))
             continue
 
-        last_url = url
-        last_url_row = lineno
+        seen_here = [url]
+        for extra in URL_RE.findall(source_cell + " " + url_cell):
+            extra = extra.rstrip(">").rstrip(".").rstrip(")")
+            if extra not in seen_here:
+                seen_here.append(extra)
+        url_history.append((lineno, source_cell, seen_here))
 
         if not claim.strip():
             problems.append(UnparseableRow(
