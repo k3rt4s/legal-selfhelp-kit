@@ -545,3 +545,45 @@ def test_above_means_the_nearest_source_not_a_word_match(tmp_path: Path) -> None
     assert problems == []
     assert rows[-1].url == "https://courts.testland.gov/Rules/Rule-241"
     assert rows[-1].inherited_from == rows[1].row_number
+
+
+SECTION_NUMBER_BACKREF_FIXTURE = """# Verification: Numberland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| An appeal is reviewed on the record | Testland Rev. Stat. section 25-2733, <https://legislature.testland.gov/statutes.php?statute=25-2733>, its own official annotations | 2026-08-20 | Read directly |
+| Professional negligence has a two-year period | Testland Rev. Stat. section 25-222, <https://legislature.testland.gov/statutes.php?statute=25-222> | 2026-08-20 | Read directly |
+| The ten-year repose period is constitutional | Same section 25-222 page, official annotations | 2026-08-20 | Read directly |
+"""
+
+PATH_SUBSTRING_BACKREF_FIXTURE = """# Verification: Substringland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Rule 1.0(a) defines a firm | Testland Rules of Professional Conduct, Rule 1.0(a), <https://courts.testland.gov/siteassets/rules-of-professional-conduct/testland-rules-of-professional-conduct.pdf> | 2026-08-20 | Read directly |
+| Rule 1.19 bars an arbitration clause covering a future dispute | Same rules PDF, Rule 1.19 full text | 2026-08-20 | Read directly |
+| The court adopted Rule 1.19 effective 2022 | Testland Supreme Court order, ADM File No. 2021-07, <https://courts.testland.gov/adopted-orders/2021-07_formor_addmrpc1.19.pdf> | 2026-08-20 | Read directly |
+| Rule 1.19's comment lists the informed-consent items | Same rules PDF, Rule 1.19 comment | 2026-08-20 | Read directly |
+"""
+
+
+def test_a_section_number_resolves_when_the_row_has_no_other_descriptor(tmp_path: Path) -> None:
+    """"Same section 25-222 page" is the 25-222 row, not whichever section was cited last."""
+    path = write(tmp_path, "verification_nl.md", SECTION_NUMBER_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url.endswith("statute=25-222")
+    assert rows[-1].inherited_from == rows[1].row_number
+
+
+def test_a_rule_number_is_not_matched_inside_a_url_path_word(tmp_path: Path) -> None:
+    """A row citing Rule 1.19 means the rules book, not an order whose filename ends addmrpc1.19."""
+    path = write(tmp_path, "verification_sl.md", PATH_SUBSTRING_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == rows[0].url
+    assert rows[-1].inherited_from == rows[1].row_number

@@ -157,8 +157,43 @@ BACKREF_HOST_RE = re.compile(
 ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
 BACKREF_STOPWORDS = frozenset(
     "same as source sources above rule rules section sections page pages the a an and or of for at in "
-    "id ibid see also cited prior previous document doc url text full pdf".split()
+    "id ibid see also cited prior previous document doc url text full pdf "
+    "official annotation annotations".split()
 )
+
+
+CITATION_RE = re.compile(r"\b\d+[a-z]?(?:[.\-]\d+[a-z]?)+\b", re.IGNORECASE)
+
+
+def backref_citations(cell: str) -> list[str]:
+    """Return the section or rule numbers a backreference names, such as 25-222 or 9.112."""
+    stripped = re.sub(r"<[^>]*>", " ", cell.lower())
+    seen = []
+    for found in CITATION_RE.findall(stripped):
+        if found not in seen:
+            seen.append(found)
+    return seen
+
+
+def cites(haystack: str, citation: str) -> bool:
+    """True when the number appears in the text as its own citation, not inside a longer one."""
+    return re.search(r"(?<![\d.\-])" + re.escape(citation) + r"(?![\d.\-])", haystack) is not None
+
+
+def prose(cell: str) -> str:
+    """Return a cell's words with its URLs removed, lowercased."""
+    return re.sub(r"<[^>]*>", " ", URL_RE.sub(" ", cell)).lower()
+
+
+def descriptor_words(cell: str) -> set[str]:
+    """Return every whole word a cell offers a descriptor to match, prose and URL path alike.
+
+    A URL contributes the words of its path, split the way a person reading it would: "ACAB-Fee-
+    Arbitration-Rules" offers acab, and "addmrpc1.19.pdf" does not offer mrpc. That distinction
+    is the whole point of matching whole words rather than substrings. Michigan cites both its
+    rules book and the order adopting one rule, and both have mrpc somewhere in the path.
+    """
+    return set(re.findall(r"[a-z]{2,}", cell.lower()))
 
 
 def backref_tokens(cell: str) -> set[str]:
@@ -174,10 +209,19 @@ def resolve_backref(source_cell, url_cell, history):
     not always the row directly above: a one-off source interleaved between them used to be
     inherited instead, and the claim was then checked against a page the row never cited.
 
-    Three ways of naming a source, in order of how much they pin it down: a host, which wins
-    outright and can point at any earlier row carrying a URL on it; the literal word "above",
-    which means the nearest preceding source and nothing cleverer; and a descriptor such as
-    "Chapter 9", matched against what the earlier rows say.
+    Four ways of naming a source, in order of how much they pin it down. A host wins outright and
+    can point at any earlier row carrying a URL on it. The literal word "above" means the nearest
+    preceding source and nothing cleverer. Otherwise the row is read as naming a document and then
+    locating a passage inside it, so a descriptor such as "Chapter 9" or "Owens v. Purcel" is
+    matched first, and only a row with no usable descriptor falls through to a section number such
+    as 25-222. That order matters: "Same Owens v. Purcel opinion, quoting R.C. 2305.117(B)" is a
+    cite to the opinion, not to the statute, while "Same section 25-222 page, official annotations"
+    has nothing but the number to go on and must not settle for whichever section was cited last.
+
+    A descriptor matches a prior row on whole words, in its prose and in its URL path, never on a
+    substring. Many rows cite nothing but a link, so the path has to count; matching inside a word
+    does not, because Michigan's rules PDF and the order adopting a single rule both carry "mrpc"
+    somewhere in the path and only one of them carries it as a word.
 
     `history` holds this file's earlier rows, oldest first, as (row_number, source_cell, urls),
     where `urls` is every URL that row carries, primary first. Returns (url, row_number, reason).
@@ -201,8 +245,16 @@ def resolve_backref(source_cell, url_cell, history):
         tokens = backref_tokens(text)
         if tokens:
             for row_number, prior_cell, prior_urls in reversed(history):
-                haystack = (prior_cell + " " + " ".join(prior_urls)).lower()
-                if any(tok in haystack for tok in tokens):
+                words = descriptor_words(prose(prior_cell))
+                for candidate in prior_urls:
+                    words |= descriptor_words(candidate)
+                if tokens & words:
+                    return prior_urls[0], row_number, ""
+
+        for citation in backref_citations(text):
+            for row_number, prior_cell, prior_urls in reversed(history):
+                haystack = prose(prior_cell) + " " + " ".join(prior_urls).lower()
+                if cites(haystack, citation):
                     return prior_urls[0], row_number, ""
 
     row_number, _prior_cell, prior_urls = history[-1]
