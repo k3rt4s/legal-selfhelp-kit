@@ -24,7 +24,7 @@
     {
       "version": "1.0.0",
       "date": "2026-08-27",
-      "summary": "Scope-complete release. The first full source sweep ran over every cited URL under references/, and its findings landed in three places: fixes for the rules-layer deadline rule, the tracker validator and the source checker's backreference resolution, a written model of what the checker can and cannot judge in THEORY.md and MAINTAINING.md, and a queue in FUTURE_FEATURES.md of the rows the sweep could not source, addressed to February 2027.",
+      "summary": "Scope-complete release. The first full source sweep ran over every cited URL under references/, and its findings landed in four places: fixes for the rules-layer deadline rule, the tracker validator and the source checker's backreference resolution; a written model of what the checker can and cannot judge in THEORY.md and MAINTAINING.md; a hand re-check of the twenty rows the sweep reported as no longer carrying their claim, every one resolved in place before the release; and a queue in FUTURE_FEATURES.md of the checker work and the loosely-cited rows, addressed to February 2027.",
       "state": "shipped"
     }
   ],

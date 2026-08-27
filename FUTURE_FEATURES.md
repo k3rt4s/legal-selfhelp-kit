@@ -17,11 +17,11 @@ and local-program guidance, `scripts/check_sources.py`, and `tests/test_referenc
 ## Maintenance
 
 The standing maintenance is the scheduled source sweep, whose procedure, cadence, and triage
-rules live in `MAINTAINING.md` rather than here. Eight items came out of the August 2026
-sweep and are queued for the February 2027 one rather than done now. The first four are
-checker work and change nothing a reader is told. The last four are rows whose citation is
-weaker than the file claims, none of which was reachable in one attempt during the sweep,
-which is the bar `MAINTAINING.md` sets for fixing a row in the sweep that found it.
+rules live in `MAINTAINING.md` rather than here. Seven items came out of the August 2026
+sweep and are queued for the February 2027 one rather than done now. The first five are
+checker work and change nothing a reader is told. The last two are rows that name their
+source too loosely for any checker to resolve, and the cure is a maintainer naming the
+document, not a code change.
 
 1. Give the checker a fetcher that reaches the hosts urllib cannot. Python's OpenSSL handshake
    is reset by some official sites, jud.ct.gov reliably among them, while curl on the Windows
@@ -41,36 +41,28 @@ which is the bar `MAINTAINING.md` sets for fixing a row in the sweep that found 
    reviewed, but the comparison belongs on the parsed host with a dot boundary, not on the raw
    string.
 
-5. Re-source the twenty rows whose cited page no longer carries the claim. Each was fetched and
-   read during the sweep, and no replacement source turned up in one attempt: az 15, 16, 26, dc
-   13, 14, 15, 16, 24, id 39, ks 28, ma 24, 25, 26, 27, md 41, nc 50, ut 43, 57, 58, va 26. Two
-   need care rather than searching. `verification_ut.md:57` cites a rule page that answers 200
-   with the body "This Rule cannot be found", so it is dead rather than merely unmatched.
-   `verification_nc.md:50` says its rule sections were fetched and read directly but cites only
-   the index page above them, so the URLs it was actually checked against are recorded nowhere.
-   Six of them are compound citations, dc 24, ma 24 to 27 and va 26, where only one of the two
-   cited documents was tested; test the other before concluding anything about those.
-6. Fill in three citations that are malformed rather than wrong. `verification_mn.md:23` carries
+5. Stop the word "above" in a source cell from overriding the document the cell names. The
+   resolver treats the literal word as adjacency and short-circuits descriptor matching, so a
+   cell reading "Fee Arbitration Program Rules PDF, same URL as above" resolves to whatever row
+   sits directly above it rather than to the rules PDF it names. That is what produced most of
+   the sweep's claim-missing verdicts: the checker tested rows against pages they do not cite.
+   Adjacency should be the fallback when the cell names nothing, not the first thing tried.
+6. Fill in two citations that are malformed rather than wrong. `verification_mn.md:23` carries
    the literal placeholder `{N}` in its Source cell where a document ID belongs; the surrounding
    pattern is live and consistent with the claim, so this is a value to supply, not a source to
-   find. `verification_ut.md:58` reads "Same PDF as sc78a8.pdf above" and nothing earlier in the
-   file defines that name, so the backreference resolves to a neighboring rule page that has
-   nothing to do with the claim; the rows above it cite dated PDFs at a fixed le.utah.gov pattern
-   and the section 78A-8-106 equivalent is the likely target. `verification_or.md:61` cites the
-   wrong page and the sweep named a candidate without confirming the claim is on it.
+   find. `verification_or.md:61` cites the wrong page and the sweep named a candidate without
+   confirming the claim is on it.
 7. Rewrite the five rows that name a source too loosely to resolve, `verification_in.md` 47 and
    48 and `verification_ms.md` 63 to 65. `THEORY.md` explains why no checker change reaches
    them: one names a host that carries thousands of pages, the others reason by elimination over
    rows above and have no single page behind them. The cure is naming the document in the cell.
-8. Judge the five rows that cite a Wayback capture and could not be reached during the sweep:
-   `verification_in.md:30`, `verification_ma.md` 15 and 17, and `verification_mn.md` 16 and 17.
-   web.archive.org reset every connection from the maintainer's machine that day while its own
-   availability API answered. Unverified for that reason is not a defect.
 
-Closed, and here for the record: the first full sweep ran, the two Massachusetts front-page
-figures are a step in every sweep, Abel v. Austin stays flagged as a recorded soft spot in
-`THEORY.md` because the pack does not rely on it, and `scripts/README.md` now states the Python
-version the scripts are tested on.
+Closed, and here for the record: the first full sweep ran; the twenty rows it reported as no
+longer carrying their claim were re-checked by hand before the release and every one was
+resolved in place, so none is deferred; the five Wayback-sourced rows now say in their own note
+that the archive was unreachable; the two Massachusetts front-page figures are a step in every
+sweep; Abel v. Austin stays flagged as a recorded soft spot in `THEORY.md` because the pack does
+not rely on it; and `scripts/README.md` now states the Python version the scripts are tested on.
 
 ## Explicitly rejected
 
