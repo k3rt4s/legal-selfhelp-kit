@@ -47,6 +47,8 @@ document, not a code change.
    sits directly above it rather than to the rules PDF it names. That is what produced most of
    the sweep's claim-missing verdicts: the checker tested rows against pages they do not cite.
    Adjacency should be the fallback when the cell names nothing, not the first thing tried.
+   That order is what this release shipped and what the changelog entry describes, so this is
+   a change to make, not a report that the code and the docs disagree.
 6. Fill in two citations that are malformed rather than wrong. `verification_mn.md:23` carries
    the literal placeholder `{N}` in its Source cell where a document ID belongs; the surrounding
    pattern is live and consistent with the claim, so this is a value to supply, not a source to
