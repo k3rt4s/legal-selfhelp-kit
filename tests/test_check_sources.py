@@ -587,3 +587,24 @@ def test_a_rule_number_is_not_matched_inside_a_url_path_word(tmp_path: Path) -> 
     assert problems == []
     assert rows[-1].url == rows[0].url
     assert rows[-1].inherited_from == rows[1].row_number
+
+
+LOCATOR_BACKREF_FIXTURE = """# Verification: Locatorland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The bar publishes an ethics opinion on fees | <https://bar.testland.org/ethics/opinion-376>, Comment on fee splitting | 2026-08-20 | Read directly |
+| Scope Comment [4] disclaims enlarging existing law | <https://bar.testland.org/rules-of-professional-conduct/scope> | 2026-08-20 | Read directly |
+| Scope Comment [3]: a violation "is a basis for invoking the disciplinary process" | Same page, Comment [3] | 2026-08-20 | Read directly |
+"""
+
+
+def test_a_locator_word_does_not_name_a_source(tmp_path: Path) -> None:
+    """"Same page, Comment [3]" is the page above; comment locates a passage, it names nothing."""
+    path = write(tmp_path, "verification_ll.md", LOCATOR_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == rows[-2].url
+    assert rows[-1].inherited_from == rows[-2].row_number

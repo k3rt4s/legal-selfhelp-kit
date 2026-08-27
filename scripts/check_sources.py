@@ -155,10 +155,14 @@ BACKREF_HOST_RE = re.compile(
     r"\b([a-z0-9][a-z0-9-]{2,}(?:\.[a-z0-9-]+)*\.(?:org|gov|com|net|edu|us))\b", re.IGNORECASE
 )
 ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
+# Words that locate a passage inside a source rather than name the source. A descriptor built
+# only from these tells you nothing about which earlier row is meant, and matching on one sends
+# the row to whichever earlier row happens to use the same word: "Same page, Comment [3]" is the
+# page above, not the last row that mentioned a comment.
 BACKREF_STOPWORDS = frozenset(
     "same as source sources above rule rules section sections page pages the a an and or of for at in "
     "id ibid see also cited prior previous document doc url text full pdf "
-    "official annotation annotations".split()
+    "official annotation annotations comment comments paragraph paragraphs".split()
 )
 
 
