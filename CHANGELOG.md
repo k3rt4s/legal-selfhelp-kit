@@ -5,6 +5,8 @@ All notable changes to legal-selfhelp-kit, in plain English.
 ## 2026-09-06
 
 - Scored the board and the backlog with ai_development/docs/board-scoring.md. The board has nothing on a live section; the seven unshipped Maintenance items now carry score and return blocks under a new Scored index at the top of FUTURE_FEATURES.md, and the ranked tables are in the data root at board_review_2026-09-06.md.
+- Re-scoped the sizecap item to the defect the sweep actually shows. MAINTAINING.md step 4 says one New Jersey row cites an archive larger than the five megabyte response cap; the August 2026 sweep report shows an HTTP 404 on a URL ending in a backtick and a comma, because URL_RE at scripts/check_sources.py line 52 excludes whitespace and closing brackets but not a backtick. Four rows corpus-wide are affected, three in verification_mn.md and one in verification_nj.md. The size cap has never been observed to fire, and MAINTAINING.md step 4 is corrected as part of the item.
+- Approved all seven queued Maintenance items to build now, lifting the February 2027 deferral agreed on 2026-08-27. They moved from the FUTURE_FEATURES.md Scored index onto the work board in the data root, grouped into four lanes that build in parallel in separate git worktrees and merge serially: fetch layer, backreference resolver, layer parity, and reference rows. Each board item now carries its goal, the files and functions it touches, current and wanted behaviour with an example, the test that proves it, what is out of scope, a definition of done and a one-line rollback. The dispatch brief and the four lane prompts are in the data root at DISPATCH_BRIEF_2026-09-06.md and lane_prompts/.
 
 ## 2026-08-27 (1.0.0)
 
