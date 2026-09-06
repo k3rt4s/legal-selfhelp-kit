@@ -2,6 +2,10 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## 2026-09-06
+
+- Scored the board and the backlog with ai_development/docs/board-scoring.md. The board has nothing on a live section; the seven unshipped Maintenance items now carry score and return blocks under a new Scored index at the top of FUTURE_FEATURES.md, and the ranked tables are in the data root at board_review_2026-09-06.md.
+
 ## 2026-08-27 (1.0.0)
 
 Shipped. The version number says the scope is closed, not that the kit is finished being correct. It covers all fifty states and the District of Columbia, every legal claim in it has a verification row, and nothing further is planned beyond the twice-yearly source sweep in `MAINTAINING.md`. 0.1.0 and 0.2.0 were never tagged and are not being tagged now; this changelog is the record of what shipped when.
