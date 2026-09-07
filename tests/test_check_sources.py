@@ -22,6 +22,7 @@ from check_sources import (  # noqa: E402
     claim_match_fraction,
     discover_files,
     parse_reference_file,
+    resolve_backref,
     run,
     state_for_file,
     strip_html,
@@ -302,6 +303,32 @@ def test_backreference_trailing_bare_above_shape_resolves(tmp_path: Path) -> Non
     rpc_row = rows[3]
     assert rpc_row.url == rows[0].url
     assert rpc_row.inherited_from == rows[2].row_number
+
+
+def test_bare_extension_is_not_enough_for_descriptor_match() -> None:
+    history = [
+        (5, "Fee Rules PDF", ["https://courts.example.gov/rules/fee-rules.pdf"]),
+        (6, "Complaint overview", ["https://courts.example.gov/help/complaints.html"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same PDF source", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.example.gov/help/complaints.html"
+    assert row_number == 6
+
+
+def test_digit_bearing_descriptor_keeps_its_digits() -> None:
+    history = [
+        (5, "Chapter 24 rules", ["https://courts.example.gov/rules/chapter24.pdf"]),
+        (6, "Chapter 25 rules", ["https://courts.example.gov/rules/chapter25.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same chapter24 source", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.example.gov/rules/chapter24.pdf"
+    assert row_number == 5
 
 
 def test_genuine_no_source_note_stays_unparseable(tmp_path: Path) -> None:
