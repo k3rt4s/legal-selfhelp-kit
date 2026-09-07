@@ -529,11 +529,13 @@ def _invoke_curl(curl_path: str, url: str, timeout: int) -> "subprocess.Complete
 
     The URL always goes in through --url, never as a bare positional argument, so a URL that
     happens to start with a dash (these come out of Markdown tables anyone can send a pull
-    request against) is never read as a curl option.
+    request against) is never read as a curl option. -q disables loading whatever curlrc sits
+    on the machine running the sweep, so a maintainer's own proxy or header settings there
+    cannot silently change what this checker fetches.
     """
     return subprocess.run(
         [
-            curl_path, "--silent", "--show-error", "--location",
+            curl_path, "-q", "--silent", "--show-error", "--location",
             "--max-time", str(timeout),
             "--write-out", CURL_WRITE_OUT_MARKER,
             "--url", url,

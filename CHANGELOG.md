@@ -2,6 +2,12 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## 2026-09-07
+
+- Added a layer-parity test, tests/test_layer_parity.py, that fails when rules/01_scope_and_limits.md and llm/SYSTEM_PROMPT.md state a shared boundary differently. Proved it can fail: run against the pre-82fe1b1 text of rules/01_scope_and_limits.md it fails on the deadline checks, run against the current tree it passes. No change to either shipped prose file (item C1 prompttest).
+- Stopped URL_RE at scripts/check_sources.py capturing a trailing backtick or comma off a source cell, which sent the checker to a URL the row never cited. Four rows were affected, three in verification_mn.md and one in verification_nj.md. Settled the question MAINTAINING.md step 4 raised: the New Jersey row's HTTP_ERROR was the mangled URL, not the response-size cap; once the extractor is fixed the row resolves to a real 41 MB archive, so the cap is now content-type based, 5 MB for web content and 50 MB for archive content types (item A1 sizecap).
+- Gave the checker a curl fallback for hosts, jud.ct.gov among them, that reset Python's TLS handshake but answer curl on the OS TLS stack without trouble. An HTTPError is never retried through curl, only a TLS-layer failure is. The report now names which transport answered a row. MAINTAINING.md step 5 updated: a manual curl pass is no longer a maintainer's first move for an UNREACHABLE row (item A2 fetcher).
+
 ## 2026-09-06
 
 - Scored the board and the backlog with ai_development/docs/board-scoring.md. The board has nothing on a live section; the seven unshipped Maintenance items now carry score and return blocks under a new Scored index at the top of FUTURE_FEATURES.md, and the ranked tables are in the data root at board_review_2026-09-06.md.
