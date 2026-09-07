@@ -265,9 +265,23 @@ def resolve_backref(source_cell, url_cell, history):
     text = source_cell + " " + url_cell
     hosts = {h.lower() for h in BACKREF_HOST_RE.findall(text)}
     if hosts:
+        def candidate_hosts(candidate: str) -> set[str]:
+            parsed = urllib.parse.urlsplit(candidate)
+            netloc = parsed.hostname.lower() if parsed.hostname else ""
+            found = {netloc} if netloc else set()
+            wayback = re.match(r"^/web/\d{14}/(https?://.+)$", parsed.path)
+            if wayback:
+                archived = urllib.parse.urlsplit(wayback.group(1))
+                if archived.hostname:
+                    found.add(archived.hostname.lower())
+            return found
+
+        def host_matches(candidate_host: str, named_host: str) -> bool:
+            return candidate_host == named_host or candidate_host.endswith("." + named_host)
+
         for row_number, _prior_cell, prior_urls in reversed(history):
             for candidate in prior_urls:
-                if any(h in candidate.lower() for h in hosts):
+                if any(host_matches(candidate_host, h) for candidate_host in candidate_hosts(candidate) for h in hosts):
                     return candidate, row_number, ""
         named = ", ".join(sorted(hosts))
         return None, None, "backreference names " + named + ", but no earlier row in this file cites it"

@@ -331,6 +331,44 @@ def test_digit_bearing_descriptor_keeps_its_digits() -> None:
     assert row_number == 5
 
 
+def test_host_backreference_matches_only_host_boundary() -> None:
+    history = [
+        (5, "Impostor host", ["https://notnjleg.gov.example/statutes/chapter.pdf"]),
+        (6, "Real host", ["https://pub.njleg.gov/statutes/chapter.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same njleg.gov source", "", history)
+
+    assert reason == ""
+    assert url == "https://pub.njleg.gov/statutes/chapter.pdf"
+    assert row_number == 6
+
+
+def test_host_backreference_rejects_substring_impostor() -> None:
+    history = [
+        (5, "Impostor host", ["https://notnjleg.gov.example/statutes/chapter.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same njleg.gov source", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "njleg.gov" in reason
+
+
+def test_host_backreference_matches_wayback_original_host() -> None:
+    archived = "https://web.archive.org/web/20200101000000/https://www.mass.gov/rules/rule-15"
+    history = [
+        (5, "Archived rule", [archived]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same mass.gov Rule 1.5 wayback snapshot as above", "", history)
+
+    assert reason == ""
+    assert url == archived
+    assert row_number == 5
+
+
 def test_genuine_no_source_note_stays_unparseable(tmp_path: Path) -> None:
     path = write(tmp_path, "verification_ns.md", NO_SOURCE_NOTE_FIXTURE)
     rows, problems = parse_reference_file(path)
