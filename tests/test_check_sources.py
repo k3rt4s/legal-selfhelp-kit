@@ -21,6 +21,7 @@ from check_sources import (  # noqa: E402
     run,
     state_for_file,
     strip_html,
+    strip_url_trailing_punctuation,
 )
 
 
@@ -608,3 +609,63 @@ def test_a_locator_word_does_not_name_a_source(tmp_path: Path) -> None:
     assert problems == []
     assert rows[-1].url == rows[-2].url
     assert rows[-1].inherited_from == rows[-2].row_number
+
+
+# Tests for URL punctuation stripping: the extractor must handle backticks and trailing punctuation.
+URL_PUNCTUATION_FIXTURE = """# Verification: Punctuationland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The first claim in backticks | `https://courts.punctuationland.gov/rules.pdf` | 2026-08-20 | Backtick-wrapped URL |
+| The second claim with backtick and comma | `https://courts.punctuationland.gov/statutes.zip`, a directory | 2026-08-20 | Backtick-wrapped with trailing comma |
+| The third claim with period | https://courts.punctuationland.gov/notice.pdf. | 2026-08-20 | Plain URL with trailing period |
+| The fourth claim plain | https://courts.punctuationland.gov/index.html | 2026-08-20 | Plain URL no punctuation |
+"""
+
+
+def test_url_wrapped_in_backticks_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL wrapped in backticks should extract without the backticks."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[0].url == "https://courts.punctuationland.gov/rules.pdf"
+
+
+def test_url_with_backtick_and_trailing_comma_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL in backticks followed by a comma should extract without both."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[1].url == "https://courts.punctuationland.gov/statutes.zip"
+
+
+def test_url_with_trailing_period_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL with a trailing period should extract without it."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[2].url == "https://courts.punctuationland.gov/notice.pdf"
+
+
+def test_plain_url_extracts_unchanged(tmp_path: Path) -> None:
+    """A plain URL with no trailing punctuation should extract unchanged."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[3].url == "https://courts.punctuationland.gov/index.html"
+
+
+def test_strip_url_trailing_punctuation_removes_all_trailing_chars(tmp_path: Path) -> None:
+    """strip_url_trailing_punctuation removes all trailing punctuation and delimiters."""
+    assert strip_url_trailing_punctuation("https://example.com`") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com,") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com;") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com.") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com)") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com]") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com}") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com'") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com`,.;)]}'") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com/path") == "https://example.com/path"

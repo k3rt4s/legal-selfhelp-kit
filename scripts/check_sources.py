@@ -49,7 +49,7 @@ STOPWORDS = {
 WORD_RE = re.compile(r"[a-z0-9]{4,}")
 TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
-URL_RE = re.compile(r"https?://[^\s)>\]\"']+")
+URL_RE = re.compile(r"https?://[^\s)>\]\"'`]+")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 CURLY_MAP = {
@@ -82,7 +82,10 @@ DEFAULT_TIMEOUT = 20
 
 # Nothing cited in this kit is a large download, and the checker only needs enough of a page
 # to look for a claim in it. The cap keeps a runaway or hostile response from filling memory.
-MAX_RESPONSE_BYTES = 5_000_000
+# Archive files (zip, tar, etc.) are larger and need a higher cap. Web content is capped lower.
+MAX_RESPONSE_BYTES_WEB = 5_000_000
+MAX_RESPONSE_BYTES_ARCHIVE = 50_000_000
+MAX_RESPONSE_BYTES = MAX_RESPONSE_BYTES_WEB  # Default cap for backward compatibility with tests
 
 # The URLs come out of Markdown tables anyone can send a pull request against, so the fetcher
 # only ever speaks http and https. A file:// or ftp:// row is reported, not opened.
@@ -308,13 +311,19 @@ def classify_header(cells: list[str]) -> Optional[dict[str, int]]:
     return mapping if "claim" in mapping else None
 
 
+def strip_url_trailing_punctuation(url: str) -> str:
+    """Remove trailing punctuation and delimiters that may have been captured with the URL."""
+    # Strip these characters from the end: , ; . ) ] } ' `
+    return url.rstrip(",;.)]}'`")
+
+
 def extract_url(*cells: str) -> str:
     for cell in cells:
         if not cell:
             continue
         m = URL_RE.search(cell)
         if m:
-            return m.group(0).rstrip(">").rstrip(".").rstrip(")")
+            return strip_url_trailing_punctuation(m.group(0))
     return ""
 
 
@@ -430,7 +439,7 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
 
         seen_here = [url]
         for extra in URL_RE.findall(source_cell + " " + url_cell):
-            extra = extra.rstrip(">").rstrip(".").rstrip(")")
+            extra = strip_url_trailing_punctuation(extra)
             if extra not in seen_here:
                 seen_here.append(extra)
         url_history.append((lineno, source_cell, seen_here))
@@ -485,6 +494,19 @@ class _RedirectRecorder(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+def get_response_cap_bytes(content_type: str) -> int:
+    """Return the appropriate byte cap for a response based on its content type.
+
+    Archives and large file types get a higher cap; web content gets the standard cap.
+    """
+    content_type_lower = content_type.lower()
+    # Archive and large file types: allow up to 50 MB
+    if any(t in content_type_lower for t in ['zip', 'tar', 'gzip', 'x-gzip', 'x-tar', 'x-7z', 'octet-stream']):
+        return MAX_RESPONSE_BYTES_ARCHIVE
+    # Default web content cap
+    return MAX_RESPONSE_BYTES_WEB
+
+
 def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DEFAULT_USER_AGENT) -> FetchResult:
     """Fetch url with GET, a real browser User-Agent, and a timeout, returning a FetchResult (never raises)."""
     scheme = url.split(":", 1)[0].lower() if ":" in url else ""
@@ -503,13 +525,15 @@ def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DE
             status = resp.status
             final_url = resp.geturl()
             content_type = resp.headers.get("Content-Type", "")
-            raw = resp.read(MAX_RESPONSE_BYTES)
+            response_cap = get_response_cap_bytes(content_type)
+            raw = resp.read(response_cap)
     except urllib.error.HTTPError as exc:
         status = exc.code
         final_url = exc.geturl() if hasattr(exc, "geturl") else url
         content_type = exc.headers.get("Content-Type", "") if exc.headers else ""
+        response_cap = get_response_cap_bytes(content_type)
         try:
-            raw = exc.read(MAX_RESPONSE_BYTES)
+            raw = exc.read(response_cap)
         except Exception:
             raw = b""
     except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, OSError) as exc:
