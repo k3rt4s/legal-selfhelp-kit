@@ -1,13 +1,17 @@
 """Tests for the source-health checker, covering table parsing and result classification against fixtures."""
 from __future__ import annotations
 
+import subprocess
 import sys
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
+import check_sources  # noqa: E402
 from check_sources import (  # noqa: E402
     ALLOWED_SCHEMES,
     MAX_RESPONSE_BYTES,
@@ -21,6 +25,7 @@ from check_sources import (  # noqa: E402
     run,
     state_for_file,
     strip_html,
+    strip_url_trailing_punctuation,
 )
 
 
@@ -608,3 +613,159 @@ def test_a_locator_word_does_not_name_a_source(tmp_path: Path) -> None:
     assert problems == []
     assert rows[-1].url == rows[-2].url
     assert rows[-1].inherited_from == rows[-2].row_number
+
+
+# Tests for URL punctuation stripping: the extractor must handle backticks and trailing punctuation.
+URL_PUNCTUATION_FIXTURE = """# Verification: Punctuationland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| The first claim in backticks | `https://courts.punctuationland.gov/rules.pdf` | 2026-08-20 | Backtick-wrapped URL |
+| The second claim with backtick and comma | `https://courts.punctuationland.gov/statutes.zip`, a directory | 2026-08-20 | Backtick-wrapped with trailing comma |
+| The third claim with period | https://courts.punctuationland.gov/notice.pdf. | 2026-08-20 | Plain URL with trailing period |
+| The fourth claim plain | https://courts.punctuationland.gov/index.html | 2026-08-20 | Plain URL no punctuation |
+"""
+
+
+def test_url_wrapped_in_backticks_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL wrapped in backticks should extract without the backticks."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[0].url == "https://courts.punctuationland.gov/rules.pdf"
+
+
+def test_url_with_backtick_and_trailing_comma_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL in backticks followed by a comma should extract without both."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[1].url == "https://courts.punctuationland.gov/statutes.zip"
+
+
+def test_url_with_trailing_period_extracts_bare_url(tmp_path: Path) -> None:
+    """A URL with a trailing period should extract without it."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[2].url == "https://courts.punctuationland.gov/notice.pdf"
+
+
+def test_plain_url_extracts_unchanged(tmp_path: Path) -> None:
+    """A plain URL with no trailing punctuation should extract unchanged."""
+    path = write(tmp_path, "verification_pl.md", URL_PUNCTUATION_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[3].url == "https://courts.punctuationland.gov/index.html"
+
+
+def test_strip_url_trailing_punctuation_removes_all_trailing_chars(tmp_path: Path) -> None:
+    """strip_url_trailing_punctuation removes all trailing punctuation and delimiters."""
+    assert strip_url_trailing_punctuation("https://example.com`") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com,") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com;") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com.") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com)") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com]") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com}") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com'") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com`,.;)]}'") == "https://example.com"
+    assert strip_url_trailing_punctuation("https://example.com/path") == "https://example.com/path"
+
+
+# ---------------------------------------------------------------------------
+# curl fallback (A2): a TLS reset on Python's OpenSSL stack retries once
+# through curl.exe rather than being reported UNREACHABLE.
+# ---------------------------------------------------------------------------
+
+
+def _make_curl_stdout(url: str, status: int, body: bytes, content_type: str = "text/html") -> bytes:
+    meta = f"\n__CURL_STATUS__:{status}\n__CURL_URL__:{url}\n__CURL_TYPE__:{content_type}\n"
+    return body + meta.encode("utf-8")
+
+
+def test_default_fetch_falls_back_to_curl_on_tls_reset(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A urllib URLError (TLS reset) retries once through curl and the result records the transport."""
+    url = "https://www.jud.ct.gov/"
+
+    def raising_open(self, request, timeout=None):
+        raise urllib.error.URLError("[SSL: TLSV1_ALERT_INTERNAL_ERROR] record layer failure")
+
+    monkeypatch.setattr(urllib.request.OpenerDirector, "open", raising_open)
+    monkeypatch.setattr(check_sources, "_locate_curl", lambda: "curl")
+
+    stdout = _make_curl_stdout(url, 200, b"<html><body>hello from curl</body></html>")
+    fake_proc = subprocess.CompletedProcess(args=["curl"], returncode=0, stdout=stdout, stderr=b"")
+    monkeypatch.setattr(check_sources, "_invoke_curl", lambda curl_path, u, timeout: fake_proc)
+
+    result = default_fetch(url)
+
+    assert result.error is None
+    assert result.status == 200
+    assert result.transport == "curl"
+    assert "hello from curl" in result.body
+
+    outcome = classify(make_row(url=url), result)
+    assert outcome.bucket != "UNREACHABLE"
+    assert outcome.transport == "curl"
+
+
+def test_default_fetch_does_not_retry_http_error_through_curl(monkeypatch: pytest.MonkeyPatch) -> None:
+    """An HTTPError is a real answer from the server; it must never trigger the curl fallback."""
+    import email.message
+    import io
+
+    url = "https://example.gov/missing"
+
+    def raising_open(self, request, timeout=None):
+        raise urllib.error.HTTPError(url, 404, "Not Found", email.message.Message(), io.BytesIO(b"nope"))
+
+    monkeypatch.setattr(urllib.request.OpenerDirector, "open", raising_open)
+
+    def must_not_be_called(*args, **kwargs):
+        raise AssertionError("curl must not be invoked for an HTTPError")
+
+    monkeypatch.setattr(check_sources, "_locate_curl", must_not_be_called)
+    monkeypatch.setattr(check_sources, "_invoke_curl", must_not_be_called)
+
+    result = default_fetch(url)
+
+    assert result.status == 404
+    assert result.transport == "urllib"
+
+
+def test_default_fetch_refuses_scheme_without_invoking_curl(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A refused/disallowed scheme never invokes curl, it is rejected before any fetch attempt."""
+
+    def must_not_be_called(*args, **kwargs):
+        raise AssertionError("curl must not be invoked for a refused scheme")
+
+    monkeypatch.setattr(check_sources, "_locate_curl", must_not_be_called)
+
+    result = default_fetch("ftp://example.invalid/x")
+
+    assert result.status is None
+    assert "refused" in result.error
+    assert result.transport == "urllib"
+
+
+def test_default_fetch_degrades_gracefully_when_curl_is_missing(monkeypatch: pytest.MonkeyPatch) -> None:
+    """When curl.exe is not on PATH, the urllib result is kept and the error string says why."""
+
+    def raising_open(self, request, timeout=None):
+        raise urllib.error.URLError("[SSL] record layer failure")
+
+    monkeypatch.setattr(urllib.request.OpenerDirector, "open", raising_open)
+    monkeypatch.setattr(check_sources, "_locate_curl", lambda: None)
+
+    result = default_fetch("https://www.jud.ct.gov/")
+
+    assert result.status is None
+    assert result.transport == "urllib"
+    assert "record layer failure" in result.error
+    assert "curl" in result.error.lower()
+
+    outcome = classify(make_row(url="https://www.jud.ct.gov/"), result)
+    assert outcome.bucket == "UNREACHABLE"

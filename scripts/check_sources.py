@@ -5,7 +5,9 @@ import argparse
 import html
 import io
 import re
+import shutil
 import socket
+import subprocess
 import sys
 import tempfile
 import time
@@ -49,7 +51,7 @@ STOPWORDS = {
 WORD_RE = re.compile(r"[a-z0-9]{4,}")
 TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
-URL_RE = re.compile(r"https?://[^\s)>\]\"']+")
+URL_RE = re.compile(r"https?://[^\s)>\]\"'`]+")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 CURLY_MAP = {
@@ -80,9 +82,21 @@ DEFAULT_USER_AGENT = (
 DEFAULT_DELAY = 1.5
 DEFAULT_TIMEOUT = 20
 
+# A handful of official sites (jud.ct.gov among them) reset Python's OpenSSL TLS handshake
+# even though the same URL loads fine everywhere else. curl on the OS TLS stack (Schannel on
+# Windows) does not see this. The marker text below is appended to curl's stdout via
+# --write-out so the body and the response metadata can be pulled apart from one capture.
+CURL_WRITE_OUT_MARKER = "\n__CURL_STATUS__:%{http_code}\n__CURL_URL__:%{url_effective}\n__CURL_TYPE__:%{content_type}\n"
+CURL_STATUS_RE = re.compile(r"__CURL_STATUS__:(\d+)")
+CURL_URL_RE = re.compile(r"__CURL_URL__:(\S*)")
+CURL_TYPE_RE = re.compile(r"__CURL_TYPE__:(.*)")
+
 # Nothing cited in this kit is a large download, and the checker only needs enough of a page
 # to look for a claim in it. The cap keeps a runaway or hostile response from filling memory.
-MAX_RESPONSE_BYTES = 5_000_000
+# Archive files (zip, tar, etc.) are larger and need a higher cap. Web content is capped lower.
+MAX_RESPONSE_BYTES_WEB = 5_000_000
+MAX_RESPONSE_BYTES_ARCHIVE = 50_000_000
+MAX_RESPONSE_BYTES = MAX_RESPONSE_BYTES_WEB  # Default cap for backward compatibility with tests
 
 # The URLs come out of Markdown tables anyone can send a pull request against, so the fetcher
 # only ever speaks http and https. A file:// or ftp:// row is reported, not opened.
@@ -308,13 +322,19 @@ def classify_header(cells: list[str]) -> Optional[dict[str, int]]:
     return mapping if "claim" in mapping else None
 
 
+def strip_url_trailing_punctuation(url: str) -> str:
+    """Remove trailing punctuation and delimiters that may have been captured with the URL."""
+    # Strip these characters from the end: , ; . ) ] } ' `
+    return url.rstrip(",;.)]}'`")
+
+
 def extract_url(*cells: str) -> str:
     for cell in cells:
         if not cell:
             continue
         m = URL_RE.search(cell)
         if m:
-            return m.group(0).rstrip(">").rstrip(".").rstrip(")")
+            return strip_url_trailing_punctuation(m.group(0))
     return ""
 
 
@@ -430,7 +450,7 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
 
         seen_here = [url]
         for extra in URL_RE.findall(source_cell + " " + url_cell):
-            extra = extra.rstrip(">").rstrip(".").rstrip(")")
+            extra = strip_url_trailing_punctuation(extra)
             if extra not in seen_here:
                 seen_here.append(extra)
         url_history.append((lineno, source_cell, seen_here))
@@ -473,6 +493,7 @@ class FetchResult:
     body: str
     error: Optional[str] = None
     redirected: bool = False
+    transport: str = "urllib"
 
 
 class _RedirectRecorder(urllib.request.HTTPRedirectHandler):
@@ -483,6 +504,108 @@ class _RedirectRecorder(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         self.chain.append(newurl)
         return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def get_response_cap_bytes(content_type: str) -> int:
+    """Return the appropriate byte cap for a response based on its content type.
+
+    Archives and large file types get a higher cap; web content gets the standard cap.
+    """
+    content_type_lower = content_type.lower()
+    # Archive and large file types: allow up to 50 MB
+    if any(t in content_type_lower for t in ['zip', 'tar', 'gzip', 'x-gzip', 'x-tar', 'x-7z', 'octet-stream']):
+        return MAX_RESPONSE_BYTES_ARCHIVE
+    # Default web content cap
+    return MAX_RESPONSE_BYTES_WEB
+
+
+def _locate_curl() -> Optional[str]:
+    """Return the path to curl.exe/curl if it is on PATH, else None. A thin, patchable wrapper."""
+    return shutil.which("curl")
+
+
+def _invoke_curl(curl_path: str, url: str, timeout: int) -> "subprocess.CompletedProcess[bytes]":
+    """Run curl against url and return the completed process. A thin, patchable wrapper.
+
+    The URL always goes in through --url, never as a bare positional argument, so a URL that
+    happens to start with a dash (these come out of Markdown tables anyone can send a pull
+    request against) is never read as a curl option.
+    """
+    return subprocess.run(
+        [
+            curl_path, "--silent", "--show-error", "--location",
+            "--max-time", str(timeout),
+            "--write-out", CURL_WRITE_OUT_MARKER,
+            "--url", url,
+        ],
+        capture_output=True, timeout=timeout + 5, shell=False,
+    )
+
+
+def _parse_curl_output(url: str, proc: "subprocess.CompletedProcess[bytes]") -> FetchResult:
+    stdout = proc.stdout or b""
+    marker_index = stdout.rfind(b"\n__CURL_STATUS__:")
+    stderr_text = (proc.stderr or b"").decode("utf-8", errors="replace").strip()
+
+    if marker_index == -1:
+        return FetchResult(
+            requested_url=url, final_url=url, status=None, content_type="", body="",
+            error=f"curl fallback produced no status marker (exit {proc.returncode}): {stderr_text or 'no output'}",
+        )
+
+    body_bytes = stdout[:marker_index]
+    meta_text = stdout[marker_index:].decode("utf-8", errors="replace")
+    status_match = CURL_STATUS_RE.search(meta_text)
+    url_match = CURL_URL_RE.search(meta_text)
+    type_match = CURL_TYPE_RE.search(meta_text)
+
+    status_str = status_match.group(1) if status_match else "0"
+    status = int(status_str) if status_str and status_str != "000" else None
+    final_url = (url_match.group(1) if url_match and url_match.group(1) else url)
+    content_type = type_match.group(1).strip() if type_match else ""
+
+    if proc.returncode != 0 or status is None:
+        return FetchResult(
+            requested_url=url, final_url=url, status=None, content_type="", body="",
+            error=f"curl fallback also failed (exit {proc.returncode}): {stderr_text or 'no response'}",
+        )
+
+    response_cap = get_response_cap_bytes(content_type)
+    body_bytes = body_bytes[:response_cap]
+    try:
+        body = body_bytes.decode("utf-8", errors="replace")
+    except Exception:  # pragma: no cover
+        body = body_bytes.decode("latin-1", errors="replace")
+
+    return FetchResult(
+        requested_url=url, final_url=final_url, status=status, content_type=content_type,
+        body=body, redirected=final_url.rstrip("/") != url.rstrip("/"), transport="curl",
+    )
+
+
+def _fetch_via_curl(url: str, timeout: int, urllib_error: str) -> FetchResult:
+    """Retry a URL through curl.exe after a urllib URLError/OSError, and always return a FetchResult.
+
+    If curl is not on PATH, or curl itself fails, the original urllib error is preserved in the
+    returned error string rather than the run failing outright.
+    """
+    curl_path = _locate_curl()
+    if curl_path is None:
+        return FetchResult(
+            requested_url=url, final_url=url, status=None, content_type="", body="",
+            error=f"{urllib_error} (curl fallback unavailable: curl not found on PATH)",
+        )
+    try:
+        proc = _invoke_curl(curl_path, url, timeout)
+    except Exception as exc:
+        return FetchResult(
+            requested_url=url, final_url=url, status=None, content_type="", body="",
+            error=f"{urllib_error} (curl fallback failed to run: {exc})",
+        )
+    curl_result = _parse_curl_output(url, proc)
+    if curl_result.error is not None:
+        curl_result.error = f"{urllib_error}; curl fallback also failed: {curl_result.error}"
+    return curl_result
 
 
 def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DEFAULT_USER_AGENT) -> FetchResult:
@@ -503,17 +626,24 @@ def default_fetch(url: str, timeout: int = DEFAULT_TIMEOUT, user_agent: str = DE
             status = resp.status
             final_url = resp.geturl()
             content_type = resp.headers.get("Content-Type", "")
-            raw = resp.read(MAX_RESPONSE_BYTES)
+            response_cap = get_response_cap_bytes(content_type)
+            raw = resp.read(response_cap)
     except urllib.error.HTTPError as exc:
         status = exc.code
         final_url = exc.geturl() if hasattr(exc, "geturl") else url
         content_type = exc.headers.get("Content-Type", "") if exc.headers else ""
+        response_cap = get_response_cap_bytes(content_type)
         try:
-            raw = exc.read(MAX_RESPONSE_BYTES)
+            raw = exc.read(response_cap)
         except Exception:
             raw = b""
     except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, OSError) as exc:
-        return FetchResult(requested_url=url, final_url=url, status=None, content_type="", body="", error=str(exc))
+        # A TLS reset (jud.ct.gov and a few other official sites do this reliably against
+        # Python's OpenSSL stack) raises here, not below as an HTTPError, so this is exactly
+        # the case where a real response exists and only Python's TLS stack was refused.
+        # An HTTPError is a real answer from the server and is caught separately above; it is
+        # never retried through curl.
+        return _fetch_via_curl(url, timeout, urllib_error=str(exc))
     except Exception as exc:  # pragma: no cover - defensive catch-all
         return FetchResult(requested_url=url, final_url=url, status=None, content_type="", body="", error=str(exc))
 
@@ -543,9 +673,16 @@ class CheckOutcome:
     bucket: str
     detail: str
     final_url: str = ""
+    transport: str = "urllib"
 
 
 def classify(row: SourceRow, result: FetchResult) -> CheckOutcome:
+    outcome = _classify(row, result)
+    outcome.transport = result.transport
+    return outcome
+
+
+def _classify(row: SourceRow, result: FetchResult) -> CheckOutcome:
     if result.error is not None:
         return CheckOutcome(row=row, bucket="UNREACHABLE", detail=result.error)
 
@@ -692,6 +829,8 @@ def write_report(
                 fh.write(f"    retrieved: {r.retrieved or 'unknown'}\n")
                 if r.inherited_from is not None:
                     fh.write(f"    inherited URL from {r.file}:{r.inherited_from}\n")
+                if outcome.transport != "urllib":
+                    fh.write(f"    transport: {outcome.transport} (urllib's TLS stack was refused)\n")
                 fh.write(f"    {outcome.detail}\n")
             fh.write("\n")
 
