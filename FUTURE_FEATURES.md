@@ -4,22 +4,10 @@ Backlog of work not yet scheduled. Nothing here is promised.
 
 ## Scored index
 
-One bullet per unshipped feature. All seven were scored on 2026-09-06 with
-`ai_development/docs/board-scoring.md` and all seven were approved and moved to the work board
-the same day, so their score, return and worker blocks now live on the board under Pending and
-not here. The ranked tables and the return in words are in the data root at
-`board_review_2026-09-06.md`. Keep this list current: add a bullet when a feature is added, and
-mark one moved or dropped on the day it leaves. While every bullet is marked moved, run
-`score_board.py` against the work board alone; running it against this file as well would count
-each item twice.
-
-- **fetcher** Give the checker a transport that reaches the hosts urllib cannot. Maintenance item 1. Moved to the work board 2026-09-06, lane A item A2; blocks live there.
-- **sizecap** Stop the URL extractor swallowing a closing backtick, and raise the cap for large archives. Maintenance item 2. Moved to the work board 2026-09-06, lane A item A1; blocks live there.
-- **prompttest** Test the rules layer and the system prompt against each other. Maintenance item 3. Moved to the work board 2026-09-06, lane C item C1; blocks live there.
-- **hostmatch** Match a backreference host on the parsed host with a dot boundary, not a raw substring. Maintenance item 4. Moved to the work board 2026-09-06, lane B item B1; blocks live there.
-- **aboveorder** Stop the word above in a source cell overriding the document the cell names. Maintenance item 5. Moved to the work board 2026-09-06, lane B item B2; blocks live there.
-- **malformed** Fill in the two citations that are malformed rather than wrong. Maintenance item 6. Moved to the work board 2026-09-06, lane D item D1; blocks live there.
-- **looserows** Rewrite the five rows that name a source too loosely to resolve. Maintenance item 7. Moved to the work board 2026-09-06, lane D item D2; blocks live there.
+Nothing queued. The seven August 2026 sweep follow-ups were scored on 2026-09-06,
+built, merged, and pushed by 2026-09-08. Their history lives in
+`C:\Code_data\legal-selfhelp-kit\WORK_BOARD.md` and
+`C:\Code_data\legal-selfhelp-kit\BOARD_ARCHIVE_2026.md`.
 ## Coverage
 
 Nothing queued. Four items that were here all shipped into the national baseline: contingent-fee
@@ -34,48 +22,13 @@ and local-program guidance, `scripts/check_sources.py`, and `tests/test_referenc
 
 ## Maintenance
 
-The standing maintenance is the scheduled source sweep, whose procedure, cadence, and triage
-rules live in `MAINTAINING.md` rather than here. Seven items came out of the August 2026
-sweep and are queued for the February 2027 one rather than done now. The first five are
-checker work and change nothing a reader is told. The last two are rows that name their
-source too loosely for any checker to resolve, and the cure is a maintainer naming the
-document, not a code change.
+Nothing queued. Standing maintenance is the scheduled source sweep in `MAINTAINING.md`: run it
+twice a year, or when a reader reports a source problem. The September 2026 checker and
+reference-row follow-ups from the August sweep are done.
 
-1. Give the checker a fetcher that reaches the hosts urllib cannot. Python's OpenSSL handshake
-   is reset by some official sites, jud.ct.gov reliably among them, while curl on the Windows
-   Schannel stack retrieves the same URLs without trouble. No header or user-agent combination
-   changes it, so this needs a different transport, not a tweak. It costs about thirty rows of
-   false UNREACHABLE per sweep and a manual curl pass to clear them.
-2. Raise or bypass the response size cap for the few cited sources that are large archives. One
-   New Jersey row cites a zip the checker abandons at the cap and then reports as an error.
-3. Test the rules layer and the system prompt against each other. `rules/01_scope_and_limits.md`
-   and `llm/SYSTEM_PROMPT.md` encode the same boundaries twice, in prose, and they drifted: the
-   rules file limited deadlines to a list of section numbers that excluded the fee arbitration
-   section, which carries the filing windows in most packs. Nothing catches that today.
-
-4. Tighten how the backreference resolver matches a host. It asks whether the host name appears
-   anywhere inside an earlier row's URL, so `foo.gov` would match `https://notfoo.gov.example/`.
-   Nothing in the corpus trips it today and the checker only ever reads URLs a maintainer has
-   reviewed, but the comparison belongs on the parsed host with a dot boundary, not on the raw
-   string.
-
-5. Stop the word "above" in a source cell from overriding the document the cell names. The
-   resolver treats the literal word as adjacency and short-circuits descriptor matching, so a
-   cell reading "Fee Arbitration Program Rules PDF, same URL as above" resolves to whatever row
-   sits directly above it rather than to the rules PDF it names. That is what produced most of
-   the sweep's claim-missing verdicts: the checker tested rows against pages they do not cite.
-   Adjacency should be the fallback when the cell names nothing, not the first thing tried.
-   That order is what this release shipped and what the changelog entry describes, so this is
-   a change to make, not a report that the code and the docs disagree.
-6. Fill in two citations that are malformed rather than wrong. `verification_mn.md:23` carries
-   the literal placeholder `{N}` in its Source cell where a document ID belongs; the surrounding
-   pattern is live and consistent with the claim, so this is a value to supply, not a source to
-   find. `verification_or.md:61` cites the wrong page and the sweep named a candidate without
-   confirming the claim is on it.
-7. Rewrite the five rows that name a source too loosely to resolve, `verification_in.md` 47 and
-   48 and `verification_ms.md` 63 to 65. `THEORY.md` explains why no checker change reaches
-   them: one names a host that carries thousands of pages, the others reason by elimination over
-   rows above and have no single page behind them. The cure is naming the document in the cell.
+Known watch point for the next scheduled sweep: New Jersey's contingent-fee scale remains
+confirmed from the 2015 Judiciary Wayback capture rather than current `njcourts.gov` text. It is
+closed on text and open on currency only if `njcourts.gov` starts serving the rule text.
 
 Closed, and here for the record: the first full sweep ran; the twenty rows it reported as no
 longer carrying their claim were re-checked by hand before the release and every one was
