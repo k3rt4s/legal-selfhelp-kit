@@ -4,7 +4,7 @@ How the kit is kept current once its scope is complete, which is one bounded swe
 
 ## What done means
 
-The kit covers all fifty states and the District of Columbia. Nothing is queued in `FUTURE_FEATURES.md` except work the sweep itself found and handed to the next sweep, and the rejected list there is firm. New work comes from two places only: a reader's issue on GitHub, and the scheduled sweep. A maintainer who finds nothing on either has nothing to do, and that is the intended state.
+The kit covers all fifty states and the District of Columbia. Nothing is queued in `FUTURE_FEATURES.md`, and the rejected list there is firm. New work comes from two places only: a reader's issue on GitHub, and the scheduled sweep. A maintainer who finds nothing on either has nothing to do, and that is the intended state.
 
 ## The sweep
 

@@ -2,6 +2,10 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## 2026-09-08
+
+- Cleared the final maintenance-backlog notes after the September sweep work merged. `FUTURE_FEATURES.md` now shows nothing queued, and Utah row 72 now uses the fixed inference-row wording instead of pointing at a "confirmed table above."
+
 ## 2026-09-07
 
 - Made backreference resolution try named documents and section citations before treating "above" as the nearest row. Explicit all-caps filenames such as `PB.pdf` now survive token filtering, while inference notes like "Confirmed table above, reasoned by elimination" stay unparseable instead of borrowing an unrelated URL (item B2 aboveorder).
