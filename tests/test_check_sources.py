@@ -369,6 +369,37 @@ def test_host_backreference_matches_wayback_original_host() -> None:
     assert row_number == 5
 
 
+def test_above_with_named_short_filename_resolves_to_that_file() -> None:
+    history = [
+        (10, "Practice Book rules", ["https://www.jud.ct.gov/Publications/PracticeBook/PB.pdf"]),
+        (
+            19,
+            "CBA Program Rules of Procedure",
+            ["https://www.ctbar.org/docs/lawyer-client-fee-dispute-rules.pdf"],
+        ),
+        (20, "CBA Program jurisdiction", ["https://www.ctbar.org/docs/lawyer-client-fee-dispute-rules.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("PB.pdf (above), Sec. 2-32(a)(2)(A)", "", history)
+
+    assert reason == ""
+    assert url == "https://www.jud.ct.gov/Publications/PracticeBook/PB.pdf"
+    assert row_number == 10
+
+
+def test_named_numeric_filename_ignores_punctuation_difference() -> None:
+    history = [
+        (16, "Court order", ["https://courts.testland.gov/orders/200905.pdf"]),
+        (18, "An unrelated statute", ["https://legislature.testland.gov/statutes/376.460"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same order, 2009-05.pdf", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.testland.gov/orders/200905.pdf"
+    assert row_number == 16
+
+
 def test_genuine_no_source_note_stays_unparseable(tmp_path: Path) -> None:
     path = write(tmp_path, "verification_ns.md", NO_SOURCE_NOTE_FIXTURE)
     rows, problems = parse_reference_file(path)
@@ -579,6 +610,65 @@ ADJACENT_BACKREF_FIXTURE = """# Verification: Adjacentland
 """
 
 
+DESCRIPTOR_ABOVE_BACKREF_FIXTURE = """# Verification: Descriptorabove
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Program rules require written consent | Fee Arbitration Program Rules PDF, <https://bar.testland.gov/fee-arbitration/program-rules.pdf> | 2026-08-20 | Read directly |
+| Unrelated statute sets a filing deadline | <https://courts.testland.gov/statutes/deadline.html> | 2026-08-20 | Read directly |
+| Program rules allow remote hearings | Fee Arbitration Program Rules PDF, same URL as above | 2026-08-20 | Read directly |
+"""
+
+
+INHERITED_DESCRIPTOR_FIXTURE = """# Verification: Inheriteddescriptor
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Court rules are published in the practice book | <https://courts.testland.gov/PB.pdf> | 2026-08-20 | Read directly |
+| The bar publishes fee dispute rules | CBA Rules of Procedure PDF, <https://bar.testland.gov/fee-dispute-rules.pdf> | 2026-08-20 | Read directly |
+| Cost shifting comes from the court rule, not the bar rules | PB.pdf (above), absence checked against CBA Rules of Procedure PDF (above) | 2026-08-20 | Read directly |
+| Program rules contain no dollar floor | CBA Rules of Procedure PDF (above), Section IV | 2026-08-20 | Read directly |
+"""
+
+
+INFERENCE_ABOVE_FIXTURE = """# Verification: Inferland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Inferland Code 78B-2-307 has a four-year catch-all period | <https://legislature.inferland.gov/78B-2-307.pdf> | 2026-08-20 | Read directly |
+| The court rule page is unrelated | <https://courts.inferland.gov/rules/view.php?rule=3-0> | 2026-08-20 | Read directly |
+
+## Flagged
+
+| Claim | Source | Reason flagged |
+| ----- | ------ | -------------- |
+| The catch-all period applies in the absence of a dedicated statute | Inferland Code 78B-2-307(4) itself (Confirmed table above), reasoned by elimination rather than stated directly | The pack states this as an inference, not a settled rule |
+"""
+
+
+NOTE_ONLY_INFERENCE_ABOVE_FIXTURE = """# Verification: Noteinferland
+
+## Confirmed against a primary or official source
+
+| Claim | Source | Retrieved | Note |
+| ----- | ------ | --------- | ---- |
+| Noteinferland Code 657-7 has a tort period | <https://legislature.noteinferland.gov/657-7.html> | 2026-08-20 | Read directly |
+| The disciplinary rules are hosted by the court | <https://courts.noteinferland.gov/rules> | 2026-08-20 | Read directly |
+
+## Flagged
+
+| Claim | Source | Reason flagged |
+| ----- | ------ | -------------- |
+| The tort statute may apply to malpractice | Code sections 657-1 and 657-7 (Confirmed table above) | This is reasoned by elimination rather than stated directly |
+"""
+
+
 def test_backreference_skips_an_interleaved_unrelated_source(tmp_path: Path) -> None:
     """A row naming "Same Chapter 9 source" means Chapter 9, not the homepage row between them."""
     path = write(tmp_path, "verification_il.md", INTERLEAVED_BACKREF_FIXTURE)
@@ -615,6 +705,135 @@ def test_above_means_the_nearest_source_not_a_word_match(tmp_path: Path) -> None
     assert problems == []
     assert rows[-1].url == "https://courts.testland.gov/Rules/Rule-241"
     assert rows[-1].inherited_from == rows[1].row_number
+
+
+def test_above_with_descriptor_resolves_before_adjacency(tmp_path: Path) -> None:
+    path = write(tmp_path, "verification_da.md", DESCRIPTOR_ABOVE_BACKREF_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[-1].url == rows[0].url
+    assert rows[-1].inherited_from == rows[0].row_number
+
+
+def test_inherited_backreference_text_does_not_become_a_descriptor_anchor(tmp_path: Path) -> None:
+    path = write(tmp_path, "verification_id.md", INHERITED_DESCRIPTOR_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert problems == []
+    assert rows[2].url == "https://courts.testland.gov/PB.pdf"
+    assert rows[3].url == "https://bar.testland.gov/fee-dispute-rules.pdf"
+    assert rows[3].inherited_from == rows[1].row_number
+
+
+def test_reasoned_by_elimination_confirmed_above_is_not_a_source_backreference(tmp_path: Path) -> None:
+    path = write(tmp_path, "verification_if.md", INFERENCE_ABOVE_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert [row.url for row in rows] == [
+        "https://legislature.inferland.gov/78B-2-307.pdf",
+        "https://courts.inferland.gov/rules/view.php?rule=3-0",
+    ]
+    assert len(problems) == 1
+    assert problems[0].reason == "no URL found in row"
+
+
+def test_single_confirmed_above_can_fall_back_to_adjacency() -> None:
+    history = [
+        (52, "Title 1 PDF", ["https://legislature.testland.gov/title01.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("W.S. 1-3-107 itself, Confirmed above", "", history)
+
+    assert reason == ""
+    assert url == "https://legislature.testland.gov/title01.pdf"
+    assert row_number == 52
+
+
+def test_note_only_reasoned_by_elimination_confirmed_above_is_not_a_backreference(tmp_path: Path) -> None:
+    path = write(tmp_path, "verification_ni.md", NOTE_ONLY_INFERENCE_ABOVE_FIXTURE)
+    rows, problems = parse_reference_file(path)
+    assert [row.url for row in rows] == [
+        "https://legislature.noteinferland.gov/657-7.html",
+        "https://courts.noteinferland.gov/rules",
+    ]
+    assert len(problems) == 1
+    assert problems[0].reason == "no URL found in row"
+
+
+def test_same_url_as_above_with_later_descriptor_does_not_short_circuit() -> None:
+    history = [
+        (10, "Named Rules PDF", ["https://bar.testland.gov/named-rules.pdf"]),
+        (11, "Unrelated source", ["https://courts.testland.gov/unrelated.html"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same URL as above, Named Rules PDF", "", history)
+
+    assert reason == ""
+    assert url == "https://bar.testland.gov/named-rules.pdf"
+    assert row_number == 10
+
+
+def test_index_url_above_uses_nearest_index_row() -> None:
+    history = [
+        (55, "Section 3-501.5 fees", ["https://courts.testland.gov/article-5/section-3-5015-fees"]),
+        (56, "Article 5 index", ["https://courts.testland.gov/chapter-3-attorneys-and-practice-law"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same Article 5 index URL as the two rows above", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.testland.gov/chapter-3-attorneys-and-practice-law"
+    assert row_number == 56
+
+
+def test_plural_sources_above_is_not_resolved_to_one_url() -> None:
+    history = [
+        (31, "Polk County page", ["https://bar.testland.gov/polk"]),
+        (34, "Polk County PDF", ["https://bar.testland.gov/polk-rules.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Polk County Bar Association pages and PDFs cited above", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "multiple sources above" in reason
+
+
+def test_same_url_plus_second_source_is_not_resolved_to_one_url() -> None:
+    history = [
+        (56, "Rules page", ["https://courts.testland.gov/rules"]),
+        (58, "Same URL", ["https://courts.testland.gov/rules"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same URL, plus Testland Chapter 73 text", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "multiple sources above" in reason
+
+
+def test_all_confirmed_above_multiple_sources_is_not_resolved_to_one_url() -> None:
+    history = [
+        (49, "Appellate rules", ["https://courts.testland.gov/wrap.pdf"]),
+        (50, "Filing fee statute", ["https://legislature.testland.gov/title05.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("W.S. 5-3-205 and WRAP Rule 2.09(a), all Confirmed above", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "multiple sources above" in reason
+
+
+def test_confirmed_table_multi_sections_is_not_resolved_to_one_url() -> None:
+    history = [
+        (61, "Section 657-1", ["https://legislature.testland.gov/657-1.html"]),
+        (62, "Section 657-7", ["https://legislature.testland.gov/657-7.html"]),
+    ]
+
+    url, row_number, reason = resolve_backref("HRS chapter 657, sections 657-1 and 657-7 (Confirmed table above)", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "multiple sources above" in reason
 
 
 SECTION_NUMBER_BACKREF_FIXTURE = """# Verification: Numberland

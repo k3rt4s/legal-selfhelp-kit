@@ -4,6 +4,7 @@ All notable changes to legal-selfhelp-kit, in plain English.
 
 ## 2026-09-07
 
+- Made backreference resolution try named documents and section citations before treating "above" as the nearest row. Explicit all-caps filenames such as `PB.pdf` now survive token filtering, while inference notes like "Confirmed table above, reasoned by elimination" stay unparseable instead of borrowing an unrelated URL (item B2 aboveorder).
 - Repaired seven loose or malformed verification rows: Minnesota and Oregon now cite clickable official pages instead of a template or `above`, Indiana rows 47 and 48 name each statute page directly, Mississippi row 63 names each statute page directly, and Mississippi rows 64 and 65 now say they are this kit's inference rather than pretending to cite one document (items D1 malformed and D2 looserows).
 - Matched backreference host names against parsed URL hosts with an exact or dot-suffix boundary, and kept Wayback citations resolvable by matching the archived original host inside `/web/<timestamp>/https://...`. The resolved-URL map did not move any corpus rows (item B1 hostmatch).
 - Hardened backreference descriptor tokens so bare document types and extensions do not count as a source match by themselves, while compact digit-bearing descriptors such as chapter24 keep their digits instead of collapsing to chapter. The resolved-URL map did not move any corpus rows (item B0 tokenhard).
