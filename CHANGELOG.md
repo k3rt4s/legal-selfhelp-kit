@@ -4,6 +4,7 @@ All notable changes to legal-selfhelp-kit, in plain English.
 
 ## 2026-09-07
 
+- Repaired seven loose or malformed verification rows: Minnesota and Oregon now cite clickable official pages instead of a template or `above`, Indiana rows 47 and 48 name each statute page directly, Mississippi row 63 names each statute page directly, and Mississippi rows 64 and 65 now say they are this kit's inference rather than pretending to cite one document (items D1 malformed and D2 looserows).
 - Matched backreference host names against parsed URL hosts with an exact or dot-suffix boundary, and kept Wayback citations resolvable by matching the archived original host inside `/web/<timestamp>/https://...`. The resolved-URL map did not move any corpus rows (item B1 hostmatch).
 - Hardened backreference descriptor tokens so bare document types and extensions do not count as a source match by themselves, while compact digit-bearing descriptors such as chapter24 keep their digits instead of collapsing to chapter. The resolved-URL map did not move any corpus rows (item B0 tokenhard).
 - Added a layer-parity test, tests/test_layer_parity.py, that fails when rules/01_scope_and_limits.md and llm/SYSTEM_PROMPT.md state a shared boundary differently. Proved it can fail: run against the pre-82fe1b1 text of rules/01_scope_and_limits.md it fails on the deadline checks, run against the current tree it passes. No change to either shipped prose file (item C1 prompttest).
