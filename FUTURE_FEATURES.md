@@ -4,10 +4,9 @@ Backlog of work not yet scheduled. Nothing here is promised.
 
 ## Scored index
 
-Nothing queued. The seven August 2026 sweep follow-ups were scored on 2026-09-06,
-built, merged, and pushed by 2026-09-08. Their history lives in
-`C:\Code_data\legal-selfhelp-kit\WORK_BOARD.md` and
-`C:\Code_data\legal-selfhelp-kit\BOARD_ARCHIVE_2026.md`.
+Nothing queued. See `CHANGELOG.md` entries for 2026-09-07 and 2026-09-08 for the completed
+September sweep follow-ups.
+
 ## Coverage
 
 Nothing queued. Four items that were here all shipped into the national baseline: contingent-fee
