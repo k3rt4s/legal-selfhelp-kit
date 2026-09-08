@@ -176,11 +176,24 @@ ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
 BACKREF_STOPWORDS = frozenset(
     "same as source sources above rule rules section sections page pages the a an and or of for at in "
     "id ibid see also cited prior previous document doc url text full pdf "
-    "official annotation annotations comment comments paragraph paragraphs".split()
+    "official annotation annotations comment comments paragraph paragraphs chapter chapters htm html".split()
 )
 
 
 CITATION_RE = re.compile(r"\b\d+[a-z]?(?:[.\-]\d+[a-z]?)+\b", re.IGNORECASE)
+BACKREF_WORD_RE = re.compile(r"[a-z0-9]*[a-z][a-z0-9]*", re.IGNORECASE)
+BACKREF_NUMBERED_LABEL_RE = re.compile(r"\b(chapter|chapters)\s+(\d+[a-z]?)\b", re.IGNORECASE)
+
+
+def backref_words(cell: str) -> set[str]:
+    """Return descriptor words with stopwords dropped and numbered labels kept distinct."""
+    lowered = cell.lower()
+    words = {
+        w for w in BACKREF_WORD_RE.findall(lowered)
+        if w not in BACKREF_STOPWORDS and (len(w) >= 4 or any(c.isdigit() for c in w))
+    }
+    words.update(label.rstrip("s") + number for label, number in BACKREF_NUMBERED_LABEL_RE.findall(lowered))
+    return words
 
 
 def backref_citations(cell: str) -> list[str]:
@@ -211,13 +224,13 @@ def descriptor_words(cell: str) -> set[str]:
     is the whole point of matching whole words rather than substrings. Michigan cites both its
     rules book and the order adopting one rule, and both have mrpc somewhere in the path.
     """
-    return set(re.findall(r"[a-z]{2,}", cell.lower()))
+    return backref_words(cell)
 
 
 def backref_tokens(cell: str) -> set[str]:
     """Return the distinctive words a backreference uses to name the source it means."""
     stripped = re.sub(r"<[^>]*>", " ", cell.lower())
-    return {w for w in re.findall(r"[a-z]{4,}", stripped) if w not in BACKREF_STOPWORDS}
+    return backref_words(stripped)
 
 
 def resolve_backref(source_cell, url_cell, history):
@@ -252,9 +265,23 @@ def resolve_backref(source_cell, url_cell, history):
     text = source_cell + " " + url_cell
     hosts = {h.lower() for h in BACKREF_HOST_RE.findall(text)}
     if hosts:
+        def candidate_hosts(candidate: str) -> set[str]:
+            parsed = urllib.parse.urlsplit(candidate)
+            netloc = parsed.hostname.lower() if parsed.hostname else ""
+            found = {netloc} if netloc else set()
+            wayback = re.match(r"^/web/\d{14}/(https?://.+)$", parsed.path)
+            if wayback:
+                archived = urllib.parse.urlsplit(wayback.group(1))
+                if archived.hostname:
+                    found.add(archived.hostname.lower())
+            return found
+
+        def host_matches(candidate_host: str, named_host: str) -> bool:
+            return candidate_host == named_host or candidate_host.endswith("." + named_host)
+
         for row_number, _prior_cell, prior_urls in reversed(history):
             for candidate in prior_urls:
-                if any(h in candidate.lower() for h in hosts):
+                if any(host_matches(candidate_host, h) for candidate_host in candidate_hosts(candidate) for h in hosts):
                     return candidate, row_number, ""
         named = ", ".join(sorted(hosts))
         return None, None, "backreference names " + named + ", but no earlier row in this file cites it"

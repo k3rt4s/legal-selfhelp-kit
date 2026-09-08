@@ -22,6 +22,7 @@ from check_sources import (  # noqa: E402
     claim_match_fraction,
     discover_files,
     parse_reference_file,
+    resolve_backref,
     run,
     state_for_file,
     strip_html,
@@ -302,6 +303,70 @@ def test_backreference_trailing_bare_above_shape_resolves(tmp_path: Path) -> Non
     rpc_row = rows[3]
     assert rpc_row.url == rows[0].url
     assert rpc_row.inherited_from == rows[2].row_number
+
+
+def test_bare_extension_is_not_enough_for_descriptor_match() -> None:
+    history = [
+        (5, "Fee Rules PDF", ["https://courts.example.gov/rules/fee-rules.pdf"]),
+        (6, "Complaint overview", ["https://courts.example.gov/help/complaints.html"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same PDF source", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.example.gov/help/complaints.html"
+    assert row_number == 6
+
+
+def test_digit_bearing_descriptor_keeps_its_digits() -> None:
+    history = [
+        (5, "Chapter 24 rules", ["https://courts.example.gov/rules/chapter24.pdf"]),
+        (6, "Chapter 25 rules", ["https://courts.example.gov/rules/chapter25.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same chapter24 source", "", history)
+
+    assert reason == ""
+    assert url == "https://courts.example.gov/rules/chapter24.pdf"
+    assert row_number == 5
+
+
+def test_host_backreference_matches_only_host_boundary() -> None:
+    history = [
+        (5, "Impostor host", ["https://notnjleg.gov.example/statutes/chapter.pdf"]),
+        (6, "Real host", ["https://pub.njleg.gov/statutes/chapter.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same njleg.gov source", "", history)
+
+    assert reason == ""
+    assert url == "https://pub.njleg.gov/statutes/chapter.pdf"
+    assert row_number == 6
+
+
+def test_host_backreference_rejects_substring_impostor() -> None:
+    history = [
+        (5, "Impostor host", ["https://notnjleg.gov.example/statutes/chapter.pdf"]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same njleg.gov source", "", history)
+
+    assert url is None
+    assert row_number is None
+    assert "njleg.gov" in reason
+
+
+def test_host_backreference_matches_wayback_original_host() -> None:
+    archived = "https://web.archive.org/web/20200101000000/https://www.mass.gov/rules/rule-15"
+    history = [
+        (5, "Archived rule", [archived]),
+    ]
+
+    url, row_number, reason = resolve_backref("Same mass.gov Rule 1.5 wayback snapshot as above", "", history)
+
+    assert reason == ""
+    assert url == archived
+    assert row_number == 5
 
 
 def test_genuine_no_source_note_stays_unparseable(tmp_path: Path) -> None:
