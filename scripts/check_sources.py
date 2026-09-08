@@ -12,6 +12,7 @@ import sys
 import tempfile
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
@@ -169,13 +170,20 @@ BACKREF_HOST_RE = re.compile(
     r"\b([a-z0-9][a-z0-9-]{2,}(?:\.[a-z0-9-]+)*\.(?:org|gov|com|net|edu|us))\b", re.IGNORECASE
 )
 ADJACENT_RE = re.compile(r"\babove\b", re.IGNORECASE)
+ADJACENT_FIRST_RE = re.compile(
+    r"^\s*same\s+as\s+above\b|^\s*same\s+(?:url|source|pdf)\s+as\s+above\s*$", re.IGNORECASE
+)
+DESCRIPTIVE_SAME_RE = re.compile(
+    r"^\s*same\s+(?!url\s+as\s+above\b|source\s+as\s+above\b|pdf\s+as\s+above\b|as\s+above\b)",
+    re.IGNORECASE,
+)
 # Words that locate a passage inside a source rather than name the source. A descriptor built
 # only from these tells you nothing about which earlier row is meant, and matching on one sends
 # the row to whichever earlier row happens to use the same word: "Same page, Comment [3]" is the
 # page above, not the last row that mentioned a comment.
 BACKREF_STOPWORDS = frozenset(
-    "same as source sources above rule rules section sections page pages the a an and or of for at in "
-    "id ibid see also cited prior previous document doc url text full pdf "
+    "same as source sources above rule rules section sections page pages table tables the a an and or of for at in "
+    "id ibid see also cited prior previous confirmed document doc url text pdf mirror itself statute stat "
     "official annotation annotations comment comments paragraph paragraphs chapter chapters htm html".split()
 )
 
@@ -183,17 +191,54 @@ BACKREF_STOPWORDS = frozenset(
 CITATION_RE = re.compile(r"\b\d+[a-z]?(?:[.\-]\d+[a-z]?)+\b", re.IGNORECASE)
 BACKREF_WORD_RE = re.compile(r"[a-z0-9]*[a-z][a-z0-9]*", re.IGNORECASE)
 BACKREF_NUMBERED_LABEL_RE = re.compile(r"\b(chapter|chapters)\s+(\d+[a-z]?)\b", re.IGNORECASE)
+BACKREF_INITIALISM_RE = re.compile(r"\b[A-Z]{2,}\b")
+BACKREF_FILENAME_RE = re.compile(r"\b([A-Za-z0-9][A-Za-z0-9._-]*)\.(pdf|html?|docx?)\b")
+INFERENCE_ABOVE_RE = re.compile(r"\bconfirmed\s+(?:table|rows?)\s+above\b", re.IGNORECASE)
+REASONED_BY_ELIMINATION_RE = re.compile(r"\breasoned\s+by\s+elimination\b", re.IGNORECASE)
+INDEX_URL_ABOVE_RE = re.compile(r"\bindex\s+url\b.*\babove\b", re.IGNORECASE)
+PLURAL_SOURCES_ABOVE_RE = re.compile(
+    r"\b(?:pages|pdfs)\s+(?:and\s+(?:pages|pdfs)\s+)?cited\s+above\b", re.IGNORECASE
+)
+PLUS_SOURCE_RE = re.compile(r"\bsame\s+url\s*,\s*plus\b", re.IGNORECASE)
+ALL_CONFIRMED_ABOVE_RE = re.compile(r"\band\b.*\ball\s+confirmed\s+above\b", re.IGNORECASE)
+CONFIRMED_TABLE_MULTI_SECTION_RE = re.compile(
+    r"\bsections?\b.*\band\b.*\bconfirmed\s+(?:table|rows?)\s+above\b", re.IGNORECASE
+)
 
 
 def backref_words(cell: str) -> set[str]:
     """Return descriptor words with stopwords dropped and numbered labels kept distinct."""
+    initialisms = {word.lower() for word in BACKREF_INITIALISM_RE.findall(cell)}
+    initialisms -= BACKREF_STOPWORDS
+    filename_stems = {stem.lower() for stem, _ext in BACKREF_FILENAME_RE.findall(cell)}
     lowered = cell.lower()
     words = {
         w for w in BACKREF_WORD_RE.findall(lowered)
         if w not in BACKREF_STOPWORDS and (len(w) >= 4 or any(c.isdigit() for c in w))
     }
+    words.update(initialisms)
+    words.update(filename_stems)
     words.update(label.rstrip("s") + number for label, number in BACKREF_NUMBERED_LABEL_RE.findall(lowered))
     return words
+
+
+def backref_filenames(cell: str) -> set[str]:
+    """Return explicit short all-caps filenames such as PB.pdf from a backreference."""
+    return {".".join((stem, ext)).lower() for stem, ext in BACKREF_FILENAME_RE.findall(cell)}
+
+
+def url_filename(url: str) -> str:
+    """Return the final path filename from a URL, lowercased and URL-decoded."""
+    parsed = urllib.parse.urlsplit(url)
+    return urllib.parse.unquote(parsed.path.rsplit("/", 1)[-1]).lower()
+
+
+def filename_key(filename: str) -> str:
+    """Return a comparison key for filenames that differ only by punctuation."""
+    stem, dot, ext = filename.rpartition(".")
+    if not dot:
+        return re.sub(r"[^a-z0-9]+", "", filename)
+    return re.sub(r"[^a-z0-9]+", "", stem) + "." + ext
 
 
 def backref_citations(cell: str) -> list[str]:
@@ -212,8 +257,8 @@ def cites(haystack: str, citation: str) -> bool:
 
 
 def prose(cell: str) -> str:
-    """Return a cell's words with its URLs removed, lowercased."""
-    return re.sub(r"<[^>]*>", " ", URL_RE.sub(" ", cell)).lower()
+    """Return a cell's words with its URLs removed."""
+    return re.sub(r"<[^>]*>", " ", URL_RE.sub(" ", cell))
 
 
 def descriptor_words(cell: str) -> set[str]:
@@ -229,8 +274,14 @@ def descriptor_words(cell: str) -> set[str]:
 
 def backref_tokens(cell: str) -> set[str]:
     """Return the distinctive words a backreference uses to name the source it means."""
-    stripped = re.sub(r"<[^>]*>", " ", cell.lower())
+    stripped = re.sub(r"<[^>]*>", " ", cell)
     return backref_words(stripped)
+
+
+def is_inference_above(*cells: str) -> bool:
+    """True when "above" points to table context for an inference, not to a source URL."""
+    text = " ".join(cells)
+    return bool(INFERENCE_ABOVE_RE.search(text) and REASONED_BY_ELIMINATION_RE.search(text))
 
 
 def resolve_backref(source_cell, url_cell, history):
@@ -240,14 +291,13 @@ def resolve_backref(source_cell, url_cell, history):
     not always the row directly above: a one-off source interleaved between them used to be
     inherited instead, and the claim was then checked against a page the row never cited.
 
-    Four ways of naming a source, in order of how much they pin it down. A host wins outright and
-    can point at any earlier row carrying a URL on it. The literal word "above" means the nearest
-    preceding source and nothing cleverer. Otherwise the row is read as naming a document and then
-    locating a passage inside it, so a descriptor such as "Chapter 9" or "Owens v. Purcel" is
-    matched first, and only a row with no usable descriptor falls through to a section number such
-    as 25-222. That order matters: "Same Owens v. Purcel opinion, quoting R.C. 2305.117(B)" is a
-    cite to the opinion, not to the statute, while "Same section 25-222 page, official annotations"
-    has nothing but the number to go on and must not settle for whichever section was cited last.
+    Ways of naming a source, in order of how much they pin it down. A plain "same as above" is
+    adjacency. Otherwise a host wins outright and can point at any earlier row carrying a URL on
+    it. Exact filenames come next, then document descriptors such as "Chapter 9" or "Owens v.
+    Purcel", then section numbers such as 25-222. That order matters: "Same Owens v. Purcel
+    opinion, quoting R.C. 2305.117(B)" is a cite to the opinion, not to the statute, while "Same
+    section 25-222 page, official annotations" has nothing but the number to go on and must not
+    settle for whichever section was cited last. If none of those match, "above" is the fallback.
 
     A descriptor matches a prior row on whole words, in its prose and in its URL path, never on a
     substring. Many rows cite nothing but a link, so the path has to count; matching inside a word
@@ -263,6 +313,18 @@ def resolve_backref(source_cell, url_cell, history):
         return None, None, "backreference to a prior source, but no URL has appeared yet in this file"
 
     text = source_cell + " " + url_cell
+    if ADJACENT_FIRST_RE.search(text) or INDEX_URL_ABOVE_RE.search(text):
+        row_number, _prior_cell, prior_urls = history[-1]
+        return prior_urls[0], row_number, ""
+
+    if (
+        PLURAL_SOURCES_ABOVE_RE.search(text)
+        or PLUS_SOURCE_RE.search(text)
+        or ALL_CONFIRMED_ABOVE_RE.search(text)
+        or CONFIRMED_TABLE_MULTI_SECTION_RE.search(text)
+    ):
+        return None, None, "backreference names multiple sources above, so no single URL can be inferred"
+
     hosts = {h.lower() for h in BACKREF_HOST_RE.findall(text)}
     if hosts:
         def candidate_hosts(candidate: str) -> set[str]:
@@ -286,21 +348,31 @@ def resolve_backref(source_cell, url_cell, history):
         named = ", ".join(sorted(hosts))
         return None, None, "backreference names " + named + ", but no earlier row in this file cites it"
 
-    if not ADJACENT_RE.search(text):
-        tokens = backref_tokens(text)
-        if tokens:
-            for row_number, prior_cell, prior_urls in reversed(history):
-                words = descriptor_words(prose(prior_cell))
-                for candidate in prior_urls:
-                    words |= descriptor_words(candidate)
-                if tokens & words:
-                    return prior_urls[0], row_number, ""
+    filenames = backref_filenames(text)
+    if filenames:
+        filename_keys = {filename_key(name) for name in filenames}
+        for row_number, _prior_cell, prior_urls in reversed(history):
+            for candidate in prior_urls:
+                candidate_filename = url_filename(candidate)
+                if candidate_filename in filenames or filename_key(candidate_filename) in filename_keys:
+                    return candidate, row_number, ""
 
-        for citation in backref_citations(text):
-            for row_number, prior_cell, prior_urls in reversed(history):
-                haystack = prose(prior_cell) + " " + " ".join(prior_urls).lower()
-                if cites(haystack, citation):
-                    return prior_urls[0], row_number, ""
+    tokens = backref_tokens(text)
+    if tokens:
+        for row_number, prior_cell, prior_urls in reversed(history):
+            words = set()
+            if not BACKREF_RE.search(prior_cell) or DESCRIPTIVE_SAME_RE.search(prior_cell):
+                words |= descriptor_words(prose(prior_cell))
+            for candidate in prior_urls:
+                words |= descriptor_words(candidate)
+            if tokens & words:
+                return prior_urls[0], row_number, ""
+
+    for citation in backref_citations(text):
+        for row_number, prior_cell, prior_urls in reversed(history):
+            haystack = (prose(prior_cell) + " " + " ".join(prior_urls)).lower()
+            if cites(haystack, citation):
+                return prior_urls[0], row_number, ""
 
     row_number, _prior_cell, prior_urls = history[-1]
     return prior_urls[0], row_number, ""
@@ -457,7 +529,10 @@ def parse_reference_file(path: Path) -> tuple[list[SourceRow], list[UnparseableR
             retrieved = extract_date(*cells)
 
         inherited_from: Optional[int] = None
-        is_backref = bool(BACKREF_RE.search(source_cell) or BACKREF_RE.search(url_cell))
+        is_backref = (
+            bool(BACKREF_RE.search(source_cell) or BACKREF_RE.search(url_cell))
+            and not is_inference_above(*cells)
+        )
 
         if not url and is_backref:
             url, inherited_from, reason = resolve_backref(source_cell, url_cell, url_history)
