@@ -4,6 +4,7 @@ All notable changes to legal-selfhelp-kit, in plain English.
 
 ## 2026-09-08
 
+- Emptied `FUTURE_FEATURES.md` so rejected and completed ideas no longer sit on the live backlog surface; scope limits remain in the reader and contributor docs.
 - Cleared the final maintenance-backlog notes after the September sweep work merged. `FUTURE_FEATURES.md` now shows nothing queued, and Utah row 72 now uses the fixed inference-row wording instead of pointing at a "confirmed table above."
 
 ## 2026-09-07
