@@ -39,6 +39,8 @@ A pack of Markdown rules, TOML schemas, letter templates, and a CSV tracker that
 
 The repository holds no code you need to run. The optional scripts in `scripts/` check the format of your tracker file and export a chronology from it; the third is a maintainer's link checker you never need.
 
+This repo is public, so its working board, `WORK_BOARD.md`, is never committed here; it lives at `C:\Code_data\legal-selfhelp-kit\WORK_BOARD.md`.
+
 ## Scope
 
 All fifty states and the District of Columbia. The kit is built in two layers: a national baseline describing the ABA Model Rules, and one pack per state describing what that state actually did with them, plus its fee arbitration, disciplinary authority, client protection fund, small claims equivalent, and limitation periods. Load your own state pack and no other. The forums, dollar limits, deadlines, and program names in a pack are that state's and no one else's.
