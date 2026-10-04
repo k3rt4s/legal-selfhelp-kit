@@ -2,6 +2,10 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## 2026-10-04
+
+- Added `.github/dependabot.yml` (pip, weekly, 7-day cooldown, grouped updates) so a freshly published release is not auto-proposed inside its first week.
+
 ## 2026-09-08
 
 - Emptied `FUTURE_FEATURES.md` so rejected and completed ideas no longer sit on the live backlog surface; scope limits remain in the reader and contributor docs.
