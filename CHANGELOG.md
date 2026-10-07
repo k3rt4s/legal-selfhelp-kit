@@ -2,6 +2,10 @@
 
 All notable changes to legal-selfhelp-kit, in plain English.
 
+## 2026-10-07
+
+- `requirements.txt` pins pytest to 9.1.1 (exact `==`, the project venv's installed version) so `check_rules.py` SEC-02 reports no unpinned line.
+
 ## 2026-10-04
 
 - Added `.github/dependabot.yml` (pip, weekly, 7-day cooldown, grouped updates) so a freshly published release is not auto-proposed inside its first week.
