@@ -1,2 +1,2 @@
 # The kit itself needs nothing installed. This covers the optional test suite.
-pytest==9.1.1
+pytest==9.2.0
